@@ -1,0 +1,7 @@
+require 'thetvdb_api/utility/array'
+require 'thetvdb_api/utility/date'
+require 'thetvdb_api/utility/float'
+require 'thetvdb_api/utility/integer'
+require 'thetvdb_api/utility/string'
+require 'thetvdb_api/utility/time'
+require 'thetvdb_api/utility/hashie/extensions/key_replace'
