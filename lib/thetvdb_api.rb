@@ -1,5 +1,3 @@
-require "thetvdb_api/version"
+require 'thetvdb_api/version'
 
-module ThetvdbApi
-  # Your code goes here...
-end
+module ThetvdbApi; end
