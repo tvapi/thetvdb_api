@@ -1,11 +1,5 @@
-require 'hashie'
-
 module ThetvdbApi
-  class Series < Hashie::Mash
-    include Hashie::Extensions::MethodAccess
-    include Hashie::Extensions::KeyReplace
-    include Hashie::Extensions::Coercion
-
+  class Series < ThetvdbApi::Base
     replace_key :added, :added_at
     replace_key :lastupdated, :last_updated_at
     replace_key :seriesid, :series_id

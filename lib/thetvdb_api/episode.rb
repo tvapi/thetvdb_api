@@ -1,11 +1,5 @@
-require 'hashie'
-
 module ThetvdbApi
-  class Episode < Hashie::Mash
-    include Hashie::Extensions::MethodAccess
-    include Hashie::Extensions::KeyReplace
-    include Hashie::Extensions::Coercion
-
+  class Episode < ThetvdbApi::Base
     replace_key :airsafter_season, :airs_after_season
     replace_key :airsbefore_episode, :airs_before_episode
     replace_key :airsbefore_season, :airs_before_season

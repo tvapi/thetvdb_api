@@ -1,11 +1,5 @@
-require 'hashie'
-
 module ThetvdbApi
-  class Banner < Hashie::Mash
-    include Hashie::Extensions::MethodAccess
-    include Hashie::Extensions::KeyReplace
-    include Hashie::Extensions::Coercion
-
+  class Banner < ThetvdbApi::Base
     coerce_key :rating, Float
     coerce_key :rating_count, Integer
   end
