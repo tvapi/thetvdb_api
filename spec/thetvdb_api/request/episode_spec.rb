@@ -40,17 +40,9 @@ describe ThetvdbApi::Request::Episode do
     end
   end
 
-  describe '#path_prefix' do
-    it 'should return correct uri' do
-      ThetvdbApi::Configuration.stub(:api_key).and_return('API_KEY')
-
-      klass.path_prefix('1234').should == 'API_KEY/series/1234/'
-    end
-  end
-
   describe '#find_by_default_order_path' do
     it 'should return correct uri' do
-      klass.stub(:path_prefix).and_return('PATH/')
+      klass.stub(:series_uri).and_return('PATH/')
 
       klass.find_by_default_order_path('1234', '1', '1', 'en').should == 'PATH/default/1/1/en.xml'
     end
@@ -58,7 +50,7 @@ describe ThetvdbApi::Request::Episode do
 
   describe '#find_by_dvd_order_path' do
     it 'should return correct uri' do
-      klass.stub(:path_prefix).and_return('PATH/')
+      klass.stub(:series_uri).and_return('PATH/')
 
       klass.find_by_dvd_order_path('1234', '1', '1', 'en').should == 'PATH/dvd/1/1/en.xml'
     end
@@ -66,7 +58,7 @@ describe ThetvdbApi::Request::Episode do
 
   describe '#find_by_absolute_order_path' do
     it 'should return correct uri' do
-      klass.stub(:path_prefix).and_return('PATH/')
+      klass.stub(:series_uri).and_return('PATH/')
 
       klass.find_by_absolute_order_path('1234', '1', 'en').should == 'PATH/absolute/1/en.xml'
     end
@@ -77,15 +69,6 @@ describe ThetvdbApi::Request::Episode do
       ThetvdbApi::Configuration.stub(:api_key).and_return('API_KEY')
 
       klass.find_path('1234', 'en').should == 'API_KEY/episodes/1234/en.xml'
-    end
-  end
-
-  describe '#response' do
-    it 'should call get klass method' do
-      klass.should_receive(:get)
-      model.stub(:request_options).and_return({})
-
-      model.response
     end
   end
 

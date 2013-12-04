@@ -1,31 +1,18 @@
-module ThetvdbApi
-  module Request
-    class Actor < ThetvdbApi::Request::Base
-      def self.find(series_id)
-        new(find_path(series_id))
-      end
+class ThetvdbApi::Request::Actor < ThetvdbApi::Request::Base
+  include ThetvdbApi::Request::Module::Find
+  include ThetvdbApi::Request::Module::SeriesUri
 
-      def self.find_path(series_id)
-        "#{ThetvdbApi::Configuration.api_key}/series/#{series_id}/actors.xml"
-      end
+  def self.find_path(series_id)
+    "#{series_uri(series_id)}actors.xml"
+  end
 
-      def initialize(uri)
-        @uri = uri
-      end
+  def result
+    @result ||= collection_response('Actor', ThetvdbApi::Actor)
+  end
 
-      def response
-        @response ||= self.class.get(@uri, request_options)
-      end
+  private
 
-      def result
-        @result ||= collection_response('Actor', ThetvdbApi::Actor)
-      end
-
-      private
-
-      def data
-        response['Actors']
-      end
-    end
+  def data_key
+    'Actors'
   end
 end

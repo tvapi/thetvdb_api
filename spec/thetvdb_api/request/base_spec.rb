@@ -4,13 +4,23 @@ class ExampleRequestClass < ThetvdbApi::Request::Base
 end
 
 describe ThetvdbApi::Request::Base do
-  let(:model) { ExampleRequestClass.new }
+  let(:klass) { ExampleRequestClass }
+  let(:model) { klass.new('test') }
 
   describe '#api_key' do
     it 'should call api_key from configuration' do
       ThetvdbApi::Configuration.should_receive(:api_key)
 
-      ExampleRequestClass.api_key
+      klass.api_key
+    end
+  end
+
+  describe '#response' do
+    it 'should call get klass method' do
+      klass.should_receive(:get)
+      model.stub(:request_options).and_return({})
+
+      model.response
     end
   end
 
@@ -97,6 +107,15 @@ describe ThetvdbApi::Request::Base do
       model.stub(:response).and_return({ 'Data' => { 'Series' => 'series value' } })
 
       model.dig('Series').should == 'series value'
+    end
+  end
+
+  describe '#data' do
+    it 'should return correct value' do
+      model.stub(:response).and_return({ 'key' => 'value' })
+      model.stub(:data_key).and_return('key')
+
+      model.data.should == 'value'
     end
   end
 end

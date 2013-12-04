@@ -36,20 +36,11 @@ describe ThetvdbApi::Request::Update do
     end
   end
 
-  describe '#path' do
+  describe '#uri' do
     it 'should return correct path' do
       ThetvdbApi::Configuration.stub(:api_key).and_return('API_KEY')
 
-      model.path.should == 'API_KEY/updates/updates_period.xml'
-    end
-  end
-
-  describe '#response' do
-    it 'should call get klass method' do
-      klass.should_receive(:get)
-      model.stub(:request_options).and_return({})
-
-      model.response
+      model.uri.should == 'API_KEY/updates/updates_period.xml'
     end
   end
 

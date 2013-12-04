@@ -23,17 +23,9 @@ describe ThetvdbApi::Request::Series do
     end
   end
 
-  describe '#path_prefix' do
-    it 'should return correct uri' do
-      ThetvdbApi::Configuration.stub(:api_key).and_return('API_KEY')
-
-      klass.path_prefix('1234').should == 'API_KEY/series/1234/'
-    end
-  end
-
   describe '#find_path' do
     it 'should return correct uri' do
-      klass.stub(:path_prefix).and_return('PATH/')
+      klass.stub(:series_uri).and_return('PATH/')
 
       klass.find_path('1234', 'en').should == 'PATH/en.xml'
     end
@@ -41,18 +33,9 @@ describe ThetvdbApi::Request::Series do
 
   describe '#find_full_path' do
     it 'should return correct uri' do
-      klass.stub(:path_prefix).and_return('PATH/')
+      klass.stub(:series_uri).and_return('PATH/')
 
       klass.find_full_path('1234', 'en').should == 'PATH/all/en.xml'
-    end
-  end
-
-  describe '#response' do
-    it 'should call get klass method' do
-      klass.should_receive(:get)
-      model.stub(:request_options).and_return({})
-
-      model.response
     end
   end
 

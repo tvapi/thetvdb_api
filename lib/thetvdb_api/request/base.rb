@@ -1,64 +1,74 @@
 require 'httparty'
 
-module ThetvdbApi
-  module Request
-    class Base
-      include HTTParty
+class ThetvdbApi::Request::Base
+  include HTTParty
 
-      def self.api_key
-        ThetvdbApi::Configuration.api_key
-      end
+  attr_reader :uri
 
-      def request_options(options = {})
-        {
-          query: options,
-          base_uri: ThetvdbApi::Configuration.api_url
-        }
-      end
+  def self.api_key
+    ThetvdbApi::Configuration.api_key
+  end
 
-      def collection_response(key, klass)
-        response_condition? ? array_mapped(klass, key) : []
-      end
+  def initialize(uri)
+    @uri = uri
+  end
 
-      def object_response(key, klass)
-        response_condition? ? klass.new(data[key]) : nil
-      end
+  def response
+    @response ||= self.class.get(uri, request_options)
+  end
 
-      def response_condition?
-        response.code == 200 && data.is_a?(Hash)
-      end
+  def request_options(options = {})
+    {
+      query: options,
+      base_uri: ThetvdbApi::Configuration.api_url
+    }
+  end
 
-      def array_normalize(key)
-        dig(key).is_a?(Array) ? dig(key) : [dig(key)]
-      end
+  def collection_response(key, klass)
+    response_condition? ? array_mapped(klass, key) : []
+  end
 
-      def array_mapped(klass, key)
-        array_normalize(key).map { |data| klass.new(data) }
-      end
+  def object_response(key, klass)
+    response_condition? ? klass.new(data[key]) : nil
+  end
 
-      def dig(key)
-        data[key]
-      end
+  def response_condition?
+    response.code == 200 && data.is_a?(Hash)
+  end
 
-      private
+  def array_normalize(key)
+    dig(key).is_a?(Array) ? dig(key) : [dig(key)]
+  end
 
-      def data
-        response['Data']
-      end
+  def array_mapped(klass, key)
+    array_normalize(key).map { |data| klass.new(data) }
+  end
 
-      def map_node
-        {
-          series: 'Series',
-          episode: 'Episode'
-        }
-      end
+  def dig(key)
+    data[key]
+  end
 
-      def map_class
-        {
-          series: ThetvdbApi::Series,
-          episode: ThetvdbApi::Episode
-        }
-      end
-    end
+  def data
+    response[data_key]
+  end
+
+  private
+
+  def data_key
+    'Data'
+  end
+
+  def map_node
+    {
+      series: 'Series',
+      episode: 'Episode'
+    }
+  end
+
+  def map_class
+    {
+      series: ThetvdbApi::Series,
+      episode: ThetvdbApi::Episode
+    }
   end
 end

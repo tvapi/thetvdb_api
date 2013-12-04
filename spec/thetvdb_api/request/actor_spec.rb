@@ -21,15 +21,6 @@ describe ThetvdbApi::Request::Actor do
     end
   end
 
-  describe '#response' do
-    it 'should call get klass method' do
-      klass.should_receive(:get)
-      model.stub(:request_options).and_return({})
-
-      model.response
-    end
-  end
-
   describe '#result' do
     it 'should call object_response method' do
       model.should_receive(:collection_response).with('Actor', ThetvdbApi::Actor)

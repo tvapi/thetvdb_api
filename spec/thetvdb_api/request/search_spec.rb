@@ -39,15 +39,6 @@ describe ThetvdbApi::Request::Search do
     end
   end
 
-  describe '#response' do
-    it 'should call get klass method' do
-      klass.should_receive(:get)
-      model.stub(:request_options).and_return({})
-
-      model.response
-    end
-  end
-
   describe '#result' do
     describe 'for collection result' do
       let(:result_kind) { :collection }
