@@ -8,5 +8,6 @@ require 'thetvdb_api/episode'
 require 'thetvdb_api/series'
 require 'thetvdb_api/request/base'
 require 'thetvdb_api/request/search'
+require 'thetvdb_api/request/update'
 
 module ThetvdbApi; end
