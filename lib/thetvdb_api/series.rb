@@ -17,5 +17,6 @@ module ThetvdbApi
     coerce_key :rating_count, Integer
     coerce_key :runtime, Integer
     coerce_key :series_id, Integer
+    coerce_key :time, Time
   end
 end

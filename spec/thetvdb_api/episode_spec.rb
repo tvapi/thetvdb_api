@@ -73,6 +73,10 @@ describe ThetvdbApi::Episode do
       include_examples 'mapping', :seasonid, :season_id
     end
 
+    describe 'series attribute' do
+      include_examples 'mapping', :series, :series_id
+    end
+
     describe 'seriesid attribute' do
       include_examples 'mapping', :seriesid, :series_id
     end
@@ -153,6 +157,10 @@ describe ThetvdbApi::Episode do
 
     describe 'thumb_width attribute' do
       include_examples 'integer mapping', :thumb_width
+    end
+
+    describe 'time attribute' do
+      include_examples 'time mapping', :time
     end
 
     describe 'writer attribute' do

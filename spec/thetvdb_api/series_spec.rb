@@ -102,5 +102,9 @@ describe ThetvdbApi::Series do
     describe 'series_id attribute' do
       include_examples 'integer mapping', :series_id
     end
+
+    describe 'time attribute' do
+      include_examples 'time mapping', :time
+    end
   end
 end

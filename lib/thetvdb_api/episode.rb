@@ -8,6 +8,7 @@ module ThetvdbApi
     replace_key :DVD_episodenumber, :dvd_episode_number
     replace_key :lastupdated, :last_updated_at
     replace_key :seasonid, :season_id
+    replace_key :series, :series_id
     replace_key :seriesid, :series_id
     replace_key :thumb_added, :thumb_added_at
 
@@ -29,6 +30,7 @@ module ThetvdbApi
     coerce_key :thumb_added_at, Time
     coerce_key :thumb_height, Integer
     coerce_key :thumb_width, Integer
+    coerce_key :time, Time
     coerce_key :writer, Array
   end
 end
