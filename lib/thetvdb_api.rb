@@ -12,5 +12,6 @@ require 'thetvdb_api/request/update'
 require 'thetvdb_api/request/series'
 require 'thetvdb_api/request/episode'
 require 'thetvdb_api/request/actor'
+require 'thetvdb_api/request/banner'
 
 module ThetvdbApi; end

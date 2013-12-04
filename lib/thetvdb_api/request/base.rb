@@ -21,11 +21,11 @@ module ThetvdbApi
       end
 
       def object_response(key, klass)
-        response_condition? ? klass.new(response['Data'][key]) : nil
+        response_condition? ? klass.new(data[key]) : nil
       end
 
       def response_condition?
-        response.code == 200 && response['Data'].is_a?(Hash)
+        response.code == 200 && data.is_a?(Hash)
       end
 
       def array_normalize(key)
@@ -37,10 +37,14 @@ module ThetvdbApi
       end
 
       def dig(key)
-        response['Data'][key]
+        data[key]
       end
 
       private
+
+      def data
+        response['Data']
+      end
 
       def map_node
         {

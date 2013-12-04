@@ -1,12 +1,12 @@
 module ThetvdbApi
   module Request
-    class Actor < ThetvdbApi::Request::Base
+    class Banner < ThetvdbApi::Request::Base
       def self.find(series_id)
         new(find_path(series_id))
       end
 
       def self.find_path(series_id)
-        "#{ThetvdbApi::Configuration.api_key}/series/#{series_id}/actors.xml"
+        "#{ThetvdbApi::Configuration.api_key}/series/#{series_id}/banners.xml"
       end
 
       def initialize(uri)
@@ -18,13 +18,13 @@ module ThetvdbApi
       end
 
       def result
-        @result ||= collection_response('Actor', ThetvdbApi::Actor)
+        @result ||= collection_response('Banner', ThetvdbApi::Banner)
       end
 
       private
 
       def data
-        response['Actors']
+        response['Banners']
       end
     end
   end
