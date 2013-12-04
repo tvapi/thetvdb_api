@@ -35,12 +35,20 @@ describe ThetvdbApi::Banner do
   end
 
   describe 'ceorce' do
+    describe 'id attribute' do
+      include_examples 'integer mapping', :id
+    end
+
     describe 'rating attribute' do
       include_examples 'float mapping', :rating
     end
 
     describe 'rating_count attribute' do
       include_examples 'integer mapping', :rating_count
+    end
+
+    describe 'season attribute' do
+      include_examples 'integer mapping', :season
     end
 
     describe 'series_id attribute' do
