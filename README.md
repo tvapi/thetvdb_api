@@ -5,25 +5,49 @@
 
 # ThetvdbApi
 
-TODO: Write a gem description
+thetvdb_api is a simple ruby client for accessing TV shows information from the thetvdb.com API.
 
-## Installation
+## Getting started
 
-Add this line to your application's Gemfile:
+You can add it to your Gemfile with:
 
-    gem 'thetvdb_api'
+```ruby
+gem 'thetvdb_api'
+```
+Run the bundle command to install it.
 
-And then execute:
+After you install Devise and add it to your Gemfile, you need to run the generator:
 
-    $ bundle
+```console
+rails generate thetvdb_api:install
+```
 
-Or install it yourself as:
+The generator will install an initializer where you must past your API KEY.
 
-    $ gem install thetvdb_api
+## How to use
 
-## Usage
+All request class return instance where result method contain object or collection.
 
-TODO: Write usage instructions here
+For example:
+```console
+series = ThetvdbApi::Request::Series.find('buffy')
+series.result
+=> #<ThetvdbApi::Series ...>
+```
+
+* ThetvdbApi::Request::Actor.all(series_id) - return all banners for specific series
+* ThetvdbApi::Request::Banner.all(series_id) - return all banners for specific series
+* ThetvdbApi::Request::Episode.find_by_default_order(series_id, season, episode) - return episode
+* ThetvdbApi::Request::Episode.find_by_dvd_order(series_id, season, episode) - return episode
+* ThetvdbApi::Request::Episode.find_by_absolute_order(series_id, absolute) - return episode
+* ThetvdbApi::Request::Episode.find(episode_id) - return episode
+* ThetvdbApi::Request::Series.find(series_id) - return series
+* ThetvdbApi::Request::Series.find_full(series_id) - return hash with series data and all episodes
+* ThetvdbApi::Request::Update.day - return series updates from last day
+* ThetvdbApi::Request::Update.week - return series updates from last week
+* ThetvdbApi::Request::Update.month - return series updates from last month
+* ThetvdbApi::Request::Update.all - return all series updates
+
 
 ## Contributing
 
