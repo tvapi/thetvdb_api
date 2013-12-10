@@ -43,5 +43,13 @@ describe ThetvdbApi::Client do
         end
       end
     end
+
+    describe '.actor' do
+      describe '.find' do
+        it 'should return hash' do
+          client.actor.find('70327').class.should == Hash
+        end
+      end
+    end
   end
 end

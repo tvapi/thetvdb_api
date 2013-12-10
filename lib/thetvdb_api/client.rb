@@ -15,4 +15,8 @@ class ThetvdbApi::Client
   def series
     @series ||= ThetvdbApi::Series.new(self)
   end
+
+  def actor
+    @actor ||= ThetvdbApi::Actor.new(self)
+  end
 end

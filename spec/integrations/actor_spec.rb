@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe ThetvdbApi::Request::Actor do
-  let(:klass) { ThetvdbApi::Request::Actor }
+describe ThetvdbApi::Actor do
+  let(:model) { ThetvdbApi::Actor.new(ThetvdbApi::Client.new) }
 
   describe 'real request' do
-    describe '#find' do
-      it 'should return array' do
-        klass.find('70327').result.class.should == Array
+    describe '.find' do
+      it 'should return hash' do
+        model.find('70327').class.should == Hash
       end
     end
   end
