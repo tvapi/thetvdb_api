@@ -15,40 +15,78 @@ You can add it to your Gemfile with:
 ```ruby
 gem 'thetvdb_api'
 ```
+
 Run the bundle command to install it.
 
-After you install Devise and add it to your Gemfile, you need to run the generator:
+After you install ThetvdbApi and add it to your Gemfile, you need to run the generator (if you use Ruby on Rails application):
 
 ```console
 rails generate thetvdb_api:install
 ```
 
-The generator will install an initializer where you must past your API KEY.
+The generator will install an initializer where you must past your api_key, and can past: language (2 letters abbrevation), api_url (base url).
 
 ## How to use
 
-All request class return instance where result method contain object or collection.
+There is one entry point, in initialize you can past hash with api_key, language and api_url values, or leave empty:
 
-For example:
-```console
-series = ThetvdbApi::Request::Series.find('buffy')
-series.result
-=> #<ThetvdbApi::Series ...>
+```ruby
+client = ThetvdbApi::Client.new(api_url: '...', api_key: '...', language: 'en')
 ```
 
-* ThetvdbApi::Request::Actor.all(series_id) - return all banners for specific series
-* ThetvdbApi::Request::Banner.all(series_id) - return all banners for specific series
-* ThetvdbApi::Request::Episode.find_by_default_order(series_id, season, episode) - return episode
-* ThetvdbApi::Request::Episode.find_by_dvd_order(series_id, season, episode) - return episode
-* ThetvdbApi::Request::Episode.find_by_absolute_order(series_id, absolute) - return episode
-* ThetvdbApi::Request::Episode.find(episode_id) - return episode
-* ThetvdbApi::Request::Series.find(series_id) - return series
-* ThetvdbApi::Request::Series.find_full(series_id) - return hash with series data and all episodes
-* ThetvdbApi::Request::Update.day - return series updates from last day
-* ThetvdbApi::Request::Update.week - return series updates from last week
-* ThetvdbApi::Request::Update.month - return series updates from last month
-* ThetvdbApi::Request::Update.all - return all series updates
+Search series by name
 
+```ruby
+client = ThetvdbApi::Client.new
+client.search.get_series('buffy')
+client.search.get_series_by_imdb_id('...')
+client.search.get_series_by_zap2it_id('...')
+client.search.get_episode_by_air_date('123', air_date)
+```
+
+Search series by id
+
+```ruby
+client = ThetvdbApi::Client.new
+client.series.find('123')
+client.series.find_full('123')
+```
+
+Return series actors
+
+```ruby
+client = ThetvdbApi::Client.new
+client.actor.all(series_id)
+```
+
+Return series banners
+
+```ruby
+client = ThetvdbApi::Client.new
+client.banner.all(series_id)
+```
+
+Return series episode
+
+```ruby
+client = ThetvdbApi::Client.new
+client.episode.find_by_default_order(series_id, season, episode)
+client.episode.find_by_dvd_order(series_id, season, episode)
+client.episode.find_by_absolute_order(series_id, absolute)
+client.episode.find(episode_id)
+```
+
+Get updates
+
+```ruby
+client = ThetvdbApi::Client.new
+client.update.day
+client.update.week
+client.update.month
+client.update.all
+```
+
+In each response you get pure hash, without any coerce or key mapping.
 
 ## Contributing
 
