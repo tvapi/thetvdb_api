@@ -23,4 +23,8 @@ class ThetvdbApi::Client
   def banner
     @banner ||= ThetvdbApi::Banner.new(self)
   end
+
+  def episode
+    @episode ||= ThetvdbApi::Episode.new(self)
+  end
 end

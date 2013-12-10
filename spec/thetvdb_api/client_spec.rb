@@ -16,14 +16,20 @@ describe ThetvdbApi::Client do
   end
 
   describe '.actor' do
-    it 'should return series class' do
+    it 'should return actor class' do
       klass.new.actor.class.should == ThetvdbApi::Actor
     end
   end
 
   describe '.banner' do
-    it 'should return series class' do
+    it 'should return banner class' do
       klass.new.banner.class.should == ThetvdbApi::Banner
+    end
+  end
+
+  describe '.episode' do
+    it 'should return episode class' do
+      klass.new.episode.class.should == ThetvdbApi::Episode
     end
   end
 end
