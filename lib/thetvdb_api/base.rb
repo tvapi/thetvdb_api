@@ -28,6 +28,10 @@ class ThetvdbApi::Base
     }
   end
 
+  def series_uri(series_id)
+    "#{api_key}/series/#{series_id}/"
+  end
+
   def api_url
     client.api_url
   end

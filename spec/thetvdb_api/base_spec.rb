@@ -54,6 +54,12 @@ describe ThetvdbApi::Base do
     end
   end
 
+  describe '.series_uri' do
+    it 'should use default api_key' do
+      klass.new(ThetvdbApi::Client.new(api_key: 'API_KEY')).series_uri('1234').should == 'API_KEY/series/1234/'
+    end
+  end
+
   describe '.api_key' do
     it 'should use default api_key' do
       klass.new(ThetvdbApi::Client.new).api_key.should == ThetvdbApi::Configuration.api_key

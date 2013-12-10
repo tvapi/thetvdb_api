@@ -29,5 +29,19 @@ describe ThetvdbApi::Client do
         end
       end
     end
+
+    describe '.series' do
+      describe '.find' do
+        it 'should return hash' do
+          client.series.find('70327').class.should == Hash
+        end
+      end
+
+      describe '.find_full' do
+        it 'should return hash' do
+          client.series.find_full('70327').class.should == Hash
+        end
+      end
+    end
   end
 end

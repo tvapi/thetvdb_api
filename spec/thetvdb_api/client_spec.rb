@@ -8,4 +8,10 @@ describe ThetvdbApi::Client do
       klass.new.search.class.should == ThetvdbApi::Search
     end
   end
+
+  describe '.series' do
+    it 'should return series class' do
+      klass.new.series.class.should == ThetvdbApi::Series
+    end
+  end
 end

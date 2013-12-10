@@ -11,4 +11,8 @@ class ThetvdbApi::Client
   def search
     @search ||= ThetvdbApi::Search.new(self)
   end
+
+  def series
+    @series ||= ThetvdbApi::Series.new(self)
+  end
 end
