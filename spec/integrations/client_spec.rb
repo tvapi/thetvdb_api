@@ -51,5 +51,13 @@ describe ThetvdbApi::Client do
         end
       end
     end
+
+    describe '.banner' do
+      describe '.find' do
+        it 'should return hash' do
+          client.banner.find('70327').class.should == Hash
+        end
+      end
+    end
   end
 end

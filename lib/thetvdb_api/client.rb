@@ -19,4 +19,8 @@ class ThetvdbApi::Client
   def actor
     @actor ||= ThetvdbApi::Actor.new(self)
   end
+
+  def banner
+    @banner ||= ThetvdbApi::Banner.new(self)
+  end
 end
