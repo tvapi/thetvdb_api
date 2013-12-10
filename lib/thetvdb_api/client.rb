@@ -27,4 +27,8 @@ class ThetvdbApi::Client
   def episode
     @episode ||= ThetvdbApi::Episode.new(self)
   end
+
+  def update
+    @update ||= ThetvdbApi::Update.new(self)
+  end
 end

@@ -85,5 +85,25 @@ describe ThetvdbApi::Client do
         end
       end
     end
+
+    describe '.update' do
+      describe '.day' do
+        it 'should return hash' do
+          client.update.day.class.should == Hash
+        end
+      end
+
+      describe '.week' do
+        it 'should return hash' do
+          client.update.week.class.should == Hash
+        end
+      end
+
+      describe '.month' do
+        it 'should return hash' do
+          client.update.month.class.should == Hash
+        end
+      end
+    end
   end
 end
