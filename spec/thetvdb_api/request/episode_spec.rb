@@ -74,7 +74,7 @@ describe ThetvdbApi::Request::Episode do
 
   describe '#result' do
     it 'should call object_response method' do
-      model.should_receive(:object_response).with('Episode', ThetvdbApi::Episode)
+      model.should_receive(:object_response).with('Episode')
 
       model.result
     end

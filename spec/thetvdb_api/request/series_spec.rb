@@ -63,14 +63,14 @@ describe ThetvdbApi::Request::Series do
 
   describe '#series_response' do
     it 'should call object_response method with specific parameters' do
-      model.should_receive(:object_response).with('Series', ThetvdbApi::Series)
+      model.should_receive(:object_response).with('Series')
       model.series_response
     end
   end
 
   describe '#episodes_response' do
     it 'should call collection_response method with specific parameters' do
-      model.should_receive(:collection_response).with('Episode', ThetvdbApi::Episode)
+      model.should_receive(:collection_response).with('Episode')
       model.episodes_response
     end
   end

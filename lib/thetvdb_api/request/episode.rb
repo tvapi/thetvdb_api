@@ -34,6 +34,6 @@ class ThetvdbApi::Request::Episode < ThetvdbApi::Request::Base
   end
 
   def result
-    @result ||= object_response('Episode', ThetvdbApi::Episode)
+    @result ||= object_response('Episode')
   end
 end

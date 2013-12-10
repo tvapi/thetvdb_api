@@ -23,7 +23,7 @@ describe ThetvdbApi::Request::Actor do
 
   describe '#result' do
     it 'should call object_response method' do
-      model.should_receive(:collection_response).with('Actor', ThetvdbApi::Actor)
+      model.should_receive(:collection_response).with('Actor')
 
       model.result
     end

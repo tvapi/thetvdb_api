@@ -6,7 +6,7 @@ describe ThetvdbApi::Request::Series do
   describe 'real request' do
     describe '#find' do
       it 'should return series class' do
-        klass.find('70327').result.class.should == ThetvdbApi::Series
+        klass.find('70327').result.class.should == Hash
       end
     end
 

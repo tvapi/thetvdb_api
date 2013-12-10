@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'confiture', '>= 0.1.4'
   spec.add_dependency 'httparty', '>= 0.12.0'
-  spec.add_runtime_dependency 'hashie', '>= 2.0.5'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'

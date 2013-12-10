@@ -7,7 +7,7 @@ class ThetvdbApi::Request::Actor < ThetvdbApi::Request::Base
   end
 
   def result
-    @result ||= collection_response('Actor', ThetvdbApi::Actor)
+    @result ||= collection_response('Actor')
   end
 
   private

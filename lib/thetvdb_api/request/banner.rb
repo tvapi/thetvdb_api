@@ -7,7 +7,7 @@ class ThetvdbApi::Request::Banner < ThetvdbApi::Request::Base
   end
 
   def result
-    @result ||= collection_response('Banner', ThetvdbApi::Banner)
+    @result ||= collection_response('Banner')
   end
 
   private

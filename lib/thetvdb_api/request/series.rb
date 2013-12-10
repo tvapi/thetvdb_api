@@ -32,11 +32,11 @@ class ThetvdbApi::Request::Series < ThetvdbApi::Request::Base
   end
 
   def series_response
-    object_response('Series', ThetvdbApi::Series)
+    object_response('Series')
   end
 
   def episodes_response
-    collection_response('Episode', ThetvdbApi::Episode)
+    collection_response('Episode')
   end
 
   def full_response

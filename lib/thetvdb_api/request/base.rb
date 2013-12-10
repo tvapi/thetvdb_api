@@ -24,12 +24,12 @@ class ThetvdbApi::Request::Base
     }
   end
 
-  def collection_response(key, klass)
-    response_condition? ? array_mapped(klass, key) : []
+  def collection_response(key)
+    response_condition? ? array_normalize(key) : []
   end
 
-  def object_response(key, klass)
-    response_condition? ? klass.new(data[key]) : nil
+  def object_response(key)
+    response_condition? ? data[key] : nil
   end
 
   def response_condition?
@@ -38,10 +38,6 @@ class ThetvdbApi::Request::Base
 
   def array_normalize(key)
     dig(key).is_a?(Array) ? dig(key) : [dig(key)]
-  end
-
-  def array_mapped(klass, key)
-    array_normalize(key).map { |data| klass.new(data) }
   end
 
   def dig(key)
@@ -62,13 +58,6 @@ class ThetvdbApi::Request::Base
     {
       series: 'Series',
       episode: 'Episode'
-    }
-  end
-
-  def map_class
-    {
-      series: ThetvdbApi::Series,
-      episode: ThetvdbApi::Episode
     }
   end
 end

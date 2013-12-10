@@ -33,15 +33,15 @@ describe ThetvdbApi::Request::Base do
   describe '#collection_response' do
     it 'should return filled array when condition is true' do
       model.stub(:response_condition?).and_return(true)
-      model.stub(:array_mapped).and_return(['test'])
+      model.stub(:array_normalize).and_return(['test'])
 
-      model.collection_response('Series', OpenStruct).should_not be_empty
+      model.collection_response('Series').should_not be_empty
     end
 
     it 'should return empty array when condition is false' do
       model.stub(:response_condition?).and_return(false)
 
-      model.collection_response('Series', OpenStruct).should be_empty
+      model.collection_response('Series').should be_empty
     end
   end
 
@@ -50,13 +50,13 @@ describe ThetvdbApi::Request::Base do
       model.stub(:response_condition?).and_return(true)
       model.stub_chain(:response, :[]).and_return({})
 
-      model.object_response('Series', OpenStruct).class.should == OpenStruct
+      model.object_response('Series').should be_nil
     end
 
     it 'should return nil when condition is false' do
       model.stub(:response_condition?).and_return(false)
 
-      model.object_response('Series', OpenStruct).should be_nil
+      model.object_response('Series').should be_nil
     end
   end
 
@@ -92,13 +92,6 @@ describe ThetvdbApi::Request::Base do
     it 'should return Array when dig return Hash' do
       model.stub(:dig).and_return(Hash)
       model.array_normalize('Series').class.should == Array
-    end
-  end
-
-  describe '#array_mapped' do
-    it 'should map Array elements to objects' do
-      model.stub(:array_normalize).and_return([{ 'test' => 'value' }])
-      model.array_mapped(OpenStruct, 'Series').first.class.should == OpenStruct
     end
   end
 

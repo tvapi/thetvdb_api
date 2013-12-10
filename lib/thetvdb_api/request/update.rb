@@ -24,15 +24,15 @@ class ThetvdbApi::Request::Update < ThetvdbApi::Request::Base
   end
 
   def series_response
-    collection_response('Series', ThetvdbApi::Series)
+    collection_response('Series')
   end
 
   def episodes_response
-    collection_response('Episode', ThetvdbApi::Episode)
+    collection_response('Episode')
   end
 
   def banners_response
-    collection_response('Banner', ThetvdbApi::Banner)
+    collection_response('Banner')
   end
 
   def result

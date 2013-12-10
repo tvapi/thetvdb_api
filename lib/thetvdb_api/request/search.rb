@@ -29,9 +29,9 @@ class ThetvdbApi::Request::Search < ThetvdbApi::Request::Base
 
   def result
     @result ||= if @kind == :collection
-      collection_response(map_node[@map_to], map_class[@map_to])
+      collection_response(map_node[@map_to])
     else
-      object_response(map_node[@map_to], map_class[@map_to])
+      object_response(map_node[@map_to])
     end
   end
 end

@@ -23,7 +23,7 @@ describe ThetvdbApi::Request::Banner do
 
   describe '#result' do
     it 'should call object_response method' do
-      model.should_receive(:collection_response).with('Banner', ThetvdbApi::Banner)
+      model.should_receive(:collection_response).with('Banner')
 
       model.result
     end
