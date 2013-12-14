@@ -24,14 +24,14 @@ After you install ThetvdbApi and add it to your Gemfile, you need to run the gen
 rails generate thetvdb_api:install
 ```
 
-The generator will install an initializer where you must past your api_key, and can past: language (2 letters abbrevation), api_url (base url).
+The generator will install an initializer where you must past your api_key, and can past: language (2 letters abbrevation).
 
 ## How to use
 
-There is one entry point, in initialize you can past hash with api_key, language and api_url values, or leave empty:
+There is one entry point, in initialize you can past hash with api_key and language values, or leave empty:
 
 ```ruby
-client = ThetvdbApi::Client.new(api_url: '...', api_key: '...', language: 'en')
+client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
 ```
 
 Search series by name
