@@ -5,20 +5,20 @@ describe ThetvdbApi::Update do
 
   describe 'real request' do
     describe '.day' do
-      it 'should return hash' do
-        model.day.class.should == Hash
+      it 'should return response class' do
+        model.day.class.should == HTTParty::Response
       end
     end
 
     describe '.week' do
-      it 'should return hash' do
-        model.week.class.should == Hash
+      it 'should return response class' do
+        model.week.class.should == HTTParty::Response
       end
     end
 
     describe '.month' do
-      it 'should return hash' do
-        model.month.class.should == Hash
+      it 'should return response class' do
+        model.month.class.should == HTTParty::Response
       end
     end
   end

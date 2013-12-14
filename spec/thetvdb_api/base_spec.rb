@@ -33,12 +33,6 @@ describe ThetvdbApi::Base do
     end
   end
 
-  describe '.request_options' do
-    it 'should return correct keys' do
-      model.request_options.keys.sort.should == [:query, :base_uri].sort
-    end
-  end
-
   describe '.series_uri' do
     it 'should use default api_key' do
       klass.new(ThetvdbApi::Client.new(api_key: 'API_KEY')).series_uri('1234').should == 'API_KEY/series/1234/'
@@ -52,16 +46,6 @@ describe ThetvdbApi::Base do
 
     it 'should set api_key' do
       klass.new(ThetvdbApi::Client.new(api_key: 'API_KEY')).api_key.should == 'API_KEY'
-    end
-  end
-
-  describe '.api_url' do
-    it 'should use default api_url' do
-      klass.new(ThetvdbApi::Client.new).api_url.should == 'http://thetvdb.com/api/'
-    end
-
-    it 'should set api_url' do
-      klass.new(ThetvdbApi::Client.new(api_url: 'API_URL')).api_url.should == 'API_URL'
     end
   end
 

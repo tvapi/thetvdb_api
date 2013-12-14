@@ -1,10 +1,9 @@
 class ThetvdbApi::Client
-  attr_reader :api_key, :api_url, :language
+  attr_reader :api_key, :language
 
   def initialize(options = {})
 
     @api_key = options[:api_key] ? options[:api_key] : ThetvdbApi::Configuration.api_key
-    @api_url = options[:api_url] ? options[:api_url] : ThetvdbApi::Configuration.api_url
     @language = options[:language] ? options[:language] : ThetvdbApi::Configuration.language
   end
 

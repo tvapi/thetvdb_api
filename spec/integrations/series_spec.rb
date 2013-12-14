@@ -5,14 +5,14 @@ describe ThetvdbApi::Series do
 
   describe 'real request' do
     describe '.find' do
-      it 'should return hash' do
-        model.find('70327').class.should == Hash
+      it 'should return response class' do
+        model.find('70327').class.should == HTTParty::Response
       end
     end
 
     describe '.find_full' do
-      it 'should return hash' do
-        model.find_full('70327').class.should == Hash
+      it 'should return response class' do
+        model.find_full('70327').class.should == HTTParty::Response
       end
     end
   end

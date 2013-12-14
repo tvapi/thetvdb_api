@@ -2,6 +2,7 @@ require 'httparty'
 
 class ThetvdbApi::Base
   include HTTParty
+  base_uri 'http://thetvdb.com/api/'
 
   attr_reader :client, :uri, :options
 
@@ -17,22 +18,11 @@ class ThetvdbApi::Base
   end
 
   def response
-    self.class.get(uri, request_options(options))
-  end
-
-  def request_options(options = {})
-    {
-      query: options,
-      base_uri: api_url
-    }
+    self.class.get(uri, query: options)
   end
 
   def series_uri(series_id)
     "#{api_key}/series/#{series_id}/"
-  end
-
-  def api_url
-    client.api_url
   end
 
   def api_key
