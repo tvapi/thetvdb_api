@@ -27,24 +27,9 @@ describe ThetvdbApi::Base do
 
   describe '.response' do
     it 'should call get klass method' do
-      klass.should_receive(:get).and_return(double(code: 200, parsed_response: {}))
-      model.stub(:request_options).and_return({})
+      klass.should_receive(:get)
 
       model.response
-    end
-
-    it 'should return Hash' do
-      klass.should_receive(:get).and_return(double(code: 200, parsed_response: {}))
-      model.stub(:request_options).and_return({})
-
-      model.response.class.should == Hash
-    end
-
-    it 'should return nil' do
-      klass.should_receive(:get).and_return(double(code: 400))
-      model.stub(:request_options).and_return({})
-
-      model.response.should be_nil
     end
   end
 

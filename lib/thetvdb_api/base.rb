@@ -17,8 +17,7 @@ class ThetvdbApi::Base
   end
 
   def response
-    response = self.class.get(uri, request_options(options))
-    response.code == 200 ? response.parsed_response : nil
+    self.class.get(uri, request_options(options))
   end
 
   def request_options(options = {})
