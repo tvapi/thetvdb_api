@@ -86,8 +86,6 @@ client.update.month
 client.update.all
 ```
 
-In each response you get pure hash, without any coerce or key mapping.
-
 ## Contributing
 
 1. Fork it
