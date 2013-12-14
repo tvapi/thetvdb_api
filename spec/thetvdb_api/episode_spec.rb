@@ -35,4 +35,10 @@ describe ThetvdbApi::Episode do
       model.find('1234')
     end
   end
+
+  describe '.shared_uri_suffix' do
+    it 'should return correct staring' do
+      model.shared_uri_suffix(1, 2, 'en').should == '/1/2/en.xml'
+    end
+  end
 end
