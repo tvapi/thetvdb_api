@@ -32,4 +32,10 @@ describe ThetvdbApi::Client do
       klass.new.episode.class.should == ThetvdbApi::Episode
     end
   end
+
+  describe '.update' do
+    it 'should return update class' do
+      klass.new.update.class.should == ThetvdbApi::Update
+    end
+  end
 end
