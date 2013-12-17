@@ -4,8 +4,6 @@ class ThetvdbApi::Base
   include HTTParty
   base_uri 'http://thetvdb.com/api/'
 
-  attr_reader :client, :uri, :options
-
   def initialize(client)
     @client = client
   end
@@ -26,10 +24,10 @@ class ThetvdbApi::Base
   end
 
   def api_key
-    client.api_key
+    @client.api_key
   end
 
   def language
-    client.language
+    @client.language
   end
 end

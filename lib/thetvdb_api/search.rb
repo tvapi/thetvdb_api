@@ -12,7 +12,6 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_episode_by_air_date(series_id, air_date, language = self.language)
-    get('GetEpisodeByAirDate.php', apikey: self.api_key, seriesid: series_id, airdate: air_date, language: language).
-      response
+    get('GetEpisodeByAirDate.php', apikey: api_key, seriesid: series_id, airdate: air_date, language: language).response
   end
 end
