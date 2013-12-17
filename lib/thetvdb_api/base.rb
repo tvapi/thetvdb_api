@@ -1,4 +1,5 @@
 require 'httparty'
+require 'uri_template'
 
 class ThetvdbApi::Base
   include HTTParty
@@ -6,25 +7,43 @@ class ThetvdbApi::Base
 
   def initialize(client)
     @client = client
+    @params = {}
   end
 
-  def get(uri, options = {})
-    @uri = uri
-    @options = options
+  def get(uri)
+    @uri_template = URITemplate.new(uri)
+
+    self
+  end
+
+  def params(options)
+    @params = options
 
     self
   end
 
   def response
-    self.class.get(uri, query: options)
+    @uri_template ? self.class.get(uri, body: @options) : nil
   end
 
-  def series_uri(series_id)
-    "#{api_key}/series/#{series_id}/"
+  def prepare_uri
+    @uri_template ? @uri_template.expand(@params.merge(api_key: @client.api_key)) : nil
   end
 
-  def api_key
-    @client.api_key
+  def uri
+    uri = prepare_uri
+    @params.reject!{ |param| restful_param_keys(uri).include?(param.to_s) }
+
+    uri
+  end
+
+  def restful_param_keys(uri_expanded)
+    @uri_template.extract(uri_expanded).keys
+  end
+
+
+  def series_uri
+    '{api_key}/series/{series_id}'
   end
 
   def language

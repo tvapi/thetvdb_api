@@ -3,10 +3,11 @@ require 'spec_helper'
 describe ThetvdbApi::Update do
   let(:klass) { ThetvdbApi::Update }
   let(:model) { klass.new(ThetvdbApi::Client.new(api_key: '123456789')) }
+  let(:mock_model) { SampleModel.new }
 
   describe '.day' do
     it 'should call get with specific params' do
-      model.should_receive(:get).with('123456789/updates/updates_day.xml').and_return(double(response: true))
+      model.should_receive(:get).with('{api_key}/updates/updates_day.xml').and_return(mock_model)
 
       model.day
     end
@@ -14,7 +15,7 @@ describe ThetvdbApi::Update do
 
   describe '.week' do
     it 'should call get with specific params' do
-      model.should_receive(:get).with('123456789/updates/updates_week.xml').and_return(double(response: true))
+      model.should_receive(:get).with('{api_key}/updates/updates_week.xml').and_return(mock_model)
 
       model.week
     end
@@ -22,7 +23,7 @@ describe ThetvdbApi::Update do
 
   describe '.month' do
     it 'should call get with specific params' do
-      model.should_receive(:get).with('123456789/updates/updates_month.xml').and_return(double(response: true))
+      model.should_receive(:get).with('{api_key}/updates/updates_month.xml').and_return(mock_model)
 
       model.month
     end
@@ -30,7 +31,7 @@ describe ThetvdbApi::Update do
 
   describe '.all' do
     it 'should call get with specific params' do
-      model.should_receive(:get).with('123456789/updates/updates_all.xml').and_return(double(response: true))
+      model.should_receive(:get).with('{api_key}/updates/updates_all.xml').and_return(mock_model)
 
       model.all
     end
