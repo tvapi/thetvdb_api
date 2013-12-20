@@ -1,13 +1,14 @@
-require 'httparty'
+require 'faraday'
 require 'uri_template'
 
 class ThetvdbApi::Base
-  include HTTParty
-  base_uri 'http://thetvdb.com/api/'
-
   def initialize(client)
     @client = client
     @params = {}
+  end
+
+  def connection
+    @connection ||= Faraday.new(url: base_url)
   end
 
   def get(uri)
@@ -23,11 +24,13 @@ class ThetvdbApi::Base
   end
 
   def response
-    @uri_template ? self.class.get(uri, body: @options) : nil
+    assert_uri_template
+    connection.get(uri, @options)
   end
 
   def prepare_uri
-    @uri_template ? @uri_template.expand(@params.merge(api_key: @client.api_key)) : nil
+    assert_uri_template
+    @uri_template.expand(@params.merge(api_key: api_key))
   end
 
   def uri
@@ -48,5 +51,19 @@ class ThetvdbApi::Base
 
   def language
     @client.language
+  end
+
+  def api_key
+    @client.api_key
+  end
+
+  private
+
+  def assert_uri_template
+    raise "Path doesn't exists, use get(path) to setup path for request" unless @uri_template
+  end
+
+  def base_url
+    'http://thetvdb.com/api/'
   end
 end
