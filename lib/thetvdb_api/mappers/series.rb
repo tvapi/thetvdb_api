@@ -1,7 +1,10 @@
 require 'happymapper'
-require 'base'
+require 'thetvdb_api/mappers/base_mapper'
 
-class ThetvdbApi::Mappers::Series < ThetvdbApi::Mappers::Base
+class ThetvdbApi::Mappers::Series
+  include HappyMapper
+  include ThetvdbApi::Mappers::BaseMapper
+
   tag 'Series'
 
   element :actors, String, tag: 'Actors'

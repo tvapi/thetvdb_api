@@ -1,7 +1,10 @@
 require 'happymapper'
-require 'base'
+require 'thetvdb_api/mappers/base_mapper'
 
-class ThetvdbApi::Mappers::Episode < ThetvdbApi::Mappers::Base
+class ThetvdbApi::Mappers::Episode
+  include HappyMapper
+  include ThetvdbApi::Mappers::BaseMapper
+
   tag 'Episode'
 
   element :combined_episode_number, Integer, tag: 'Combined_episodenumber'
