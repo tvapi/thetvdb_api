@@ -86,6 +86,20 @@ client.update.month
 client.update.all
 ```
 
+ThetvdbApi return pure xml string fetched by Faraday, but it can be automatically mapped to Object. I have prepared some class for it which using happymapper gem. You should pass mapper options at the end of method arguments.
+
+```ruby
+require 'thetvdb_api/mappers/update'
+client = ThetvdbApi::Client.new
+client.update.day(mapper: ThetvdbApi::Mappers::Update)
+```
+
+Mappers for:
+
+Updates - ThetvdbApi::Mappers::Update
+
+You can write own mappers which parse xml and convert it to hash. Remember that your class must have "parse" class method.
+
 ## Contributing
 
 1. Fork it
