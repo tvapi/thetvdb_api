@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'thetvdb_api/mappers/update_banner'
 
 describe ThetvdbApi::Mappers::UpdateBanner do
   let(:klass) { ThetvdbApi::Mappers::UpdateBanner }

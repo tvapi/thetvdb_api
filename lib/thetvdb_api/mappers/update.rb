@@ -1,4 +1,7 @@
 require 'happymapper'
+require 'update_banner'
+require 'update_episode'
+require 'update_series'
 
 class ThetvdbApi::Mappers::Update
   include HappyMapper
