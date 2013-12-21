@@ -5,6 +5,7 @@ class ThetvdbApi::Base
   def initialize(client)
     @client = client
     @params = {}
+    @mapper = nil
   end
 
   def connection
@@ -13,19 +14,22 @@ class ThetvdbApi::Base
 
   def get(uri)
     @uri_template = URITemplate.new(uri)
-
     self
   end
 
   def params(options)
     @params = options
+    self
+  end
 
+  def mapper(mapper)
+    @mapper = mapper
     self
   end
 
   def response
     assert_uri_template
-    connection.get(uri, @options)
+    ThetvdbApi::Response.new(connection.get(uri, @options), @mapper)
   end
 
   def prepare_uri

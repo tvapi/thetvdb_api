@@ -39,6 +39,18 @@ describe ThetvdbApi::Base do
     end
   end
 
+  describe '.mapper' do
+    it 'should set @mapper' do
+      model.mapper('MAPPER')
+
+      model.instance_variable_get('@mapper').should == 'MAPPER'
+    end
+
+    it 'should return self' do
+      model.mapper('MAPPER').should == model
+    end
+  end
+
   describe '.response' do
     it 'should raise error when @uri_template is not filled' do
       -> { model.response }.should raise_error
