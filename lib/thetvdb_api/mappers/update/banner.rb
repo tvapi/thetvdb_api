@@ -13,7 +13,7 @@ class ThetvdbApi::Mappers::Update
     element :path, String
 
     def url
-      "http://thetvdb.com/banners/#{path}"
+      path ? "http://thetvdb.com/banners/#{path}" : nil
     end
   end
 end

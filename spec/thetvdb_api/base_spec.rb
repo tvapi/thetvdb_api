@@ -31,23 +31,11 @@ describe ThetvdbApi::Base do
     it 'should set @params' do
       model.params(sample: 'test')
 
-      model.instance_variable_get('@params').should == { sample: 'test' }
+      model.instance_variable_get('@params').should == { language: 'en', sample: 'test' }
     end
 
     it 'should return self' do
       model.params(sample: 'test').should == model
-    end
-  end
-
-  describe '.mapper' do
-    it 'should set @mapper' do
-      model.mapper('MAPPER')
-
-      model.instance_variable_get('@mapper').should == 'MAPPER'
-    end
-
-    it 'should return self' do
-      model.mapper('MAPPER').should == model
     end
   end
 

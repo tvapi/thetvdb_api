@@ -9,13 +9,13 @@ describe ThetvdbApi::Series do
     it 'should call get with specific params' do
       model.should_receive(:get).with('{api_key}/series/{series_id}/{language}.xml').and_return(mock_model)
 
-      model.find('1234', 'en')
+      model.find('1234')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(series_id: '1234', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(series_id: '1234').and_return(mock_model)
 
-      model.find('1234', 'en')
+      model.find('1234')
     end
   end
 
@@ -23,13 +23,13 @@ describe ThetvdbApi::Series do
     it 'should call get with specific params' do
       model.should_receive(:get).with('{api_key}/series/{series_id}/all/{language}.xml').and_return(mock_model)
 
-      model.find_full('1234', 'en')
+      model.find_full('1234')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(series_id: '1234', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(series_id: '1234').and_return(mock_model)
 
-      model.find_full('1234', 'en')
+      model.find_full('1234')
     end
   end
 end

@@ -18,12 +18,8 @@ class ThetvdbApi::Base
   end
 
   def params(options)
-    @params = options
-    self
-  end
-
-  def mapper(mapper)
-    @mapper = mapper
+    @mapper = options.delete(:mapper)
+    @params = { language: @client.language }.merge(options)
     self
   end
 

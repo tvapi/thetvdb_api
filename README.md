@@ -41,7 +41,7 @@ client = ThetvdbApi::Client.new
 client.search.get_series('buffy')
 client.search.get_series_by_imdb_id('...')
 client.search.get_series_by_zap2it_id('...')
-client.search.get_episode_by_air_date('123', air_date)
+client.search.get_episode('123', air_date)
 ```
 
 Search series by id
@@ -86,7 +86,7 @@ client.update.month
 client.update.all
 ```
 
-ThetvdbApi return pure xml string fetched by Faraday, but it can be automatically mapped to Object. I have prepared some class for it which using happymapper gem. You should pass mapper options at the end of method arguments.
+ThetvdbApi return response class with pure xml (in body method) string fetched by Faraday, but it can be automatically mapped to Object. I have prepared some class for it which using happymapper gem. You should pass mapper options at the end of method arguments.
 
 ```ruby
 require 'thetvdb_api/mappers/update'
@@ -94,9 +94,66 @@ client = ThetvdbApi::Client.new
 client.update.day(mapper: ThetvdbApi::Mappers::Update)
 ```
 
-Mappers for:
+## Mappers for:
 
-Updates - ThetvdbApi::Mappers::Update
+### Search
+```ruby
+require 'thetvdb_api/mappers/search_series'
+client = ThetvdbApi::Client.new
+client.search.get_series('buffy', mapper: ThetvdbApi::Mappers::SearchSeries)
+client.search.get_series_by_imdb_id('...', mapper: ThetvdbApi::Mappers::SearchSeries)
+client.search.get_series_by_zap2it_id('...', mapper: ThetvdbApi::Mappers::SearchSeries)
+```
+
+```ruby
+require 'thetvdb_api/mappers/search_episode'
+client = ThetvdbApi::Client.new
+client.search.get_episode('123', air_date, mapper: ThetvdbApi::Mappers::SearchEpisode)
+```
+
+### Series
+```ruby
+require 'thetvdb_api/mappers/series'
+client = ThetvdbApi::Client.new
+client.series.find('123', mapper: ThetvdbApi::Mappers::Series)
+```
+
+```ruby
+require 'thetvdb_api/mappers/full_series'
+client = ThetvdbApi::Client.new
+client.series.find_full('123', mapper: ThetvdbApi::Mappers::FullSeries)
+```
+
+### Actors
+```ruby
+require 'thetvdb_api/mappers/actors'
+client = ThetvdbApi::Client.new
+client.actor.all(series_id, mapper: ThetvdbApi::Mappers::Actors)
+```
+
+### Banners
+```ruby
+require 'thetvdb_api/mappers/banners'
+client = ThetvdbApi::Client.new
+client.banner.all(series_id, mapper: ThetvdbApi::Mappers::Banners)
+```
+
+### Episodes
+```ruby
+require 'thetvdb_api/mappers/episode'
+client = ThetvdbApi::Client.new
+client.episode.find_by_default_order(series_id, season, episode, mapper: ThetvdbApi::Mappers::Episode)
+client.episode.find_by_dvd_order(series_id, season, episode, mapper: ThetvdbApi::Mappers::Episode)
+client.episode.find_by_absolute_order(series_id, absolute, mapper: ThetvdbApi::Mappers::Episode)
+client.episode.find(episode_id, mapper: ThetvdbApi::Mappers::Episode)
+```
+
+### Updates
+```ruby
+require 'thetvdb_api/mappers/update'
+client = ThetvdbApi::Client.new
+client.update.day(mapper: ThetvdbApi::Mappers::Update)
+```
 
 You can write own mappers which parse xml and convert it to hash. Remember that your class must have "parse" class method.
 

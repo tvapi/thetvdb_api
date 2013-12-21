@@ -9,13 +9,13 @@ describe ThetvdbApi::Search do
     it 'should call get with specific params' do
       model.should_receive(:get).with('GetSeries.php').and_return(mock_model)
 
-      model.get_series('buffy', 'en')
+      model.get_series('buffy')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(seriesname: 'buffy', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(seriesname: 'buffy').and_return(mock_model)
 
-      model.get_series('buffy', 'en')
+      model.get_series('buffy')
     end
   end
 
@@ -23,13 +23,13 @@ describe ThetvdbApi::Search do
     it 'should call get with specific params' do
       model.should_receive(:get).with('GetSeriesByRemoteID.php').and_return(mock_model)
 
-      model.get_series_by_imdb_id('1234', 'en')
+      model.get_series_by_imdb_id('1234')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(imdbid: '1234', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(imdbid: '1234').and_return(mock_model)
 
-      model.get_series_by_imdb_id('1234', 'en')
+      model.get_series_by_imdb_id('1234')
     end
   end
 
@@ -37,27 +37,27 @@ describe ThetvdbApi::Search do
     it 'should call get with specific params' do
       model.should_receive(:get).with('GetSeriesByRemoteID.php').and_return(mock_model)
 
-      model.get_series_by_zap2it_id('1234', 'en')
+      model.get_series_by_zap2it_id('1234')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(zap2it: '1234', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(zap2it: '1234').and_return(mock_model)
 
-      model.get_series_by_zap2it_id('1234', 'en')
+      model.get_series_by_zap2it_id('1234')
     end
   end
 
-  describe '#get_episode_by_air_date' do
+  describe '.get_episode' do
     it 'should call get with specific params' do
       model.should_receive(:get).with('GetEpisodeByAirDate.php').and_return(mock_model)
 
-      model.get_episode_by_air_date('1234', '2000-01-01', 'en')
+      model.get_episode('1234', '2000-01-01')
     end
 
     it 'should call params with specific params' do
-      model.should_receive(:params).with(seriesid: '1234', airdate: '2000-01-01', language: 'en').and_return(mock_model)
+      model.should_receive(:params).with(seriesid: '1234', airdate: '2000-01-01').and_return(mock_model)
 
-      model.get_episode_by_air_date('1234', '2000-01-01', 'en')
+      model.get_episode('1234', '2000-01-01')
     end
   end
 end

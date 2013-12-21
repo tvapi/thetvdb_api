@@ -23,9 +23,9 @@ describe ThetvdbApi::Client do
         end
       end
 
-      describe '.get_episode_by_air_date' do
+      describe '.get_episode' do
         it 'should return response class' do
-          client.search.get_episode_by_air_date('70327','1997-03-10').class.should == ThetvdbApi::Response
+          client.search.get_episode('70327','1997-03-10').class.should == ThetvdbApi::Response
         end
       end
     end
