@@ -1,12 +1,8 @@
 require 'happymapper'
+require 'thetvdb_api/mappers/update/element'
 
 class ThetvdbApi::Mappers::Update
-  class Series
-    include HappyMapper
-
+  class Series < ThetvdbApi::Mappers::Update::Element
     tag 'Series'
-
-    element :id, Integer
-    element :timestamp, Integer, tag: 'time'
   end
 end

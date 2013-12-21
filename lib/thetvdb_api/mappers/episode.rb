@@ -1,11 +1,9 @@
 require 'happymapper'
+require 'base'
 
-class ThetvdbApi::Mappers::Episode
-  include HappyMapper
-
+class ThetvdbApi::Mappers::Episode < ThetvdbApi::Mappers::Base
   tag 'Episode'
 
-  element :id, Integer
   element :combined_episode_number, Integer, tag: 'Combined_episodenumber'
   element :combined_season, Integer, tag: 'Combined_season'
   element :dvd_chapter, String, tag: 'DVD_chapter'
@@ -16,14 +14,8 @@ class ThetvdbApi::Mappers::Episode
   element :ep_img_flag, Integer, tag: 'EpImgFlag'
   element :name, String, tag: 'EpisodeName'
   element :number, String, tag: 'EpisodeNumber'
-  element :first_aired, Date, tag: 'FirstAired'
   element :guest_stars, String, tag: 'GuestStars'
-  element :imdb_id, String, tag: 'IMDB_ID'
-  element :language, String, tag: 'Language'
-  element :overview, String, tag: 'Overview'
   element :production_code, String, tag: 'ProductionCode'
-  element :rating, Float, tag: 'Rating'
-  element :rating_count, Integer, tag: 'RatingCount'
   element :season_number, Integer, tag: 'SeasonNumber'
   element :writer, String, tag: 'Writer'
   element :absolute_number, Integer
