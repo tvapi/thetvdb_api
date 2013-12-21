@@ -17,6 +17,10 @@ class SampleModel
     self
   end
 
+  def mapper(mapper)
+    self
+  end
+
   def params(options = {})
     self
   end
