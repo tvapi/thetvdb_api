@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'thetvdb_api/mappers/update_banner'
+require 'thetvdb_api/mappers/update/banner'
 
-describe ThetvdbApi::Mappers::UpdateBanner do
-  let(:klass) { ThetvdbApi::Mappers::UpdateBanner }
+describe ThetvdbApi::Mappers::Update::Banner do
+  let(:klass) { ThetvdbApi::Mappers::Update::Banner }
   let(:model) { klass.new }
 
   describe '.url' do
