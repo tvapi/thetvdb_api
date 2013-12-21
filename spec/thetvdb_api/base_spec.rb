@@ -61,6 +61,15 @@ describe ThetvdbApi::Base do
     end
   end
 
+  describe '.url' do
+    it 'should receive correct string' do
+      model.stub(:base_url).and_return('BASE_URL/')
+      model.stub(:uri).and_return('URI')
+
+      model.url.should == 'BASE_URL/URI'
+    end
+  end
+
   describe '.uri' do
     it 'should receive correct uri string' do
       model.instance_variable_set('@uri_template', URITemplate.new('{api_key}/series/{id}'))
@@ -85,12 +94,12 @@ describe ThetvdbApi::Base do
     end
   end
 
-  describe '.langauge' do
-    it 'should use default langauge' do
+  describe '.language' do
+    it 'should use default language' do
       klass.new(ThetvdbApi::Client.new).language.should == 'en'
     end
 
-    it 'should set langauge' do
+    it 'should set language' do
       klass.new(ThetvdbApi::Client.new(language: 'LANGUAGE')).language.should == 'LANGUAGE'
     end
   end

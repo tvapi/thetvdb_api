@@ -33,6 +33,10 @@ class ThetvdbApi::Base
     @uri_template.expand(@params.merge(api_key: api_key))
   end
 
+  def url
+    "#{base_url}#{uri}"
+  end
+
   def uri
     uri = prepare_uri
     @params.reject!{ |param| restful_param_keys(uri).include?(param.to_s) }

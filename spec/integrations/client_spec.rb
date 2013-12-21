@@ -89,19 +89,19 @@ describe ThetvdbApi::Client do
     describe '.update' do
       describe '.day' do
         it 'should return response class' do
-          client.update.day.class.should == Faraday::Response
+          client.update.day.class.should == ThetvdbApi::Response
         end
       end
 
       describe '.week' do
         it 'should return response class' do
-          client.update.week.class.should == Faraday::Response
+          client.update.week.class.should == ThetvdbApi::Response
         end
       end
 
       describe '.month' do
         it 'should return response class' do
-          client.update.month.class.should == Faraday::Response
+          client.update.month.class.should == ThetvdbApi::Response
         end
       end
     end
