@@ -1,4 +1,4 @@
 language: ruby
-script: 'bundle exec rspec spec/thetvdb_api'
+script: 'bundle exec rspec spec/units'
 rvm:
   - 2.0.0

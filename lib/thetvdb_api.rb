@@ -1,5 +1,5 @@
 module ThetvdbApi
-  module Mappers; end
+  module Mapper; end
 end
 
 require 'thetvdb_api/version'
