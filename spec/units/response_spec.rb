@@ -5,13 +5,6 @@ describe ThetvdbApi::Search do
   let(:model) { klass.new(faraday_response) }
   let(:faraday_response) { double(env: true, status: true, headers: true, body: 'TEST') }
 
-  describe '.mapper' do
-    it 'should set mapper' do
-      model = klass.new(faraday_response)
-      model.mapper.should == 'MAPPER'
-    end
-  end
-
   describe '.env' do
     it 'should call env in faraday_response' do
       faraday_response.should_receive(:env)
