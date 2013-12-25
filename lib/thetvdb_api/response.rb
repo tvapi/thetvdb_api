@@ -1,11 +1,9 @@
-class ThetvdbApi::Response
-  def initialize(faraday_response, mapper = nil)
-    @faraday_response = faraday_response
-    @mapper = mapper
-  end
+require 'multi_xml'
 
-  def mapper
-    @mapper
+class ThetvdbApi::Response
+  def initialize(faraday_response, mapping = false)
+    @faraday_response = faraday_response
+    @mapping = mapping
   end
 
   def env
@@ -21,10 +19,10 @@ class ThetvdbApi::Response
   end
 
   def body
-    @body ||= @mapper ? @mapper.parse(@faraday_response.body) : @faraday_response.body
+    @body ||= @mapping ? MultiXml.parse(@faraday_response.body) : @faraday_response.body
   end
 
   def inspect
-    "<ThetvdbApi::Response body=#{body.inspect}, mapper=#{mapper.inspect}>"
+    "<ThetvdbApi::Response body=#{body.inspect}>"
   end
 end

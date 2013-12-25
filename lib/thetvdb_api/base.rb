@@ -5,7 +5,7 @@ class ThetvdbApi::Base
   def initialize(client)
     @client = client
     @params = {}
-    @mapper = nil
+    @mapping = false
   end
 
   def connection
@@ -18,14 +18,14 @@ class ThetvdbApi::Base
   end
 
   def params(options)
-    @mapper = options.delete(:mapper)
+    @mapping = options.delete(:mapping)
     @params = { language: @client.language }.merge(options)
     self
   end
 
   def response
     assert_uri_template
-    ThetvdbApi::Response.new(connection.get(uri, @options), @mapper)
+    ThetvdbApi::Response.new(connection.get(uri, @options), @mapping)
   end
 
   def prepare_uri

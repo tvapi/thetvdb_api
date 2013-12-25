@@ -7,7 +7,7 @@ describe ThetvdbApi::Search do
 
   describe '.mapper' do
     it 'should set mapper' do
-      model = klass.new(faraday_response, 'MAPPER')
+      model = klass.new(faraday_response)
       model.mapper.should == 'MAPPER'
     end
   end
@@ -38,9 +38,8 @@ describe ThetvdbApi::Search do
 
   describe '.body' do
     it 'should map response when give mapper' do
-      mapper = double(parse: true)
-      model = klass.new(faraday_response, mapper)
-      mapper.should_receive(:parse)
+      model = klass.new(faraday_response, true)
+      MultiXml.should_receive(:parse)
 
       model.body
     end
@@ -53,8 +52,7 @@ describe ThetvdbApi::Search do
   describe '.inspect' do
     it 'should return correct string' do
       model.stub(:body).and_return('BODY')
-      model.stub(:mapper).and_return('MAPPER')
-      model.inspect.should == '<ThetvdbApi::Response body="BODY", mapper="MAPPER">'
+      model.inspect.should == '<ThetvdbApi::Response body="BODY">'
     end
   end
 end

@@ -86,76 +86,15 @@ client.update.month
 client.update.all
 ```
 
-ThetvdbApi return response class with pure xml (in body method) string fetched by Faraday.
+ThetvdbApi default return response class with pure xml (in body method) string fetched by Faraday. You can pass
 
 ```ruby
-require 'thetvdb_api/mappers/update'
-client = ThetvdbApi::Client.new
-client.update.day
+mapping: true
 ```
 
-## Mappers for:
+options, and ThetvdbApi will return hash/array objects.
 
-### Search
-```ruby
-require 'thetvdb_api/mappers/search_series'
-client = ThetvdbApi::Client.new
-client.search.get_series('buffy')
-client.search.get_series_by_imdb_id('...')
-client.search.get_series_by_zap2it_id('...')
-```
-
-```ruby
-require 'thetvdb_api/mappers/search_episode'
-client = ThetvdbApi::Client.new
-client.search.get_episode('123', air_date)
-```
-
-### Series
-```ruby
-require 'thetvdb_api/mappers/series'
-client = ThetvdbApi::Client.new
-client.series.find('123')
-```
-
-```ruby
-require 'thetvdb_api/mappers/full_series'
-client = ThetvdbApi::Client.new
-client.series.find_full('123')
-```
-
-### Actors
-```ruby
-require 'thetvdb_api/mappers/actors'
-client = ThetvdbApi::Client.new
-client.actor.all(series_id)
-```
-
-### Banners
-```ruby
-require 'thetvdb_api/mappers/banners'
-client = ThetvdbApi::Client.new
-client.banner.all(series_id)
-```
-
-### Episodes
-```ruby
-require 'thetvdb_api/mappers/episode'
-client = ThetvdbApi::Client.new
-client.episode.find_by_default_order(series_id, season, episode)
-client.episode.find_by_dvd_order(series_id, season, episode)
-client.episode.find_by_absolute_order(series_id, absolute)
-client.episode.find(episode_id)
-```
-
-### Updates
-```ruby
-require 'thetvdb_api/mappers/update'
-client = ThetvdbApi::Client.new
-client.update.day
-```
-
-You can write own mappers which parse xml and convert it to hash. Remember that your class must have "parse" class method.
+ThetvdbApi give you chance to write own mapper where mapping preformance could be better.
 
 ## Contributing
 
