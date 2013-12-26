@@ -1,6 +1,6 @@
 class ThetvdbApi::Update < ThetvdbApi::Base
   def day(options = {})
-    get(day_path).params(options).response
+    get(day_path).params(options).response(ThetvdbApi::Response::Update)
   end
 
   def day_url
@@ -8,7 +8,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def week(options = {})
-    get(week_path).params(options).response
+    get(week_path).params(options).response(ThetvdbApi::Response::Update)
   end
 
   def week_url
@@ -16,7 +16,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def month(options = {})
-    get(month_path).params(options).response
+    get(month_path).params(options).response(ThetvdbApi::Response::Update)
   end
 
   def month_url
@@ -24,7 +24,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def all(options = {})
-    get(all_path).params(options).response
+    get(all_path).params(options).response(ThetvdbApi::Response::Update)
   end
 
   def all_url

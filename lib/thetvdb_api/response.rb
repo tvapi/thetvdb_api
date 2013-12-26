@@ -47,6 +47,6 @@ class ThetvdbApi::Response
   end
 
   def parse
-    @parse ||= multi_xml_parse
+    @parse ||= xml_parse
   end
 end
