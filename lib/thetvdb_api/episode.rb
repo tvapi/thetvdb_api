@@ -16,14 +16,14 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_absolute_order(series_id, absolute, options = {})
-    find_by_absolute_order_get_and_params(series_id, absolute, options).response(ThetvdbApi::Response::Episode)
+    find_by_absolute_order_get_with_params(series_id, absolute, options).response(ThetvdbApi::Response::Episode)
   end
 
   def find_by_absolute_order_url(series_id, absolute, options = {})
-    find_by_absolute_order_get_and_params(series_id, absolute, options).url
+    find_by_absolute_order_get_with_params(series_id, absolute, options).url
   end
 
-  def find_by_absolute_order_get_and_params(series_id, absolute, options)
+  def find_by_absolute_order_get_with_params(series_id, absolute, options)
     get(find_by_absolute_order_path).params({ series_id: series_id, absolute: absolute }.merge(options))
   end
 
