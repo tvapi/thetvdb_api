@@ -33,13 +33,13 @@ describe ThetvdbApi::Client do
     describe '.series' do
       describe '.find' do
         it 'should return response class' do
-          client.series.find('70327').class.should == ThetvdbApi::Response
+          client.series.find('70327').class.should == ThetvdbApi::Response::Series
         end
       end
 
       describe '.find_full' do
         it 'should return response class' do
-          client.series.find_full('70327').class.should == ThetvdbApi::Response
+          client.series.find_full('70327').class.should == ThetvdbApi::Response::FullSeries
         end
       end
     end
@@ -47,7 +47,7 @@ describe ThetvdbApi::Client do
     describe '.actor' do
       describe '.find' do
         it 'should return response class' do
-          client.actor.find('70327').class.should == ThetvdbApi::Response
+          client.actor.find('70327').class.should == ThetvdbApi::Response::Actors
         end
       end
     end
@@ -55,7 +55,7 @@ describe ThetvdbApi::Client do
     describe '.banner' do
       describe '.find' do
         it 'should return response class' do
-          client.banner.find('70327').class.should == ThetvdbApi::Response
+          client.banner.find('70327').class.should == ThetvdbApi::Response::Banners
         end
       end
     end
@@ -63,25 +63,25 @@ describe ThetvdbApi::Client do
     describe '.episode' do
       describe '.find_by_default_order' do
         it 'should return response class' do
-          client.episode.find_by_default_order('70327', '1', '1').class.should == ThetvdbApi::Response
+          client.episode.find_by_default_order('70327', '1', '1').class.should == ThetvdbApi::Response::Episode
         end
       end
 
       describe '.find_by_dvd_order' do
         it 'should return response class' do
-          client.episode.find_by_dvd_order('70327', '1', '1').class.should == ThetvdbApi::Response
+          client.episode.find_by_dvd_order('70327', '1', '1').class.should == ThetvdbApi::Response::Episode
         end
       end
 
       describe '.find_by_absolute_order' do
         it 'should return response class' do
-          client.episode.find_by_absolute_order('70327', '1').class.should == ThetvdbApi::Response
+          client.episode.find_by_absolute_order('70327', '1').class.should == ThetvdbApi::Response::Episode
         end
       end
 
       describe '.find' do
         it 'should return response class' do
-          client.episode.find('533011').class.should == ThetvdbApi::Response
+          client.episode.find('533011').class.should == ThetvdbApi::Response::Episode
         end
       end
     end
