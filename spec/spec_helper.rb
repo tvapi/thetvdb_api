@@ -25,7 +25,7 @@ class SampleModel
     self
   end
 
-  def response
+  def response(klass = ThetvdbApi::Response)
   end
 end
 

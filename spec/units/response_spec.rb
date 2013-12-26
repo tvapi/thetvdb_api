@@ -32,7 +32,7 @@ describe ThetvdbApi::Search do
   describe '.body' do
     it 'should map response when give mapper' do
       model = klass.new(faraday_response, true)
-      MultiXml.should_receive(:parse)
+      model.should_receive(:parse)
 
       model.body
     end
@@ -45,7 +45,56 @@ describe ThetvdbApi::Search do
   describe '.inspect' do
     it 'should return correct string' do
       model.stub(:body).and_return('BODY')
-      model.inspect.should == '<ThetvdbApi::Response body="BODY">'
+      model.inspect.should == '"BODY"'
+    end
+  end
+
+  describe '[]' do
+    it 'should return correct string' do
+      model.stub(:parse).and_return({'test' => 'output'})
+      model['test'].should == 'output'
+    end
+  end
+
+  describe '[]=' do
+    it 'should return correct string' do
+      model.stub(:parse).and_return({'test' => 'output'})
+      model['test'] = 'output2'
+
+      model['test'].should == 'output2'
+    end
+  end
+
+  describe '.each' do
+    it 'should call each on parsed value' do
+      model.stub(:parse).and_return([])
+      model.parse.should_receive(:each)
+
+      model.each {}
+    end
+  end
+
+  describe '.multi_xml_parse' do
+    it 'should call parse on MultiXml' do
+      MultiXml.should_receive(:parse)
+
+      model.multi_xml_parse
+    end
+  end
+
+  describe '.xml_parse' do
+    it 'should call parse on MultiXml' do
+      model.should_receive(:multi_xml_parse)
+
+      model.xml_parse
+    end
+  end
+
+  describe '.parse' do
+    it 'should call multi_xml_parse' do
+      model.should_receive(:multi_xml_parse)
+
+      model.parse
     end
   end
 end

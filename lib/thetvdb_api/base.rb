@@ -23,9 +23,9 @@ class ThetvdbApi::Base
     self
   end
 
-  def response
+  def response(klass = ThetvdbApi::Response)
     assert_uri_template
-    ThetvdbApi::Response.new(connection.get(uri, @options), @mapping)
+    klass.new(connection.get(uri, @params), @mapping)
   end
 
   def prepare_uri

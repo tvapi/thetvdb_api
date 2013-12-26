@@ -19,10 +19,34 @@ class ThetvdbApi::Response
   end
 
   def body
-    @body ||= @mapping ? MultiXml.parse(@faraday_response.body) : @faraday_response.body
+    @body ||= @mapping ? parse : @faraday_response.body
   end
 
   def inspect
-    "<ThetvdbApi::Response body=#{body.inspect}>"
+    body.inspect
+  end
+
+  def [](key)
+    parse[key]
+  end
+
+  def []=(key, value)
+    parse[key] = value
+  end
+
+  def each(&block)
+    parse.each(&block)
+  end
+
+  def multi_xml_parse
+    MultiXml.parse(@faraday_response.body)
+  end
+
+  def xml_parse
+    multi_xml_parse
+  end
+
+  def parse
+    @parse ||= multi_xml_parse
   end
 end
