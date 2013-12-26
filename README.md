@@ -38,52 +38,68 @@ Search series by name
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.search.get_series('buffy')
-client.search.get_series_by_imdb_id('...')
-client.search.get_series_by_zap2it_id('...')
-client.search.get_episode('123', air_date)
+client.search.get_series('buffy', options = {})
+client.search.get_series_url('buffy', options = {}) # return only full url
+client.search.get_series_by_imdb_id(id, options = {})
+client.search.get_series_by_imdb_id_url(id, options = {}) # return only full url
+client.search.get_series_by_zap2it_id(id)
+client.search.get_series_by_zap2it_id_url(id, options = {}) # return only full url
+client.search.get_episode('123', air_date, options = {})
+client.search.get_episode_url('123', air_date, options = {}) # return only full url
 ```
 
 Search series by id
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.series.find('123')
-client.series.find_full('123')
+client.series.find('123', options = {})
+client.series.find_url('123', options = {}) # return only full url
+client.series.find_full('123', options = {})
+client.series.find_full_url('123', options = {}) # return only full url
 ```
 
 Return series actors
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.actor.all(series_id)
+client.actor.all(series_id, options = {})
+client.actor.all_url(series_id, options = {}) # return only full url
 ```
 
 Return series banners
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.banner.all(series_id)
+client.banner.all(series_id, options = {})
+client.banner.all_url(series_id, options = {}) # return only full url
 ```
 
 Return series episode
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.episode.find_by_default_order(series_id, season, episode)
-client.episode.find_by_dvd_order(series_id, season, episode)
-client.episode.find_by_absolute_order(series_id, absolute)
-client.episode.find(episode_id)
+client.episode.find_by_default_order(series_id, season, episode, options = {})
+client.episode.find_by_default_order_url(series_id, season, episode, options = {}) # return only full url
+client.episode.find_by_dvd_order(series_id, season, episode, options = {})
+client.episode.find_by_dvd_order_url(series_id, season, episode, options = {}) # return only full url
+client.episode.find_by_absolute_order(series_id, absolute, options = {})
+client.episode.find_by_absolute_order_url(series_id, absolute, options = {}) # return only full url
+client.episode.find(episode_id, options = {})
+client.episode.find_url(episode_id, options = {}) # return only full url
 ```
 
 Get updates
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.update.day
-client.update.week
-client.update.month
-client.update.all
+client.update.day(options = {})
+client.update.day_url(options = {}) # return only full url
+client.update.week(options = {})
+client.update.week_url(options = {}) # return only full url
+client.update.month(options = {})
+client.update.month_url(options = {}) # return only full url
+client.update.all(options = {})
+client.update.all_url(options = {}) # return only full url
 ```
 
 ThetvdbApi default return response class with pure xml (in body method) string fetched by Faraday. You can pass
