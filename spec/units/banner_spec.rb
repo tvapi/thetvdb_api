@@ -18,4 +18,10 @@ describe ThetvdbApi::Banner do
       model.find('1234')
     end
   end
+
+  describe '.find_url' do
+    it 'should return correct string' do
+      model.find_url('1234').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/banners.xml"
+    end
+  end
 end

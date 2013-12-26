@@ -19,6 +19,12 @@ describe ThetvdbApi::Series do
     end
   end
 
+  describe '.find_url' do
+    it 'should return correct string' do
+      model.find_url('1234').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/en.xml"
+    end
+  end
+
   describe '.find_full' do
     it 'should call get with specific params' do
       model.should_receive(:get).with('{api_key}/series/{series_id}/all/{language}.xml').and_return(mock_model)
@@ -30,6 +36,12 @@ describe ThetvdbApi::Series do
       model.should_receive(:params).with(series_id: '1234').and_return(mock_model)
 
       model.find_full('1234')
+    end
+  end
+
+  describe '.find_full_url' do
+    it 'should return correct string' do
+      model.find_full_url('1234').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/all/en.xml"
     end
   end
 end

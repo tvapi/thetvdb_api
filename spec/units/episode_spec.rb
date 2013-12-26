@@ -19,6 +19,12 @@ describe ThetvdbApi::Episode do
     end
   end
 
+  describe '.find_by_default_order_url' do
+    it 'should return correct string' do
+      model.find_by_default_order_url('1234', '1', '1').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/default/1/1/en.xml"
+    end
+  end
+
   describe '.find_by_dvd_order' do
     it 'should call get with specific params' do
       model.should_receive(:get).with('{api_key}/series/{series_id}/{order}/{season}/{episode}/{language}.xml').and_return(mock_model)
@@ -30,6 +36,12 @@ describe ThetvdbApi::Episode do
       model.should_receive(:params).with(series_id: '1234', season: '1', episode: '1', order: 'dvd').and_return(mock_model)
 
       model.find_by_dvd_order('1234', '1', '1')
+    end
+  end
+
+  describe '.find_by_dvd_order_url' do
+    it 'should return correct string' do
+      model.find_by_dvd_order_url('1234', '1', '1').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/dvd/1/1/en.xml"
     end
   end
 
@@ -47,6 +59,12 @@ describe ThetvdbApi::Episode do
     end
   end
 
+  describe '.find_by_absolute_order_url' do
+    it 'should return correct string' do
+      model.find_by_absolute_order_url('1234', '1').should == "http://thetvdb.com/api/#{model.api_key}/series/1234/absolute/1/en.xml"
+    end
+  end
+
   describe '.find' do
     it 'should call get with specific params' do
       model.should_receive(:get).with('{api_key}/episodes/{episode_id}/{language}.xml').and_return(mock_model)
@@ -58,6 +76,12 @@ describe ThetvdbApi::Episode do
       model.should_receive(:params).with(episode_id: '1234').and_return(mock_model)
 
       model.find('1234')
+    end
+  end
+
+  describe '.find_url' do
+    it 'should return correct string' do
+      model.find_url('1234').should == "http://thetvdb.com/api/#{model.api_key}/episodes/1234/en.xml"
     end
   end
 end
