@@ -9,7 +9,9 @@ class ThetvdbApi::Base
   end
 
   def connection
-    @connection ||= Faraday.new(url: base_url)
+    @connection ||= Faraday.new(url: base_url) do |builder|
+      builder.adapter ThetvdbApi::Configuration.adapter
+    end
   end
 
   def get(uri)
