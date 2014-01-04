@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Actors>
+  <Actor>
+    <id>22017</id>
+    <Image>actors/22017.jpg</Image>
+    <Name>Zachary Levi</Name>
+    <Role>Charles &quot;Chuck&quot; Bartowski</Role>
+    <SortOrder>0</SortOrder>
+  </Actor>
+  <Actor>
+    <id>22019</id>
+    <Image>actors/22019.jpg</Image>
+    <Name>Yvonne Strahovski</Name>
+    <Role>Sarah Walker</Role>
+    <SortOrder>1</SortOrder>
+  </Actor>
+</Actors>

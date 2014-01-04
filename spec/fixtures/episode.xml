@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+  <Episode>
+    <id>332179</id>
+    <seasonid>27985</seasonid>
+    <EpisodeNumber>1</EpisodeNumber>
+    <EpisodeName>Chuck Versus the Intersect</EpisodeName>
+    <FirstAired>2007-09-24</FirstAired>
+    <GuestStars>Mieko Hillman|Kristine Blackport|Jim Pirri|Diana Gitelman|Mel Fair|Lynn A. Henderson|Odessa Rae|Jordan Potter|Tasha Campbell|Dale Dye|Matthew Bomer|Bruno Amato|Nicolas Pajon|Wendy Makkena</GuestStars>
+    <Director>McG</Director>
+    <Writer>Josh Schwartz|Chris Fedak</Writer>
+    <Overview>Chuck Bartowski is an average computer geek until files of government secrets are downloaded into his brain. He is soon scouted by the CIA and NSA to act in place of their computer.</Overview>
+    <ProductionCode>276025</ProductionCode>
+    <lastupdated>1286047470</lastupdated>
+    <flagged>0</flagged>
+    <DVD_discid></DVD_discid>
+    <DVD_season>1</DVD_season>
+    <DVD_episodenumber>1.0</DVD_episodenumber>
+    <DVD_chapter></DVD_chapter>
+    <absolute_number>1</absolute_number>
+    <filename>episodes/80348/332179.jpg</filename>
+    <seriesid>80348</seriesid>
+    <thumb_added></thumb_added>
+    <thumb_width>400</thumb_width>
+    <thumb_height>225</thumb_height>
+    <tms_export>1</tms_export>
+    <mirrorupdate>2013-10-08 13:25:36</mirrorupdate>
+    <IMDB_ID>tt1035912</IMDB_ID>
+    <EpImgFlag></EpImgFlag>
+    <Rating>7.7</Rating>
+    <SeasonNumber>1</SeasonNumber>
+    <Language>en</Language>
+  </Episode>
+</Data>

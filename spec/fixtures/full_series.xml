@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+  <Series>
+    <id>80348</id>
+    <Actors>|Zachary Levi|Yvonne Strahovski|Joshua Gomez|Adam Baldwin|Bonita Friedericy|Julia Ling|Vik Sahay|Ryan McPartlin|Scott Krinsky|Mark Christopher Lawrence|Sarah Lancaster|Mekenna Melvin|Linda Hamilton|Brandon Routh|Matthew Bomer|</Actors>
+    <Airs_DayOfWeek>Friday</Airs_DayOfWeek>
+    <Airs_Time>8:00 PM</Airs_Time>
+    <ContentRating>TV-PG</ContentRating>
+    <FirstAired>2007-09-24</FirstAired>
+    <Genre>|Action|Adventure|Comedy|Drama|</Genre>
+    <IMDB_ID>tt0934814</IMDB_ID>
+    <Language>en</Language>
+    <Network>NBC</Network>
+    <NetworkID></NetworkID>
+    <Overview>Chuck Bartowski, ace computer geek at Buy More, is not in his right mind. That's a good thing. Ever since he unwittingly downloaded stolen government secrets into his brain, action, excitement and a cool secret-agent girlfriend have entered his life. It's a bad thing, too. Because now Chuck is in danger 24/7.</Overview>
+    <Rating>8.7</Rating>
+    <RatingCount>855</RatingCount>
+    <Runtime>60</Runtime>
+    <SeriesID>68724</SeriesID>
+    <SeriesName>Chuck</SeriesName>
+    <Status>Ended</Status>
+    <added></added>
+    <addedBy></addedBy>
+    <banner>graphical/80348-g26.jpg</banner>
+    <fanart>fanart/original/80348-32.jpg</fanart>
+    <lastupdated>1388829637</lastupdated>
+    <poster>posters/80348-16.jpg</poster>
+    <zap2it_id>EP00930779</zap2it_id>
+  </Series>
+  <Episode>
+    <id>935481</id>
+    <Combined_episodenumber>1</Combined_episodenumber>
+    <Combined_season>0</Combined_season>
+    <DVD_chapter></DVD_chapter>
+    <DVD_discid></DVD_discid>
+    <DVD_episodenumber></DVD_episodenumber>
+    <DVD_season></DVD_season>
+    <Director>Robert Duncan McNeill</Director>
+    <EpImgFlag>2</EpImgFlag>
+    <EpisodeName>Chuck Versus the Third Dimension (2D)</EpisodeName>
+    <EpisodeNumber>1</EpisodeNumber>
+    <FirstAired>2009-02-03</FirstAired>
+    <GuestStars>|Dominic Monaghan|Jerome Bettis|</GuestStars>
+    <IMDB_ID></IMDB_ID>
+    <Language>en</Language>
+    <Overview>Chuck foils a plan to kill Tyler Martin, an international rock star. Chuck's night out with Tyler leads to trouble. Morgan holds a contest among his fellow employees. 2D version of the Episode originally aired in 3D</Overview>
+    <ProductionCode></ProductionCode>
+    <Rating>8.0</Rating>
+    <RatingCount>3</RatingCount>
+    <SeasonNumber>0</SeasonNumber>
+    <Writer>Chris Fedak|Josh Schwartz</Writer>
+    <absolute_number></absolute_number>
+    <airsafter_season></airsafter_season>
+    <airsbefore_episode>13</airsbefore_episode>
+    <airsbefore_season>2</airsbefore_season>
+    <filename>episodes/80348/935481.jpg</filename>
+    <lastupdated>1317585069</lastupdated>
+    <seasonid>27984</seasonid>
+    <seriesid>80348</seriesid>
+    <thumb_added></thumb_added>
+    <thumb_height>225</thumb_height>
+    <thumb_width>400</thumb_width>
+  </Episode>
+  <Episode>
+    <id>1534641</id>
+    <Combined_episodenumber>2</Combined_episodenumber>
+    <Combined_season>0</Combined_season>
+    <DVD_chapter></DVD_chapter>
+    <DVD_discid></DVD_discid>
+    <DVD_episodenumber></DVD_episodenumber>
+    <DVD_season></DVD_season>
+    <Director></Director>
+    <EpImgFlag>2</EpImgFlag>
+    <EpisodeName>Buy More #15: Employee Health</EpisodeName>
+    <EpisodeNumber>2</EpisodeNumber>
+    <FirstAired>2008-10-06</FirstAired>
+    <GuestStars></GuestStars>
+    <IMDB_ID></IMDB_ID>
+    <Language>en</Language>
+    <Overview>John Casey explains how to rid the Buy More of unwanted pests.</Overview>
+    <ProductionCode></ProductionCode>
+    <Rating>7.0</Rating>
+    <RatingCount>3</RatingCount>
+    <SeasonNumber>0</SeasonNumber>
+    <Writer></Writer>
+    <absolute_number></absolute_number>
+    <airsafter_season></airsafter_season>
+    <airsbefore_episode></airsbefore_episode>
+    <airsbefore_season></airsbefore_season>
+    <filename>episodes/80348/1534641.jpg</filename>
+    <lastupdated>1282959580</lastupdated>
+    <seasonid>27984</seasonid>
+    <seriesid>80348</seriesid>
+    <thumb_added></thumb_added>
+    <thumb_height>225</thumb_height>
+    <thumb_width>400</thumb_width>
+  </Episode>
+</Data>
