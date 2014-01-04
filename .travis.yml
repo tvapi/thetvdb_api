@@ -2,3 +2,4 @@ language: ruby
 script: 'bundle exec rspec spec/units && bundle exec rspec spec/functionals'
 rvm:
   - 2.0.0
+  - 2.1.0

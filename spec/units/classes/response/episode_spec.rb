@@ -7,7 +7,7 @@ describe ThetvdbApi::Response::Episode do
 
   describe '.xml_parse' do
     it 'should return correct data' do
-      model.stub(:multi_xml_parse).and_return({ 'Episode' => 'EPISODE DATA' })
+      model.stub(:multi_xml_parse).and_return({ 'Data' => { 'Episode' => 'EPISODE DATA' } })
 
       model.xml_parse.should == 'EPISODE DATA'
     end
