@@ -13,6 +13,13 @@ describe ThetvdbApi::Base do
 
       model.connection
     end
+
+    it 'should use adapter from configuration' do
+      ThetvdbApi::Configuration.stub(:adapter).and_return(:test)
+      ThetvdbApi::Configuration.should_receive(:adapter)
+
+      model.connection
+    end
   end
 
   describe '.get' do
