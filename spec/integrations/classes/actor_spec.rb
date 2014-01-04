@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'integrations/integration_spec_helper'
 
 describe ThetvdbApi::Actor do
   let(:model) { ThetvdbApi::Actor.new(ThetvdbApi::Client.new) }
