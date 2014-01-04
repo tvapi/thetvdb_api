@@ -16,4 +16,4 @@ test/tmp
 test/version_tmp
 tmp
 
-spec/integrations/support/configuration
+spec/integrations/support/configuration.rb
