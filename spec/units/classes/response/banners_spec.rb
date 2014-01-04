@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'units/unit_spec_helper'
 
 describe ThetvdbApi::Response::Banners do
   let(:klass) { ThetvdbApi::Response::Banners }

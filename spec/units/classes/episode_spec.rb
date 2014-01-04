@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'units/unit_spec_helper'
 
 describe ThetvdbApi::Episode do
   let(:klass) { ThetvdbApi::Episode }

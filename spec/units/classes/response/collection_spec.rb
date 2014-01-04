@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'units/unit_spec_helper'
 
 class ExampleResponseClass
   include ThetvdbApi::Response::Collection

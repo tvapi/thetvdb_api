@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'units/unit_spec_helper'
 
 class ExampleClass < ThetvdbApi::Base
 end

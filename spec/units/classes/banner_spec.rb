@@ -1,7 +1,7 @@
-require 'spec_helper'
+require 'units/unit_spec_helper'
 
-describe ThetvdbApi::Actor do
-  let(:klass) { ThetvdbApi::Actor }
+describe ThetvdbApi::Banner do
+  let(:klass) { ThetvdbApi::Banner }
   let(:model) { klass.new(ThetvdbApi::Client.new(api_key: '123456789')) }
 
   describe '.find' do
@@ -12,7 +12,7 @@ describe ThetvdbApi::Actor do
     end
 
     it 'should call response with specific arguments' do
-      model.should_receive(:response).with(ThetvdbApi::Response::Actors)
+      model.should_receive(:response).with(ThetvdbApi::Response::Banners)
 
       model.find('1234')
     end
