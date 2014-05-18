@@ -1,5 +1,5 @@
 language: ruby
-script: 'bundle exec rspec spec/units && bundle exec rspec spec/functionals && bundle exec rspec spec/units'
+script: 'bundle exec rspec spec/functionals'
 rvm:
   - 1.9.3
   - 2.0.0
