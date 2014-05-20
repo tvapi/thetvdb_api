@@ -1,4 +1,4 @@
-require 'functionals/functional_spec_helper'
+require 'spec_helper'
 
 describe ThetvdbApi::Series do
   let(:client) { ThetvdbApi::Client.new(api_key: '123456789', adapter: :test, adapter_options: faraday_stubs) }
@@ -16,21 +16,21 @@ describe ThetvdbApi::Series do
   
   describe '.find' do
     it 'should return Faraday::Response class' do
-      model.find(1234).class.should == Faraday::Response
+      model.find(series_id: 1234).class.should == Faraday::Response
     end
 
     it 'should return Hash class for body reponse' do
-      model.find(1234).body == Hash
+      model.find(series_id: 1234).body == Hash
     end
   end
 
   describe '.find_full' do
     it 'should return Faraday::Response class' do
-      model.find_full(1234).class.should == Faraday::Response
+      model.find_full(series_id: 1234).class.should == Faraday::Response
     end
 
     it 'should return Hash class for body reponse' do
-      model.find_full(1234).body == Hash
+      model.find_full(series_id: 1234).body == Hash
     end
   end
 end

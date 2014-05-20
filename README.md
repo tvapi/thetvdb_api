@@ -50,10 +50,10 @@ Search series by id
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.series.find('123', options = {})
-client.series.find_url('123', options = {}) # return only full url
-client.series.find_full('123', options = {})
-client.series.find_full_url('123', options = {}) # return only full url
+client.series.find(options = {})
+client.series.find_url(options = {}) # return only full url
+client.series.find_full(options = {})
+client.series.find_full_url(options = {}) # return only full url
 ```
 
 Return series actors

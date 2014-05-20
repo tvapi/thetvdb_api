@@ -1,26 +1,26 @@
 class ThetvdbApi::Series < ThetvdbApi::Base
-  def find(series_id, options = {})
-    find_path_with_params(series_id, options).get
+  def find(options = {})
+    find_path_with_params(options).get
   end
 
-  def find_url(series_id, options = {})
-    find_path_with_params(series_id, options).url
+  def find_url(options = {})
+    find_path_with_params(options).url
   end
 
-  def find_path_with_params(series_id, options)
-    path(find_path).params({ series_id: series_id, api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+  def find_path_with_params(options)
+    path(find_path).params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
   end
 
-  def find_full(series_id, options = {})
-    find_full_path_with_params(series_id, options).get
+  def find_full(options = {})
+    find_full_path_with_params(options).get
   end
 
-  def find_full_url(series_id, options = {})
-    find_full_path_with_params(series_id, options).url
+  def find_full_url(options = {})
+    find_full_path_with_params(options).url
   end
 
-  def find_full_path_with_params(series_id, options)
-    path(find_full_path).params({ series_id: series_id, api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+  def find_full_path_with_params(options)
+    path(find_full_path).params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
   end
 
   private
