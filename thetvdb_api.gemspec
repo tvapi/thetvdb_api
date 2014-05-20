@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'faraday', '~> 0.9.0'
-  spec.add_runtime_dependency 'uri_template', '~> 0.6.0'
+  spec.add_runtime_dependency 'uri_template', '~> 0.7.0'
   spec.add_runtime_dependency 'multi_xml', '~> 0.5.5'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
