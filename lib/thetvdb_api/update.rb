@@ -8,7 +8,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def day_path_with_params
-    path(day_path).params({ api_key: @client.options[:api_key] })
+    path(day_path).params(api_key_options)
   end
 
   def week
@@ -20,7 +20,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def week_path_with_params
-    path(week_path).params({ api_key: @client.options[:api_key] })
+    path(week_path).params(api_key_options)
   end
 
   def month
@@ -32,7 +32,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def month_path_with_params
-    path(month_path).params({ api_key: @client.options[:api_key] })
+    path(month_path).params(api_key_options)
   end
 
   def all
@@ -44,7 +44,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def all_path_with_params
-    path(all_path).params({ api_key: @client.options[:api_key] })
+    path(all_path).params(api_key_options)
   end
 
   private

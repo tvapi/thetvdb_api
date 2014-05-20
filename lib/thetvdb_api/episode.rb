@@ -24,8 +24,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_absolute_order_path_with_params(options)
-    path(find_by_absolute_order_path).
-      params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+    path(find_by_absolute_order_path).params(api_key_with_language_options.merge(options))
   end
 
   def find(options = {})
@@ -37,7 +36,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_path_with_params(options)
-    path(find_path).params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+    path(find_path).params(api_key_with_language_options.merge(options))
   end
 
   def find_by_order(options)
@@ -49,8 +48,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_order_path_with_params(options)
-    path(find_by_order_path).
-      params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+    path(find_by_order_path).params(api_key_with_language_options.merge(options))
   end
 
   private

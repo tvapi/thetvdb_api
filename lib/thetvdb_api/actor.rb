@@ -8,7 +8,7 @@ class ThetvdbApi::Actor < ThetvdbApi::Base
   end
 
   def find_path_with_params(options)
-    path(find_path).params({ api_key: @client.options[:api_key] }.merge(options))
+    path(find_path).params(api_key_options.merge(options))
   end
 
   private

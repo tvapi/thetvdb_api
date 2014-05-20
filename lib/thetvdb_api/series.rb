@@ -8,7 +8,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   end
 
   def find_path_with_params(options)
-    path(find_path).params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+    path(find_path).params(api_key_with_language_options.merge(options))
   end
 
   def find_full(options = {})
@@ -20,7 +20,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   end
 
   def find_full_path_with_params(options)
-    path(find_full_path).params({ api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
+    path(find_full_path).params(api_key_with_language_options.merge(options))
   end
 
   private

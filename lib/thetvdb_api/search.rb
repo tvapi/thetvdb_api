@@ -20,7 +20,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_series_by_remote_id_path_with_params(options)
-    path(get_series_by_remote_id_path).params({ language: @client.options[:language] }.merge(options))
+    path(get_series_by_remote_id_path).params(language_options.merge(options))
   end
 
   def get_episode(options = {})
@@ -32,7 +32,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_episode_path_with_params(options)
-    path(get_episode_path).params({ language: @client.options[:language] }.merge(options))
+    path(get_episode_path).params(language_options.merge(options))
   end
 
   private
