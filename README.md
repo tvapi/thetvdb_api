@@ -90,14 +90,14 @@ Get updates
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.update.day(options = {})
-client.update.day_url(options = {}) # return only full url
-client.update.week(options = {})
-client.update.week_url(options = {}) # return only full url
-client.update.month(options = {})
-client.update.month_url(options = {}) # return only full url
-client.update.all(options = {})
-client.update.all_url(options = {}) # return only full url
+client.update.day
+client.update.day_url # return only full url
+client.update.week
+client.update.week_url # return only full url
+client.update.month
+client.update.month_url # return only full url
+client.update.all
+client.update.all_url # return only full url
 ```
 
 ThetvdbApi default return response class with pure xml (in body method) string fetched by Faraday. You can pass
