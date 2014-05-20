@@ -62,8 +62,8 @@ Return series actors
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.actor.all(series_id, options = {})
-client.actor.all_url(series_id, options = {}) # return only full url
+client.actor.all(options = {})
+client.actor.all_url(options = {}) # return only full url
 ```
 
 Return series banners
