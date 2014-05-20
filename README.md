@@ -70,8 +70,8 @@ Return series banners
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.banner.all(series_id, options = {})
-client.banner.all_url(series_id, options = {}) # return only full url
+client.banner.all(options = {})
+client.banner.all_url(options = {}) # return only full url
 ```
 
 Return series episode
