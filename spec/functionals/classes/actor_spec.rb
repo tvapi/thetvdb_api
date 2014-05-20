@@ -3,7 +3,8 @@ require 'functionals/functional_spec_helper'
 describe ThetvdbApi::Actor do
   include StubFaraday
 
-  let(:model) { ThetvdbApi::Actor.new(ThetvdbApi::Client.new) }
+  let(:client) { ThetvdbApi::Client.new(api_key: '123456789', adapter: :test) }
+  let(:model) { client.actor }
 
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|

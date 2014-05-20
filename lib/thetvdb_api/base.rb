@@ -10,7 +10,7 @@ class ThetvdbApi::Base
 
   def connection
     @connection ||= Faraday.new(url: base_url) do |builder|
-      builder.adapter ThetvdbApi::Configuration.adapter
+      builder.adapter @client.adapter
     end
   end
 
@@ -32,7 +32,7 @@ class ThetvdbApi::Base
 
   def prepare_uri
     assert_uri_template
-    @uri_template.expand(@params.merge(api_key: api_key))
+    @uri_template.expand(@params.merge(api_key: @client.api_key))
   end
 
   def url
@@ -53,14 +53,6 @@ class ThetvdbApi::Base
 
   def series_uri
     '{api_key}/series/{series_id}'
-  end
-
-  def language
-    @client.language
-  end
-
-  def api_key
-    @client.api_key
   end
 
   private

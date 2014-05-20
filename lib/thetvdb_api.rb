@@ -3,7 +3,6 @@ module ThetvdbApi
 end
 
 require 'thetvdb_api/version'
-require 'thetvdb_api/configuration'
 require 'thetvdb_api/response'
 require 'thetvdb_api/response/collection'
 require 'thetvdb_api/response/search_multiple_episode'

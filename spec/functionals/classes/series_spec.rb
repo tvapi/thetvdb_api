@@ -3,7 +3,8 @@ require 'functionals/functional_spec_helper'
 describe ThetvdbApi::Series do
   include StubFaraday
 
-  let(:model) { ThetvdbApi::Series.new(ThetvdbApi::Client.new) }
+  let(:client) { ThetvdbApi::Client.new(api_key: '123456789', adapter: :test) }
+  let(:model) { client.series }
 
   let(:series_data) { File.read('spec/fixtures/series.xml') }
   let(:full_series_data) { File.read('spec/fixtures/full_series.xml') }

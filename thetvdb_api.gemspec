@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'confiture', '~> 0.1.4'
   spec.add_runtime_dependency 'faraday', '~> 0.9.0'
   spec.add_runtime_dependency 'uri_template', '~> 0.6.0'
   spec.add_runtime_dependency 'multi_xml', '~> 0.5.5'

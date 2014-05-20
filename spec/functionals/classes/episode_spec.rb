@@ -3,7 +3,8 @@ require 'functionals/functional_spec_helper'
 describe ThetvdbApi::Episode do
   include StubFaraday
 
-  let(:model) { ThetvdbApi::Episode.new(ThetvdbApi::Client.new) }
+  let(:client) { ThetvdbApi::Client.new(api_key: '123456789', adapter: :test) }
+  let(:model) { client.episode }
 
   let(:episode_data) { File.read('spec/fixtures/episode.xml') }
 
