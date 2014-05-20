@@ -38,14 +38,12 @@ Search series by name
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.search.get_series('buffy', options = {})
-client.search.get_series_url('buffy', options = {}) # return only full url
-client.search.get_series_by_imdb_id(id, options = {})
-client.search.get_series_by_imdb_id_url(id, options = {}) # return only full url
-client.search.get_series_by_zap2it_id(id)
-client.search.get_series_by_zap2it_id_url(id, options = {}) # return only full url
-client.search.get_episode('123', air_date, options = {})
-client.search.get_episode_url('123', air_date, options = {}) # return only full url
+client.search.get_series(options = {})
+client.search.get_series_url(options = {}) # return only full url
+client.search.get_series_by_remote_id(options = {})
+client.search.get_series_by_remote_id_url(options = {}) # return only full url
+client.search.get_episode(options = {})
+client.search.get_episode_url(options = {}) # return only full url
 ```
 
 Search series by id
