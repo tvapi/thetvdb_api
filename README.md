@@ -78,14 +78,14 @@ Return series episode
 
 ```ruby
 client = ThetvdbApi::Client.new
-client.episode.find_by_default_order(series_id, season, episode, options = {})
-client.episode.find_by_default_order_url(series_id, season, episode, options = {}) # return only full url
-client.episode.find_by_dvd_order(series_id, season, episode, options = {})
-client.episode.find_by_dvd_order_url(series_id, season, episode, options = {}) # return only full url
-client.episode.find_by_absolute_order(series_id, absolute, options = {})
-client.episode.find_by_absolute_order_url(series_id, absolute, options = {}) # return only full url
-client.episode.find(episode_id, options = {})
-client.episode.find_url(episode_id, options = {}) # return only full url
+client.episode.find_by_default_order(options = {})
+client.episode.find_by_default_order_url(options = {}) # return only full url
+client.episode.find_by_dvd_order(options = {})
+client.episode.find_by_dvd_order_url(options = {}) # return only full url
+client.episode.find_by_absolute_order(options = {})
+client.episode.find_by_absolute_order_url(options = {}) # return only full url
+client.episode.find(options = {})
+client.episode.find_url(options = {}) # return only full url
 ```
 
 Get updates
