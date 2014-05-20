@@ -1,14 +1,14 @@
 class ThetvdbApi::Banner < ThetvdbApi::Base
   def find(series_id, options = {})
-    find_get_with_params(series_id, options).response(ThetvdbApi::Response::Banners)
+    find_path_with_params(series_id, options).get
   end
 
   def find_url(series_id)
-    find_get_with_params(series_id).url
+    find_path_with_params(series_id).url
   end
 
-  def find_get_with_params(series_id, options = {})
-    get(find_path).params({ series_id: series_id }.merge(options))
+  def find_path_with_params(series_id, options = {})
+    path(find_path).params({ series_id: series_id, api_key: @client.options[:api_key] }.merge(options))
   end
 
   private

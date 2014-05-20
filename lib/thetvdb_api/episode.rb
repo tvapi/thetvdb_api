@@ -16,40 +16,41 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_absolute_order(series_id, absolute, options = {})
-    find_by_absolute_order_get_with_params(series_id, absolute, options).response(ThetvdbApi::Response::Episode)
+    find_by_absolute_order_path_with_params(series_id, absolute, options).get
   end
 
   def find_by_absolute_order_url(series_id, absolute, options = {})
-    find_by_absolute_order_get_with_params(series_id, absolute, options).url
+    find_by_absolute_order_path_with_params(series_id, absolute, options).url
   end
 
-  def find_by_absolute_order_get_with_params(series_id, absolute, options)
-    get(find_by_absolute_order_path).params({ series_id: series_id, absolute: absolute }.merge(options))
+  def find_by_absolute_order_path_with_params(series_id, absolute, options)
+    path(find_by_absolute_order_path).
+      params({ series_id: series_id, absolute: absolute, api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
   end
 
   def find(episode_id, options = {})
-    find_get_with_params(episode_id, options).response(ThetvdbApi::Response::Episode)
+    find_path_with_params(episode_id, options).get
   end
 
   def find_url(episode_id, options = {})
-    find_get_with_params(episode_id, options).url
+    find_path_with_params(episode_id, options).url
   end
 
-  def find_get_with_params(episode_id, options)
-    get(find_path).params({ episode_id: episode_id }.merge(options))
+  def find_path_with_params(episode_id, options)
+    path(find_path).params({ episode_id: episode_id, api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
   end
 
   def find_by_order(order, series_id, season, episode, options)
-    find_by_order_get_with_params(order, series_id, season, episode, options).response(ThetvdbApi::Response::Episode)
+    find_by_order_path_with_params(order, series_id, season, episode, options).get
   end
 
   def find_by_order_url(order, series_id, season, episode, options)
-    find_by_order_get_with_params(order, series_id, season, episode, options).url
+    find_by_order_path_with_params(order, series_id, season, episode, options).url
   end
 
-  def find_by_order_get_with_params(order, series_id, season, episode, options)
-    get(find_by_order_path).
-      params({ series_id: series_id, season: season, episode: episode, order: order }.merge(options))
+  def find_by_order_path_with_params(order, series_id, season, episode, options)
+    path(find_by_order_path).
+      params({ series_id: series_id, season: season, episode: episode, order: order, api_key: @client.options[:api_key], language: @client.options[:language] }.merge(options))
   end
 
   private

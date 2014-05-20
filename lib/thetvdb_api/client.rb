@@ -1,10 +1,11 @@
 class ThetvdbApi::Client
-  attr_reader :adapter, :api_key, :language
+  attr_reader :options
 
   def initialize(options = {})
-    @adapter = options[:adapter] || :net_http
-    @api_key = options[:api_key]
-    @language = options[:language] || 'en'
+    @options = options
+
+    @options[:adapter] ||= :net_http
+    @options[:language] ||= 'en'
   end
 
   def search

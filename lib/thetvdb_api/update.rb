@@ -1,50 +1,50 @@
 class ThetvdbApi::Update < ThetvdbApi::Base
   def day(options = {})
-    day_get_with_params(options).response(ThetvdbApi::Response::Update)
+    day_path_with_params(options).get
   end
 
   def day_url
-    day_get_with_params.url
+    day_path_with_params.url
   end
 
-  def day_get_with_params(options = {})
-    get(day_path).params(options)
+  def day_path_with_params(options = {})
+    path(day_path).params(options.merge(api_key: @client.options[:api_key]))
   end
 
   def week(options = {})
-    week_get_with_params(options).response(ThetvdbApi::Response::Update)
+    week_path_with_params(options).get
   end
 
   def week_url
-    week_get_with_params.url
+    week_path_with_params.url
   end
 
-  def week_get_with_params(options = {})
-    get(week_path).params(options)
+  def week_path_with_params(options = {})
+    path(week_path).params(options.merge(api_key: @client.options[:api_key]))
   end
 
   def month(options = {})
-    month_get_with_params(options).response(ThetvdbApi::Response::Update)
+    month_path_with_params(options).get
   end
 
   def month_url
-    month_get_with_params.url
+    month_path_with_params.url
   end
 
-  def month_get_with_params(options = {})
-    get(month_path).params(options)
+  def month_path_with_params(options = {})
+    path(month_path).params(options.merge(api_key: @client.options[:api_key]))
   end
 
   def all(options = {})
-    all_get_with_params(options).response(ThetvdbApi::Response::Update)
+    all_path_with_params(options).get
   end
 
   def all_url
-    all_get_with_params.url
+    all_path_with_params.url
   end
 
-  def all_get_with_params(options = {})
-    get(all_path).params(options)
+  def all_path_with_params(options = {})
+    path(all_path).params(options.merge(api_key: @client.options[:api_key]))
   end
 
   private
