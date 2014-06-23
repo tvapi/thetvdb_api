@@ -18,14 +18,6 @@ gem 'thetvdb_api'
 
 Run the bundle command to install it.
 
-After you install ThetvdbApi and add it to your Gemfile, you need to run the generator (if you use Ruby on Rails application):
-
-```console
-rails generate thetvdb_api:install
-```
-
-The generator will install an initializer where you must past your api_key, and can past: language (2 letters abbrevation).
-
 ## How to use
 
 There is one entry point, in initialize you can past hash with api_key and language values, or leave empty:
@@ -99,17 +91,6 @@ client.update.month_url # return only full url
 client.update.all
 client.update.all_url # return only full url
 ```
-
-ThetvdbApi default return response class with pure xml (in body method) string fetched by Faraday. You can pass
-
-```ruby
-mapping: true
-```
-
-options, and ThetvdbApi will return hash/array objects.
-
-ThetvdbApi give you chance to write own mapper where mapping preformance could be better.
-
 ## Contributing
 
 1. Fork it
