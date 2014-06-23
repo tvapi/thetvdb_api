@@ -23,10 +23,6 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
     find_by_absolute_order_path_with_params(options).url
   end
 
-  def find_by_absolute_order_path_with_params(options)
-    path(find_by_absolute_order_path).params(api_key_with_language_options.merge(options))
-  end
-
   def find(options = {})
     find_path_with_params(options).get
   end
@@ -35,9 +31,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
     find_path_with_params(options).url
   end
 
-  def find_path_with_params(options)
-    path(find_path).params(api_key_with_language_options.merge(options))
-  end
+  private
 
   def find_by_order(options)
     find_by_order_path_with_params(options).get
@@ -51,17 +45,23 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
     path(find_by_order_path).params(api_key_with_language_options.merge(options))
   end
 
-  private
+  def find_by_order_path
+    ':api_key/series/:series_id/:order/:season/:episode/:language.xml'
+  end
+
+  def find_by_absolute_order_path_with_params(options)
+    path(find_by_absolute_order_path).params(api_key_with_language_options.merge(options))
+  end
 
   def find_by_absolute_order_path
-    "#{series_uri}/absolute/{absolute}/{language}.xml"
+    ':api_key/series/:series_id/absolute/:absolute/:language.xml'
+  end
+
+  def find_path_with_params(options)
+    path(find_path).params(api_key_with_language_options.merge(options))
   end
 
   def find_path
-    '{api_key}/episodes/{episode_id}/{language}.xml'
-  end
-
-  def find_by_order_path
-    "#{series_uri}/{order}/{season}/{episode}/{language}.xml"
+    ':api_key/episodes/:episode_id/:language.xml'
   end
 end

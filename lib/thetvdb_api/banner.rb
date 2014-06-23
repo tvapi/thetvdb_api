@@ -7,13 +7,13 @@ class ThetvdbApi::Banner < ThetvdbApi::Base
     find_path_with_params(options).url
   end
 
-  def find_path_with_params(options = {})
+  private
+
+  def find_path_with_params(options)
     path(find_path).params(api_key_options.merge(options))
   end
 
-  private
-
   def find_path
-    "#{series_uri}/banners.xml"
+    ':api_key/series/:series_id/banners.xml'
   end
 end

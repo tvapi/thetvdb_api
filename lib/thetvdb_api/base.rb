@@ -17,11 +17,11 @@ class ThetvdbApi::Base
     api_key_options.merge(language_options)
   end
 
-  def series_uri
-    '{api_key}/series/{series_id}'
-  end
-
   private
+
+  def uri_kind
+    :colon
+  end
 
   def base_url
     'http://thetvdb.com/api/'
