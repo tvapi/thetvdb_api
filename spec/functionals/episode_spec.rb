@@ -25,6 +25,13 @@ describe ThetvdbApi::Episode do
     end
   end
 
+  describe '.find_by_default_order_url' do
+    it 'should return correct url' do
+      model.find_by_default_order_url(series_id: 1234, season: 1, episode: 1).
+        should == 'http://thetvdb.com/api/123456789/series/1234/default/1/1/en.xml'
+    end
+  end
+
   describe '.find_by_dvd_order' do
     it 'should return Faraday::Response class' do
       model.find_by_dvd_order(series_id: 1234, season: 1, episode: 1).class.should == Faraday::Response
@@ -32,6 +39,13 @@ describe ThetvdbApi::Episode do
 
     it 'should return Hash class for body reponse' do
       model.find_by_dvd_order(series_id: 1234, season: 1, episode: 1).body == Hash
+    end
+  end
+
+  describe '.find_by_dvd_order_url' do
+    it 'should return correct url' do
+      model.find_by_dvd_order_url(series_id: 1234, season: 1, episode: 1).
+        should == 'http://thetvdb.com/api/123456789/series/1234/dvd/1/1/en.xml'
     end
   end
 
@@ -45,6 +59,13 @@ describe ThetvdbApi::Episode do
     end
   end
 
+  describe '.find_by_absolute_order_url' do
+    it 'should return correct url' do
+      model.find_by_absolute_order_url(series_id: 1234, absolute: 1).
+        should == 'http://thetvdb.com/api/123456789/series/1234/absolute/1/en.xml'
+    end
+  end
+
   describe '.find' do
     it 'should return Faraday::Response class' do
       model.find(episode_id: 1234).class.should == Faraday::Response
@@ -52,6 +73,13 @@ describe ThetvdbApi::Episode do
 
     it 'should return Hash class for body reponse' do
       model.find(episode_id: 1234).body == Hash
+    end
+  end
+
+  describe '.find_url' do
+    it 'should return correct url' do
+      model.find_url(episode_id: 1234).
+        should == 'http://thetvdb.com/api/123456789/episodes/1234/en.xml'
     end
   end
 end

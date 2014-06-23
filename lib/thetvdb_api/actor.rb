@@ -14,6 +14,6 @@ class ThetvdbApi::Actor < ThetvdbApi::Base
   end
 
   def find_path
-    ':api_key/series/:series_id/actors.xml'
+    ':apikey/series/:series_id/actors.xml'
   end
 end

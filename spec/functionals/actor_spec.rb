@@ -21,4 +21,10 @@ describe ThetvdbApi::Actor do
       model.find(series_id: 1234).body == Hash
     end
   end
+
+  describe '.find_url' do
+    it 'should return correct url' do
+      model.find_url(series_id: 1234).should == 'http://thetvdb.com/api/123456789/series/1234/actors.xml'
+    end
+  end
 end

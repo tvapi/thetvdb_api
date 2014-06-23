@@ -46,7 +46,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_order_path
-    ':api_key/series/:series_id/:order/:season/:episode/:language.xml'
+    ':apikey/series/:series_id/:order/:season/:episode/:language.xml'
   end
 
   def find_by_absolute_order_path_with_params(options)
@@ -54,7 +54,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_by_absolute_order_path
-    ':api_key/series/:series_id/absolute/:absolute/:language.xml'
+    ':apikey/series/:series_id/absolute/:absolute/:language.xml'
   end
 
   def find_path_with_params(options)
@@ -62,6 +62,6 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   def find_path
-    ':api_key/episodes/:episode_id/:language.xml'
+    ':apikey/episodes/:episode_id/:language.xml'
   end
 end

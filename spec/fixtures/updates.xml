@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data time="1203923101">
+  <Series>
+    <id>71969</id>
+    <time>1203848965</time>
+  </Series>
+  <Series>
+    <id>73141</id>
+    <time>1203882947</time>
+  </Series>
+  <Episode>
+    <id>326268</id>
+    <time>1203848662</time>
+  </Episode>
+  <Episode>
+    <id>326267</id>
+    <time>1203848597</time>
+  </Episode>
+  <Banner>
+    <SeasonNum>1</SeasonNum>
+    <Series>81325</Series>
+    <format>graphical</format>
+    <language>en</language>
+    <path>graphical/81325-g3.jpg</path>
+    <type>series</type>
+  </Banner>
+  <Banner>
+    <SeasonNum>1</SeasonNum>
+    <Series>79302</Series>
+    <format>standard</format>
+    <language>en</language>
+    <path>seasons/79302-1.jpg</path>
+    <type>season</type>
+  </Banner>
+</Data>

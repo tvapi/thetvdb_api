@@ -42,7 +42,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_episode_path_with_params(options)
-    path(get_episode_path).params(language_options.merge(options))
+    path(get_episode_path).params(api_key_with_language_options.merge(options))
   end
 
   def get_episode_path

@@ -14,6 +14,6 @@ class ThetvdbApi::Banner < ThetvdbApi::Base
   end
 
   def find_path
-    ':api_key/series/:series_id/banners.xml'
+    ':apikey/series/:series_id/banners.xml'
   end
 end

@@ -22,7 +22,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   end
 
   def find_path
-    ':api_key/series/:series_id/:language.xml'
+    ':apikey/series/:series_id/:language.xml'
   end
 
   def find_full_path_with_params(options)
@@ -30,6 +30,6 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   end
 
   def find_full_path
-    ':api_key/series/:series_id/all/:language.xml'
+    ':apikey/series/:series_id/all/:language.xml'
   end
 end

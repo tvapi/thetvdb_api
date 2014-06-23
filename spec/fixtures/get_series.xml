@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+  <Series>
+    <seriesid>78901</seriesid>
+    <language>en</language>
+    <SeriesName>Supernatural</SeriesName>
+    <banner>graphical/78901-g4.jpg</banner>
+    <Overview>Dean and Sam Winchester are two brothers with a special talent. Well-versed...</Overview>
+    <FirstAired>2005-09-13</FirstAired>
+    <IMDB_ID>tt0460681</IMDB_ID>
+    <zap2it_id>EP00754231</zap2it_id>
+    <id>78901</id>
+  </Series>
+  <Series>
+    <seriesid>79426</seriesid>
+    <language>en</language>
+    <SeriesName>Supernatural Science</SeriesName>
+    <banner>graphical/z79426-g.jpg</banner>
+    <Overview>Even hardheaded skeptics have to concede that there’s something inherently...</Overview>
+    <FirstAired>2006-11-09</FirstAired>
+    <zap2it_id>EP00359360</zap2it_id>
+    <id>79426</id>
+  </Series>
+</Data>

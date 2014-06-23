@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+  <Episode>
+    <id>332179</id>
+    <Combined_episodenumber>1</Combined_episodenumber>
+    <Combined_season>1</Combined_season>
+    <DVD_chapter />
+    <DVD_discid />
+    <DVD_episodenumber />
+    <DVD_Season />
+    <Director>McG</Director>
+    <EpImgFlag />
+    <EpisodeName>Pilot</EpisodeName>
+    <EpisodeNumber>1</EpisodeNumber>
+    <FirstAired>2007-09-24</FirstAired>
+    <GuestStars>Mieko Hillman|Kristine Blackport|Jim Pirri|Diana Gitelman|Mel Fair|Lynn A. Henderson|Odessa Rae|Jordan Potter|Tasha Campbell|Dale Dye|Matthew Bomer|Bruno Amato|Nicolas Pajon|Wendy Makkena</GuestStars>
+    <IMDB_ID />
+    <language>en</language>
+    <Overview>Chuck Bartowski is an average computer geek until files upon files of government secrets are downloaded into his brain. He is soon scouted by the CIA and NSA to act in place of their computer.</Overview>
+    <ProductionCode />
+    <Rating />
+    <SeasonNumber>1</SeasonNumber>
+    <Writer>Josh Schwartz|Chris Fedak</Writer>
+    <absolute_number />
+    <filename>episodes/80348-332179.jpg</filename>
+    <lastupdated>1209586232</lastupdated>
+    <seasonid>27985</seasonid>
+    <seriesid>80348</seriesid>
+  </Episode>
+</Data>

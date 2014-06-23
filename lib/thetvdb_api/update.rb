@@ -38,7 +38,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def day_path
-    ':api_key/updates/updates_day.xml'
+    ':apikey/updates/updates_day.xml'
   end
 
   def week_path_with_params
@@ -46,7 +46,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def week_path
-    ':api_key/updates/updates_week.xml'
+    ':apikey/updates/updates_week.xml'
   end
 
   def month_path_with_params
@@ -54,7 +54,7 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def month_path
-    ':api_key/updates/updates_month.xml'
+    ':apikey/updates/updates_month.xml'
   end
 
   def all_path_with_params
@@ -62,6 +62,6 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   end
 
   def all_path
-    ':api_key/updates/updates_all.xml'
+    ':apikey/updates/updates_all.xml'
   end
 end
