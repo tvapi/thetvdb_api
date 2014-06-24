@@ -1,5 +1,3 @@
-require 'faraday'
-require 'uri_template'
 require 'service_api'
 
 class ThetvdbApi::Base
