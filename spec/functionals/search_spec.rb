@@ -10,62 +10,65 @@ describe ThetvdbApi::Search do
 
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/api/GetSeries.php?seriesname=Supernatural') { [200, {}, get_series_data] }
-      stub.get('/api/GetSeriesByRemoteID.php?imdbid=tt0290978') { [200, {}, get_series_by_remote_data] }
+      stub.get('/api/GetSeries.php?seriesname=Supernatural') { [200, { content_type: 'xml' }, get_series_data] }
+      stub.get('/api/GetSeriesByRemoteID.php?imdbid=tt0290978') { [200, { content_type: 'xml' }, get_series_by_remote_data] }
       stub.get('/api/GetEpisodeByAirDate.php?airdate=2007-09-24&apikey=123456789&language=en&seriesid=80348') do
-        [200, {}, get_episode_data]
+        [200, { content_type: 'xml' }, get_episode_data]
       end
     end
   end
   
   describe '.get_series' do
     it 'should return Faraday::Response class' do
-      model.get_series(seriesname: 'Supernatural').class.should == Faraday::Response
+      expect(model.get_series(seriesname: 'Supernatural')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.get_series(seriesname: 'Supernatural').body == Hash
+      expect(model.get_series(seriesname: 'Supernatural').body).to be_a(Hash)
     end
   end
 
   describe '.get_series_url' do
     it 'should return correct url' do
-      model.get_series_url(seriesname: 'Supernatural').
-        should == 'http://thetvdb.com/api/GetSeries.php?language=en&seriesname=Supernatural'
+      expect(
+        model.get_series_url(seriesname: 'Supernatural')
+      ).to eq('http://thetvdb.com/api/GetSeries.php?language=en&seriesname=Supernatural')
     end
   end
 
   describe '.get_series_by_remote_id' do
     it 'should return Faraday::Response class' do
-      model.get_series_by_remote_id(imdbid: 'tt0290978').class.should == Faraday::Response
+      expect(model.get_series_by_remote_id(imdbid: 'tt0290978')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.get_series_by_remote_id(imdbid: 'tt0290978').body == Hash
+      expect(model.get_series_by_remote_id(imdbid: 'tt0290978').body).to be_a(Hash)
     end
   end
 
   describe '.get_series_by_remote_id_url' do
     it 'should return correct url' do
-      model.get_series_by_remote_id_url(imdbid: 'tt0290978').
-        should == 'http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&imdbid=tt0290978'
+      expect(
+        model.get_series_by_remote_id_url(imdbid: 'tt0290978')
+      ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&imdbid=tt0290978')
     end
   end
 
   describe '.get_episode' do
     it 'should return Faraday::Response class' do
-      model.get_episode(seriesid: 80348, airdate: '2007-09-24').class.should == Faraday::Response
+      expect(model.get_episode(seriesid: 80348, airdate: '2007-09-24')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.get_episode(seriesid: 80348, airdate: '2007-09-24').body == Hash
+      expect(model.get_episode(seriesid: 80348, airdate: '2007-09-24').body).to be_a(Hash)
     end
   end
 
   describe '.get_episode_url' do
     it 'should return correct url' do
-      model.get_episode_url(seriesid: 80348, airdate: '2007-09-24').
-        should == 'http://thetvdb.com/api/GetEpisodeByAirDate.php?apikey=123456789&language=en&seriesid=80348&airdate=2007-09-24'
+      expect(
+        model.get_episode_url(seriesid: 80348, airdate: '2007-09-24')
+      ).to eq('http://thetvdb.com/api/GetEpisodeByAirDate.php?apikey=123456789&language=en&seriesid=80348&airdate=2007-09-24')
     end
   end
 end

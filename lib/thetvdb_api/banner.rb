@@ -4,7 +4,7 @@ class ThetvdbApi::Banner < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   series_id: TV series name
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:banners.xml)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:banners.xml)
   def find(options = {})
     find_path_with_params(options).get
   end

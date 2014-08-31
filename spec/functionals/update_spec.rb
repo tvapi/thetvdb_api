@@ -17,65 +17,65 @@ describe ThetvdbApi::Update do
 
   describe '.day' do
     it 'should return Faraday::Response class' do
-      model.day.class.should == Faraday::Response
+      expect(model.day).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.day.body == Hash
+      expect(model.day.body).to be_a(Hash)
     end
   end
 
   describe '.day_url' do
     it 'should return correct url' do
-      model.day_url.should == 'http://thetvdb.com/api/123456789/updates/updates_day.xml'
+      expect(model.day_url).to eq('http://thetvdb.com/api/123456789/updates/updates_day.xml')
     end
   end
 
   describe '.week' do
     it 'should return Faraday::Response class' do
-      model.week.class.should == Faraday::Response
+      expect(model.week).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.week.body == Hash
+      expect(model.week.body).to be_a(Hash)
     end
   end
 
   describe '.week_url' do
     it 'should return correct url' do
-      model.week_url.should == 'http://thetvdb.com/api/123456789/updates/updates_week.xml'
+      expect(model.week_url).to eq('http://thetvdb.com/api/123456789/updates/updates_week.xml')
     end
   end
 
   describe '.month' do
     it 'should return Faraday::Response class' do
-      model.month.class.should == Faraday::Response
+      expect(model.month).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.month.body == Hash
+      expect(model.month.body).to be_a(Hash)
     end
   end
 
   describe '.month_url' do
     it 'should return correct url' do
-      model.month_url.should == 'http://thetvdb.com/api/123456789/updates/updates_month.xml'
+      expect(model.month_url).to eq('http://thetvdb.com/api/123456789/updates/updates_month.xml')
     end
   end
 
   describe '.all' do
     it 'should return Faraday::Response class' do
-      model.all.class.should == Faraday::Response
+      expect(model.all).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.all.body == Hash
+      expect(model.all.body).to be_a(Hash)
     end
   end
 
   describe '.all_url' do
     it 'should return correct url' do
-      model.all_url.should == 'http://thetvdb.com/api/123456789/updates/updates_all.xml'
+      expect(model.all_url).to eq('http://thetvdb.com/api/123456789/updates/updates_all.xml')
     end
   end
 end

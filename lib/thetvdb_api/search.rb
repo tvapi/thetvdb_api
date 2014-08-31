@@ -4,7 +4,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   seriesname: TV series name
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:GetSeries)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:GetSeries)
   def get_series(options = {})
     get_series_path_with_params(options).get
   end
@@ -25,7 +25,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # param: options hash
   #   imdbid: IMDb ID (don't use with zap2itid)
   #   zap2itid: Zap2it ID (don't use with imdbid)
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID)
   def get_series_by_remote_id(options = {})
     get_series_by_remote_id_path_with_params(options).get
   end
@@ -49,7 +49,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   seriesid: This is the seriesid for the series you want to use for finding episodes.
   #   airdate: This is the date the episode aired on you are trying to lookup. This can be supplied in any valid date
   #            type. Example: 2008-01-01, 2008-1-1, January 1, 2008, 1/1/2008, etc
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate)
   def get_episode(options = {})
     get_episode_path_with_params(options).get
   end

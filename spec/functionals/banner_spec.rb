@@ -14,17 +14,17 @@ describe ThetvdbApi::Banner do
   
   describe '.find' do
     it 'should return Faraday::Response class' do
-      model.find(series_id: 1234).class.should == Faraday::Response
+      expect(model.find(series_id: 1234)).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.find(series_id: 1234).body == Hash
+      expect(model.find(series_id: 1234).body).to be_a(Hash)
     end
   end
 
   describe '.find_url' do
     it 'should return correct url' do
-      model.find_url(series_id: 1234).should == 'http://thetvdb.com/api/123456789/series/1234/banners.xml'
+      expect(model.find_url(series_id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/banners.xml')
     end
   end
 end

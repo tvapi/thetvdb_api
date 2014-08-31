@@ -4,7 +4,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   series_id: TV series ID
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Series_Record)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Series_Record)
   def find(options = {})
     find_path_with_params(options).get
   end
@@ -24,7 +24,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   series_id: TV series ID
-  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Full_Series_Record)
+  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Full_Series_Record)
   def find_full(options = {})
     find_full_path_with_params(options).get
   end

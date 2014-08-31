@@ -9,40 +9,40 @@ describe ThetvdbApi::Series do
 
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/api/123456789/series/1234/en.xml') { [200, {}, series_data] }
-      stub.get('/api/123456789/series/1234/all/en.xml') { [200, {}, full_series_data] }
+      stub.get('/api/123456789/series/1234/en.xml') { [200, { content_type: 'xml' }, series_data] }
+      stub.get('/api/123456789/series/1234/all/en.xml') { [200, { content_type: 'xml' }, full_series_data] }
     end
   end
   
   describe '.find' do
     it 'should return Faraday::Response class' do
-      model.find(series_id: 1234).class.should == Faraday::Response
+      expect(model.find(series_id: 1234)).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.find(series_id: 1234).body == Hash
+      expect(model.find(series_id: 1234).body).to be_a(Hash)
     end
   end
 
   describe '.find_url' do
     it 'should return correct url' do
-      model.find_url(series_id: 1234).should == 'http://thetvdb.com/api/123456789/series/1234/en.xml'
+      expect(model.find_url(series_id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/en.xml')
     end
   end
 
   describe '.find_full' do
     it 'should return Faraday::Response class' do
-      model.find_full(series_id: 1234).class.should == Faraday::Response
+      expect(model.find_full(series_id: 1234)).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.find_full(series_id: 1234).body == Hash
+      expect(model.find_full(series_id: 1234).body).to be_a(Hash)
     end
   end
 
   describe '.find_full_url' do
     it 'should return correct url' do
-      model.find_full_url(series_id: 1234).should == 'http://thetvdb.com/api/123456789/series/1234/all/en.xml'
+      expect(model.find_full_url(series_id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/all/en.xml')
     end
   end
 end
