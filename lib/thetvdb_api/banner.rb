@@ -1,8 +1,20 @@
 class ThetvdbApi::Banner < ThetvdbApi::Base
+  # Return all of the series banners.
+  #
+  # access: FREE
+  # param: options hash
+  #   series_id: TV series name
+  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:banners.xml)
   def find(options = {})
     find_path_with_params(options).get
   end
 
+  # Return all of the series banners - return only url.
+  #
+  # access: FREE
+  # param: options hash
+  #   series_id: TV series name
+  # output: url string
   def find_url(options = {})
     find_path_with_params(options).url
   end

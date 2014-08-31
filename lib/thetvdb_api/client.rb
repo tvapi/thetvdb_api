@@ -1,34 +1,34 @@
 class ThetvdbApi::Client
-  attr_reader :options
+  attr_reader :config
 
-  def initialize(options = {})
-    @options = options
+  def initialize(config = {})
+    @config = config
 
-    @options[:adapter] ||= :net_http
-    @options[:language] ||= 'en'
+    @config[:adapter] ||= :net_http
+    @config[:language] ||= 'en'
   end
 
   def search
-    @search ||= ThetvdbApi::Search.new(self)
+    @search ||= ThetvdbApi::Search.new(config)
   end
 
   def series
-    @series ||= ThetvdbApi::Series.new(self)
+    @series ||= ThetvdbApi::Series.new(config)
   end
 
   def actor
-    @actor ||= ThetvdbApi::Actor.new(self)
+    @actor ||= ThetvdbApi::Actor.new(config)
   end
 
   def banner
-    @banner ||= ThetvdbApi::Banner.new(self)
+    @banner ||= ThetvdbApi::Banner.new(config)
   end
 
   def episode
-    @episode ||= ThetvdbApi::Episode.new(self)
+    @episode ||= ThetvdbApi::Episode.new(config)
   end
 
   def update
-    @update ||= ThetvdbApi::Update.new(self)
+    @update ||= ThetvdbApi::Update.new(config)
   end
 end

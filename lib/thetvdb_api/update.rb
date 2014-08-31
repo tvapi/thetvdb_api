@@ -1,32 +1,64 @@
 class ThetvdbApi::Update < ThetvdbApi::Base
+  # Find update data.
+  #
+  # access: FREE
+  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
   def day
     day_path_with_params.get
   end
 
+  # Find update data - url string.
+  #
+  # access: FREE
+  # output: url string
   def day_url
     day_path_with_params.url
   end
 
+  # Find update data.
+  #
+  # access: FREE
+  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
   def week
     week_path_with_params.get
   end
 
+  # Find update data - url string.
+  #
+  # access: FREE
+  # output: url string
   def week_url
     week_path_with_params.url
   end
 
+  # Find update data.
+  #
+  # access: FREE
+  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
   def month
     month_path_with_params.get
   end
 
+  # Find update data - url string.
+  #
+  # access: FREE
+  # output: url string
   def month_url
     month_path_with_params.url
   end
 
+  # Find update data.
+  #
+  # access: FREE
+  # output: XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
   def all
     all_path_with_params.get
   end
 
+  # Find update data - url string.
+  #
+  # access: FREE
+  # output: url string
   def all_url
     all_path_with_params.url
   end

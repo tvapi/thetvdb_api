@@ -20,76 +20,105 @@ Run the bundle command to install it.
 
 ## How to use
 
-There is one entry point, in initialize you can past hash with api_key and language values, or leave empty:
+You have two way for access to api:
+
+I solution (create client class, one entry point)
 
 ```ruby
 client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
+client.search...
+client.series...
+client.actor...
+client.banner...
+client.episode...
+client.update...
 ```
 
-Search series by name
+II solution (direct access to api class, many entry points)
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.search.get_series(options = {})
-client.search.get_series_url(options = {}) # return only full url
-client.search.get_series_by_remote_id(options = {})
-client.search.get_series_by_remote_id_url(options = {}) # return only full url
-client.search.get_episode(options = {})
-client.search.get_episode_url(options = {}) # return only full url
+search = ThetvdbApi::Search.new(api_key: '...', language: 'en')
+search...
+```
+```ruby
+series = ThetvdbApi::Series.new(api_key: '...', language: 'en')
+series...
+```
+```ruby
+actor = ThetvdbApi::Actor.new(api_key: '...', language: 'en')
+actor...
+```
+```ruby
+banner = ThetvdbApi::Banner.new(api_key: '...', language: 'en')
+banner...
+```
+```ruby
+episode = ThetvdbApi::Episode.new(api_key: '...', language: 'en')
+episode...
+```
+```ruby
+update = ThetvdbApi::update.new(api_key: '...', language: 'en')
+update...
 ```
 
-Search series by id
+Search series (by name) methods - access by search method or Search class
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.series.find(options = {})
-client.series.find_url(options = {}) # return only full url
-client.series.find_full(options = {})
-client.series.find_full_url(options = {}) # return only full url
+get_series(options = {})
+get_series_url(options = {}) # return only full url
+get_series_by_remote_id(options = {})
+get_series_by_remote_id_url(options = {}) # return only full url
+get_episode(options = {})
+get_episode_url(options = {}) # return only full url
 ```
 
-Return series actors
+Search series (by id) methods - access by series method or Series class
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.actor.all(options = {})
-client.actor.all_url(options = {}) # return only full url
+find(options = {})
+find_url(options = {}) # return only full url
+find_full(options = {})
+find_full_url(options = {}) # return only full url
 ```
 
-Return series banners
+Return series actors - access by actor method or Actor class
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.banner.all(options = {})
-client.banner.all_url(options = {}) # return only full url
+all(options = {})
+all_url(options = {}) # return only full url
 ```
 
-Return series episode
+Return series banners - access by banner method or Banner class
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.episode.find_by_default_order(options = {})
-client.episode.find_by_default_order_url(options = {}) # return only full url
-client.episode.find_by_dvd_order(options = {})
-client.episode.find_by_dvd_order_url(options = {}) # return only full url
-client.episode.find_by_absolute_order(options = {})
-client.episode.find_by_absolute_order_url(options = {}) # return only full url
-client.episode.find(options = {})
-client.episode.find_url(options = {}) # return only full url
+all(options = {})
+all_url(options = {}) # return only full url
 ```
 
-Get updates
+Return series episode - access by episode method or Episode class
 
 ```ruby
-client = ThetvdbApi::Client.new
-client.update.day
-client.update.day_url # return only full url
-client.update.week
-client.update.week_url # return only full url
-client.update.month
-client.update.month_url # return only full url
-client.update.all
-client.update.all_url # return only full url
+find_by_default_order(options = {})
+find_by_default_order_url(options = {}) # return only full url
+find_by_dvd_order(options = {})
+find_by_dvd_order_url(options = {}) # return only full url
+find_by_absolute_order(options = {})
+find_by_absolute_order_url(options = {}) # return only full url
+find(options = {})
+find_url(options = {}) # return only full url
+```
+
+Get updates - access by update method or Update class
+
+```ruby
+day
+day_url # return only full url
+week
+week_url # return only full url
+month
+month_url # return only full url
+all
+all_url # return only full url
 ```
 ## Contributing
 

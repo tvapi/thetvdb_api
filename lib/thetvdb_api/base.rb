@@ -4,11 +4,11 @@ class ThetvdbApi::Base
   include ServiceApi::BaseFaraday
 
   def api_key_options
-    { apikey: @client.options[:api_key] }
+    { apikey: @config[:api_key] }
   end
 
   def language_options
-    { language: @client.options[:language] }
+    { language: @config[:language] }
   end
 
   def api_key_with_language_options
