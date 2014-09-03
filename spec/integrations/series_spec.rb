@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Series do
-  let(:model) { ThetvdbApi::Series.new(api_key: API_KEY, adapter: :net_http, language: 'en') }
+  let(:model) { ThetvdbApi::Series.new(api_key: API_KEY, language: 'en') }
 
   describe '.find' do
     it 'should return response class' do

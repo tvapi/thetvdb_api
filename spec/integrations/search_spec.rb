@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Search do
-  let(:model) { ThetvdbApi::Search.new(api_key: API_KEY, adapter: :net_http) }
+  let(:model) { ThetvdbApi::Search.new(api_key: API_KEY) }
 
   describe 'real request' do
     describe '.get_series' do

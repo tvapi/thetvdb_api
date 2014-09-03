@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Banner do
-  let(:model) { ThetvdbApi::Banner.new(api_key: API_KEY, adapter: :net_http) }
+  let(:model) { ThetvdbApi::Banner.new(api_key: API_KEY) }
 
   describe '.find' do
     it 'should return response class' do

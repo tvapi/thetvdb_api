@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Episode do
-  let(:model) { ThetvdbApi::Episode.new(api_key: API_KEY, adapter: :net_http, language: 'en') }
+  let(:model) { ThetvdbApi::Episode.new(api_key: API_KEY, language: 'en') }
 
   describe 'real request' do
     describe '.find_by_default_order' do

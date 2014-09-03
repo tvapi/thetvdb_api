@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Update do
-  let(:model) { ThetvdbApi::Update.new(api_key: API_KEY, adapter: :net_http) }
+  let(:model) { ThetvdbApi::Update.new(api_key: API_KEY) }
 
   describe '.day' do
     it 'should return response class' do

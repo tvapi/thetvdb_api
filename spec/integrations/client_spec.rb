@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ThetvdbApi::Client do
-  let(:client) { ThetvdbApi::Client.new(api_key: API_KEY, adapter: :net_http) }
+  let(:client) { ThetvdbApi::Client.new(api_key: API_KEY) }
 
   describe '.search' do
     describe '.get_series' do
