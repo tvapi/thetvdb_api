@@ -24,7 +24,11 @@ You have two way for access to api:
 
 * I way (create client class, one entry point)
 
+In this case language attribute is optional with default value 'en'
+
 * II way (direct access to api class, many entry points)
+
+In this case language attribute is required
 
 Search series (by name) methods - access by search method or Search class
 
