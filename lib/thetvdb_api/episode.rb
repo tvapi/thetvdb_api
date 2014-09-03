@@ -6,7 +6,8 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   series_id: TV series ID
   #   season: season number
   #   episode: episode number in season
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   def find_by_default_order(options = {})
     find_by_order(options.merge(order: 'default'))
   end
@@ -30,7 +31,8 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   series_id: TV series ID
   #   season: season number
   #   episode: episode number in season
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   def find_by_dvd_order(options = {})
     find_by_order(options.merge(order: 'dvd'))
   end
@@ -53,7 +55,8 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # param: options hash
   #   series_id: TV series ID
   #   absolute: absolute number in series
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   def find_by_absolute_order(options = {})
     find_by_absolute_order_path_with_params(options).get
   end
@@ -74,7 +77,8 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   episode_id: TV episode ID
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   def find(options = {})
     find_path_with_params(options).get
   end

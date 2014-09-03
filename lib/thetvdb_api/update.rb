@@ -2,7 +2,8 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   # Find update data.
   #
   # access: FREE
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Update_Records
   def day
     day_path_with_params.get
   end
@@ -18,7 +19,8 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   # Find update data.
   #
   # access: FREE
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Update_Records
   def week
     week_path_with_params.get
   end
@@ -34,7 +36,8 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   # Find update data.
   #
   # access: FREE
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Update_Records
   def month
     month_path_with_params.get
   end
@@ -50,7 +53,8 @@ class ThetvdbApi::Update < ThetvdbApi::Base
   # Find update data.
   #
   # access: FREE
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:Update_Records)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:Update_Records
   def all
     all_path_with_params.get
   end

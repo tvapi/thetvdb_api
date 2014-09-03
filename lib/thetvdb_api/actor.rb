@@ -4,7 +4,8 @@ class ThetvdbApi::Actor < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   series_id: TV series name
-  # output: Faraday::Response instance with parsed XML string (example: http://thetvdb.com/wiki/index.php/API:actors.xml)
+  # output: Faraday::Response instance with parsed XML string
+  # example: http://thetvdb.com/wiki/index.php/API:actors.xml
   def find(options = {})
     find_path_with_params(options).get
   end
