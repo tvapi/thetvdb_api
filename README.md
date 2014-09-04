@@ -8,147 +8,104 @@
 
 thetvdb_api is a simple ruby client for accessing TV shows information from the thetvdb.com API.
 
-## Getting started
+## Installation
 
-You can add it to your Gemfile with:
+With Bundler:
 
 ```ruby
 gem 'thetvdb_api'
 ```
 
-Run the bundle command to install it.
+```ruby
+$ bundle install
+```
+
+Otherwhise:
+
+```ruby
+gem install thetvdb_api
+```
 
 ## How to use
 
 You have two way for access to api:
 
-* I way (create client class, one entry point)
+* I case (create client class, one entry point)
 
-In this case language attribute is optional with default value 'en'
-
-* II way (direct access to api class, many entry points)
-
-In this case language attribute is required
-
-Search series (by name) methods - access by search method or Search class
+Language attribute is optional with default value 'en'
 
 ```ruby
 client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.search.get_series(options = {})
-client.search.get_series_url(options = {}) # return only full url
-client.search.get_series_by_remote_id(options = {})
-client.search.get_series_by_remote_id_url(options = {}) # return only full url
-client.search.get_episode(options = {})
-client.search.get_episode_url(options = {}) # return only full url
+client.actor # => #<ThetvdbApi::Actor>
+client.banner # => #<ThetvdbApi::Banner>
+client.episode # => #<ThetvdbApi::Episode>
+client.search # => #<ThetvdbApi::Search>
+client.series # => #<ThetvdbApi::Series>
+client.update # => #<ThetvdbApi::Update>
 ```
+
+* II case (direct access to api class, many entry points)
+
+Language attribute is required
 
 ```ruby
-search = ThetvdbApi::Search.new(api_key: '...', language: 'en')
-search.get_series(options = {})
-search.get_series_url(options = {}) # return only full url
-search.get_series_by_remote_id(options = {})
-search.get_series_by_remote_id_url(options = {}) # return only full url
-search.get_episode(options = {})
-search.get_episode_url(options = {}) # return only full url
+ThetvdbApi::Actor.new(api_key: '...', language: 'en')
+ThetvdbApi::Banner.new(api_key: '...', language: 'en')
+ThetvdbApi::Episode.new(api_key: '...', language: 'en')
+ThetvdbApi::Search.new(api_key: '...', language: 'en')
+ThetvdbApi::Series.new(api_key: '...', language: 'en')
+ThetvdbApi::Update.new(api_key: '...', language: 'en')
 ```
 
-Search series (by id) methods - access by series method or Series class
+### Actor methods
 
-```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.series.find(options = {})
-client.series.find_url(options = {}) # return only full url
-client.series.find_full(options = {})
-client.series.find_full_url(options = {}) # return only full url
-```
+* all(series_id: 123)
+* all_url(series_id: 123)
 
-```ruby
-client = ThetvdbApi::Series.new(api_key: '...', language: 'en')
-series.find(options = {})
-series.find_url(options = {}) # return only full url
-series.find_full(options = {})
-series.find_full_url(options = {}) # return only full url
-```
+### Banner methods
 
-Return series actors - access by actor method or Actor class
+* all(series_id: 123)
+* all_url(series_id: 123)
 
-```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.actor.all(options = {})
-client.actor.all_url(options = {}) # return only full url
-```
+### Episode methods
 
-```ruby
-actor = ThetvdbApi::Actor.new(api_key: '...', language: 'en')
-actor.all(options = {})
-actor.all_url(options = {}) # return only full url
-```
+* find(episode_id: 123)
+* find_url(episode_id: 123)
+* find_by_absolute_order(series_id: 123, absolute: 1)
+* find_by_absolute_order_url(series_id: 123, absolute: 1)
+* find_by_default_order(series_id: 123, season: 1, episode: 1)
+* find_by_default_order_url(series_id: 123, season: 1, episode: 1)
+* find_by_dvd_order(series_id: 123, season: 1, episode: 1)
+* find_by_dvd_order_url(series_id: 123, season: 1, episode: 1)
 
-Return series banners - access by banner method or Banner class
+### Search methods
 
-```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.banner.all(options = {})
-client.banner.all_url(options = {}) # return only full url
-```
+* get_series(seriesname: 123)
+* get_series_url(seriesname: 123)
+* get_series_by_remote(imdbid: 'tt0000111')
+* get_series_by_remote_url(imdbid: 'tt0000111')
+* get_series_by_remote(zap2itid: 'SH000000000123')
+* get_series_by_remote_url(zap2itid: 'SH000000000123')
+* get_episode(seriesid: 123, airdate: '2000-01-01')
+* get_episode_url(seriesid: 123, airdate: '2000-01-01')
 
-```ruby
-banner = ThetvdbApi::Banner.new(api_key: '...', language: 'en')
-banner.all(options = {})
-banner.all_url(options = {}) # return only full url
-```
+### Series methods
 
-Return series episode - access by episode method or Episode class
+* find(series_id: 123)
+* find_url(series_id: 123)
+* find_full(series_id: 123)
+* find_full_url(series_id: 123)
 
-```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.episode.find_by_default_order(options = {})
-client.episode.find_by_default_order_url(options = {}) # return only full url
-client.episode.find_by_dvd_order(options = {})
-client.episode.find_by_dvd_order_url(options = {}) # return only full url
-client.episode.find_by_absolute_order(options = {})
-client.episode.find_by_absolute_order_url(options = {}) # return only full url
-client.episode.find(options = {})
-client.episode.find_url(options = {}) # return only full url
-```
+### Update methods
 
-```ruby
-episode = ThetvdbApi::Episode.new(api_key: '...', language: 'en')
-episode.find_by_default_order(options = {})
-episode.find_by_default_order_url(options = {}) # return only full url
-episode.find_by_dvd_order(options = {})
-episode.find_by_dvd_order_url(options = {}) # return only full url
-episode.find_by_absolute_order(options = {})
-episode.find_by_absolute_order_url(options = {}) # return only full url
-episode.find(options = {})
-episode.find_url(options = {}) # return only full url
-```
-
-Get updates - access by update method or Update class
-
-```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
-client.update.day
-client.update.day_url # return only full url
-client.update.week
-client.update.week_url # return only full url
-client.update.month
-client.update.month_url # return only full url
-client.update.all
-client.update.all_url # return only full url
-```
-
-```ruby
-update = ThetvdbApi::Update.new(api_key: '...', language: 'en')
-update.day
-update.day_url # return only full url
-update.week
-update.week_url # return only full url
-update.month
-update.month_url # return only full url
-update.all
-update.all_url # return only full url
-```
+* day
+* day_url
+* week
+* week_url
+* month
+* month_url
+* all
+* all_url
 
 ## Contributing
 
