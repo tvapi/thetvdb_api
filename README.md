@@ -57,44 +57,60 @@ ThetvdbApi::Series.new(api_key: '...', language: 'en')
 ThetvdbApi::Update.new(api_key: '...', language: 'en')
 ```
 
+## Methods
+
+For almost all method you can pass hash attributes or multiple attributes specified in method comment (except some methods in Search class).
+
 ### Actor methods
 
-* all(series_id: 123)
-* all_url(series_id: 123)
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/actor.rb
+
+* all
+* all_url
 
 ### Banner methods
 
-* all(series_id: 123)
-* all_url(series_id: 123)
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/banner.rb
+
+* all
+* all_url
 
 ### Episode methods
 
-* find(episode_id: 123)
-* find_url(episode_id: 123)
-* find_by_absolute_order(series_id: 123, absolute: 1)
-* find_by_absolute_order_url(series_id: 123, absolute: 1)
-* find_by_default_order(series_id: 123, season: 1, episode: 1)
-* find_by_default_order_url(series_id: 123, season: 1, episode: 1)
-* find_by_dvd_order(series_id: 123, season: 1, episode: 1)
-* find_by_dvd_order_url(series_id: 123, season: 1, episode: 1)
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/episode.rb
+
+* find
+* find_url
+* find_by_absolute_order
+* find_by_absolute_order_url
+* find_by_default_order
+* find_by_default_order_url
+* find_by_dvd_order
+* find_by_dvd_order_url
 
 ### Search methods
 
-* get_series(seriesname: 123)
-* get_series_url(seriesname: 123)
-* get_series_by_remote(imdbid: 'tt0000111')
-* get_series_by_remote_url(imdbid: 'tt0000111')
-* get_series_by_remote(zap2itid: 'SH000000000123')
-* get_series_by_remote_url(zap2itid: 'SH000000000123')
-* get_episode(seriesid: 123, airdate: '2000-01-01')
-* get_episode_url(seriesid: 123, airdate: '2000-01-01')
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/search.rb
+
+* get_series
+* get_series_url
+* get_series_by_remote
+* get_series_by_remote_url
+* get_series_by_imdb_id
+* get_series_by_imdb_id_url
+* get_series_by_zap2it_id
+* get_series_by_zap2it_id_url
+* get_episode
+* get_episode_url
 
 ### Series methods
 
-* find(series_id: 123)
-* find_url(series_id: 123)
-* find_full(series_id: 123)
-* find_full_url(series_id: 123)
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/series.rb
+
+* find
+* find_url
+* find_full
+* find_full_url
 
 ### Update methods
 
