@@ -1,3 +1,7 @@
+## 0.3.0 (September 5, 2014)
+
+  - two way to pass attributes: hash attributes or simple multi attributes (in correct order)
+
 ## 0.2.5 (August 31, 2014)
 
   - two way access to api (by client class and by each api class)
