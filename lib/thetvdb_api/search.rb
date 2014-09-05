@@ -81,7 +81,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   def get_series_by_zap2it_id(zap2it_id)
-    get_series_by_remote_id_path_with_params({ zap2it_id: zap2it_id }).get
+    get_series_by_remote_id_path_with_params({ zap2itid: zap2it_id }).get
   end
 
   # Find the series data by unique zap2it ID - return only url.
@@ -92,7 +92,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_by_zap2it_id_url('SH01234')
   # output: url string
   def get_series_by_zap2it_id_url(zap2it_id)
-    get_series_by_remote_id_path_with_params({ zap2it_id: zap2it_id }).url
+    get_series_by_remote_id_path_with_params({ zap2itid: zap2it_id }).url
   end
 
 
