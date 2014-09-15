@@ -1,3 +1,7 @@
+## 0.3.1 (September 15, 2014)
+
+  - add server time find
+
 ## 0.3.0 (September 5, 2014)
 
   - two way to pass attributes: hash attributes or simple multi attributes (in correct order)
@@ -20,7 +24,7 @@
 ## 0.2.3 (January 4, 2014)
 
   - unit tests refactor
-  - addded functional tests
+  - added functional tests
 
 ## 0.2.2 (December 26, 2013)
 

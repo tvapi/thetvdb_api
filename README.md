@@ -42,6 +42,7 @@ client.episode # => #<ThetvdbApi::Episode>
 client.search # => #<ThetvdbApi::Search>
 client.series # => #<ThetvdbApi::Series>
 client.update # => #<ThetvdbApi::Update>
+client.server_time # => #<ThetvdbApi::ServerTime>
 ```
 
 * II case (direct access to api class, many entry points)
@@ -55,6 +56,7 @@ ThetvdbApi::Episode.new(api_key: '...', language: 'en')
 ThetvdbApi::Search.new(api_key: '...', language: 'en')
 ThetvdbApi::Series.new(api_key: '...', language: 'en')
 ThetvdbApi::Update.new(api_key: '...', language: 'en')
+ThetvdbApi::ServerTime.new(api_key: '...', language: 'en')
 ```
 
 ## Methods
@@ -111,6 +113,13 @@ For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib
 * find_url
 * find_full
 * find_full_url
+
+
+### Server Time method
+
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/server_time.rb
+
+* find
 
 ### Update methods
 
