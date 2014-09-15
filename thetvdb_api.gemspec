@@ -6,8 +6,8 @@ require 'thetvdb_api/version'
 Gem::Specification.new do |spec|
   spec.name          = 'thetvdb_api'
   spec.version       = ThetvdbApi::VERSION
-  spec.authors       = ['Rutger Geelen']
-  spec.email         = ['rutgergeelen@schedjoules.com']
+  spec.authors       = ['Krzysztof Wawer']
+  spec.email         = ['krzysztof.wawer@gmail.com']
   spec.description   = %q{Ruby client for accessing TV shows information from the thetvdb.com API}
   spec.summary       = %q{Ruby client for thetvdb.com API}
   spec.homepage      = %q{http://github.com/wafcio/thetvdb_api}
