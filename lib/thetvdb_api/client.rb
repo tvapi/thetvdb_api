@@ -19,6 +19,10 @@ class ThetvdbApi::Client
   def actor
     @actor ||= ThetvdbApi::Actor.new(config)
   end
+  
+  def server
+    @server ||= ThetvdbApi::Server.new(config)
+  end
 
   def banner
     @banner ||= ThetvdbApi::Banner.new(config)

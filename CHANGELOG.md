@@ -20,7 +20,7 @@
 ## 0.2.3 (January 4, 2014)
 
   - unit tests refactor
-  - addded functional tests
+  - added functional tests
 
 ## 0.2.2 (December 26, 2013)
 
