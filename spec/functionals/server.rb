@@ -15,21 +15,21 @@ describe ThetvdbApi::Server do
   describe '.time' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.find).to be_a(Faraday::Response)
+        expect(model.time).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.find.body).to be_a(Hash)
+        expect(model.time.body).to be_a(Hash)
       end
     end
 
     context 'normal attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.find).to be_a(Faraday::Response)
+        expect(model.time).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.find.body).to be_a(Hash)
+        expect(model.time.body).to be_a(Hash)
       end
     end
   end
