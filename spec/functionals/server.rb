@@ -12,7 +12,7 @@ describe ThetvdbApi::Server do
     end
   end
 
-  describe '.find' do
+  describe '.time' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
         expect(model.find).to be_a(Faraday::Response)
