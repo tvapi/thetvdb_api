@@ -20,8 +20,8 @@ class ThetvdbApi::Client
     @actor ||= ThetvdbApi::Actor.new(config)
   end
   
-  def server_time
-    @servertime ||= ThetvdbApi::ServerTime.new(config)
+  def server
+    @server ||= ThetvdbApi::Server.new(config)
   end
 
   def banner

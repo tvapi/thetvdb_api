@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe ThetvdbApi::ServerTime do
-  let(:model) { ThetvdbApi::ServerTime.new(api_key: API_KEY) }
+describe ThetvdbApi::Server do
+  let(:model) { ThetvdbApi::Server.new(api_key: API_KEY) }
 
-  describe '.find' do
+  describe '.time' do
     it 'should return response class' do
-      response = model.find
+      response = model.time
       expect(response).to be_a(Faraday::Response)
       expect(response.status).to eq(200)
       expect(response.body).to be_a(Hash)

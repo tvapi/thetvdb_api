@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe ThetvdbApi::ServerTime do
+describe ThetvdbApi::Server do
   let(:client) { ThetvdbApi::Client.new(api_key: '123456789', adapter: :test, adapter_options: faraday_stubs) }
-  let(:model) { client.server_time }
+  let(:model) { client.server }
 
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
