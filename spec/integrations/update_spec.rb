@@ -6,6 +6,8 @@ describe ThetvdbApi::Update do
   describe '.day' do
     it 'should return response class' do
       response = model.day
+      ap response.body
+
       expect(response).to be_a(Faraday::Response)
       expect(response.status).to eq(200)
       expect(response.body).to be_a(Hash)
@@ -15,6 +17,8 @@ describe ThetvdbApi::Update do
   describe '.week' do
     it 'should return response class' do
       response = model.week
+      ap response.body
+
       expect(response).to be_a(Faraday::Response)
       expect(response.status).to eq(200)
       expect(response.body).to be_a(Hash)
@@ -24,6 +28,8 @@ describe ThetvdbApi::Update do
   describe '.month' do
     it 'should return response class' do
       response = model.month
+      ap response.body
+
       expect(response).to be_a(Faraday::Response)
       expect(response.status).to eq(200)
       expect(response.body).to be_a(Hash)

@@ -6,7 +6,9 @@ describe ThetvdbApi::Search do
   describe 'real request' do
     describe '.get_series' do
       it 'should return response class' do
-        response = model.get_series(seriesname: 'buffy')
+        response = model.get_series(name: 'stargate')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
@@ -15,14 +17,18 @@ describe ThetvdbApi::Search do
 
     describe '.get_series_by_remote_id' do
       it 'should return response class with imdbid' do
-        response = model.get_series_by_remote_id(imdbid: 'tt0118276')
+        response = model.get_series_by_remote_id(imdbid: 'tt0118480')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
       end
 
-      it 'should return response class with zap2itid' do
-        response = model.get_series_by_remote_id(zap2itid: 'EP00213110')
+      it 'should return response class with zap2it' do
+        response = model.get_series_by_remote_id(zap2it: 'EP00225421')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
@@ -31,7 +37,9 @@ describe ThetvdbApi::Search do
 
     describe '.get_episode' do
       it 'should return response class' do
-        response = model.get_episode(seriesid: '70327', airdate: '1997-03-10')
+        response = model.get_episode(series_id: '72449', air_date: '1997-07-27')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)

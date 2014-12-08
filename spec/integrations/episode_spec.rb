@@ -6,7 +6,9 @@ describe ThetvdbApi::Episode do
   describe 'real request' do
     describe '.find_by_default_order' do
       it 'should return response class' do
-        response = model.find_by_default_order(series_id: '70327', season: '1', episode: '1')
+        response = model.find_by_default_order(series_id: '72449', season: '1', episode: '2')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
@@ -15,7 +17,9 @@ describe ThetvdbApi::Episode do
 
     describe '.find_by_dvd_order' do
       it 'should return response class' do
-        response = model.find_by_dvd_order(series_id: '70327', season: '1', episode: '1')
+        response = model.find_by_dvd_order(series_id: '72449', season: '1', episode: '1')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
@@ -25,6 +29,8 @@ describe ThetvdbApi::Episode do
     describe '.find_by_absolute_order' do
       it 'should return response class' do
         response = model.find_by_absolute_order(series_id: '70327', absolute: '1')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
@@ -33,7 +39,9 @@ describe ThetvdbApi::Episode do
 
     describe '.find' do
       it 'should return response class' do
-        response = model.find(episode_id: '533011')
+        response = model.find(episode_id: '295696')
+        ap response.body
+
         expect(response).to be_a(Faraday::Response)
         expect(response.status).to eq(200)
         expect(response.body).to be_a(Hash)
