@@ -123,6 +123,8 @@ For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib
 
 ### Update methods
 
+For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/update.rb
+
 * day
 * day_url
 * week

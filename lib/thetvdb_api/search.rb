@@ -31,7 +31,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # access: FREE
   # param: options hash
   #   imdbid: IMDb ID (don't use with zap2itid)
-  #   zap2itid: Zap2it ID (don't use with imdbid)
+  #   zap2it: Zap2it ID (don't use with imdbid)
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   def get_series_by_remote_id(options = {})
