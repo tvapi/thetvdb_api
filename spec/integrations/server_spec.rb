@@ -6,6 +6,8 @@ describe ThetvdbApi::Server do
   describe '.time' do
     it 'should return response class' do
       response = model.time
+      ap response.body
+      
       expect(response).to be_a(Faraday::Response)
       expect(response.status).to eq(200)
       expect(response.body).to be_a(Hash)

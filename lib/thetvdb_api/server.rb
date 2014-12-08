@@ -3,7 +3,6 @@ class ThetvdbApi::Server < ThetvdbApi::Base
   #
   # access: FREE
   # output: Faraday::Response instance with parsed XML string
-
   def time
     path(find_path).get
   end
