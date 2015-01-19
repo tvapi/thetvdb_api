@@ -23,24 +23,22 @@ class ThetvdbApi::Actor < ThetvdbApi::Base
     find_path_with_params(options).get
   end
 
-  # Return all of the series actors.
+  # Return all of the series actors - return only url.
   #
   # access: FREE
   # param:
   #   find_url(1234)
-  # output: Faraday::Response instance with parsed XML string
-  # example: http://thetvdb.com/wiki/index.php/API:actors.xml
+  # output: url string
   let :find_url, Any do |id|
     find_url(series_id: id)
   end
 
-  # Return all of the series actors.
+  # Return all of the series actors - return only url.
   #
   # access: FREE
   # param:
   #   find_url(series_id: 1234)
-  # output: Faraday::Response instance with parsed XML string
-  # example: http://thetvdb.com/wiki/index.php/API:actors.xml
+  # output: url string
   let :find_url, Hash do |options|
     find_path_with_params(options).url
   end
