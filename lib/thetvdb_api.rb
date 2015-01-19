@@ -1,3 +1,5 @@
+require 'ov'
+
 module ThetvdbApi
   module Mapper; end
 end
