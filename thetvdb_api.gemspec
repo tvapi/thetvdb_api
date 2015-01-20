@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.1.0'
   spec.add_development_dependency 'coveralls', '~> 0.7'
-  spec.add_development_dependency 'awesome_print', '~> 1.2.0'
+  spec.add_development_dependency 'awesome_print', '~> 1.6.0'
 end
