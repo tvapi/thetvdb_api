@@ -157,10 +157,20 @@ describe ThetvdbApi::Search do
 
   describe '.get_series_by_imdb_id_url' do
     context 'normal attributes' do
-      it 'should return correct url' do
-        expect(
-          model.get_series_by_imdb_id_url('tt0290978')
-        ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&imdbid=tt0290978')
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(
+            model.get_series_by_imdb_id_url('tt0290978')
+          ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&imdbid=tt0290978')
+        end
+      end
+
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(
+            model.get_series_by_imdb_id_url('tt0290978', 'de')
+          ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=de&imdbid=tt0290978')
+        end
       end
     end
   end
