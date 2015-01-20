@@ -9,7 +9,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   let :find_by_default_order, Any, Any, Any do |series_id, season, episode|
-    find_by_default_order(series_id: series_id, season: season, episode: episode)
+    find_by_default_order(map_attrs(series_id, season, episode))
   end
 
   # Find the episode data, sorts using the default ordering method.
@@ -20,7 +20,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   let :find_by_default_order, Any, Any, Any, String do |series_id, season, episode, language|
-    find_by_default_order(series_id: series_id, season: season, episode: episode, language: language)
+    find_by_default_order(map_attrs_with_lang(series_id, season, episode, language))
   end
 
   # Find the episode data, sorts using the default ordering method.
@@ -41,7 +41,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   find_by_default_order_url(1234, 1, 2)
   # output: url string
   let :find_by_default_order_url, Any, Any, Any do |series_id, season, episode|
-    find_by_default_order_url(series_id: series_id, season: season, episode: episode)
+    find_by_default_order_url(map_attrs(series_id, season, episode))
   end
 
   # Find the episode data, sorts using the default ordering method - return only url.
@@ -51,7 +51,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   find_by_default_order_url(1234, 1, 2, 'de')
   # output: url string
   let :find_by_default_order_url, Any, Any, Any, String do |series_id, season, episode, language|
-    find_by_default_order_url(series_id: series_id, season: season, episode: episode, language: language)
+    find_by_default_order_url(map_attrs_with_lang(series_id, season, episode, language))
   end
 
   # Find the episode data, sorts using the default ordering method - return only url.
@@ -72,7 +72,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   let :find_by_dvd_order, Any, Any, Any do |series_id, season, episode|
-    find_by_dvd_order(series_id: series_id, season: season, episode: episode)
+    find_by_dvd_order(map_attrs(series_id, season, episode))
   end
 
   # Find the episode data, sorts using the dvd ordering method.
@@ -83,7 +83,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:Base_Episode_Record
   let :find_by_dvd_order, Any, Any, Any, String do |series_id, season, episode, language|
-    find_by_dvd_order(series_id: series_id, season: season, episode: episode, language: language)
+    find_by_dvd_order(map_attrs_with_lang(series_id, season, episode, language))
   end
 
   # Find the episode data, sorts using the dvd ordering method.
@@ -104,7 +104,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   find_by_dvd_order_url(1234, 1, 2)
   # output: url string
   let :find_by_dvd_order_url, Any, Any, Any do |series_id, season, episode|
-    find_by_dvd_order_url(series_id: series_id, season: season, episode: episode)
+    find_by_dvd_order_url(map_attrs(series_id, season, episode))
   end
 
   # Find the episode data, sorts using the dvd ordering method - return only url.
@@ -114,7 +114,7 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   #   find_by_dvd_order_url(1234, 1, 2, 'de')
   # output: url string
   let :find_by_dvd_order_url, Any, Any, Any, String do |series_id, season, episode, language|
-    find_by_dvd_order_url(series_id: series_id, season: season, episode: episode, language: language)
+    find_by_dvd_order_url(map_attrs_with_lang(series_id, season, episode, language))
   end
 
   # Find the episode data, sorts using the dvd ordering method - return only url.
@@ -254,6 +254,14 @@ class ThetvdbApi::Episode < ThetvdbApi::Base
   end
 
   private
+
+  def map_attrs(series_id, season, episode)
+    { series_id: series_id, season: season, episode: episode }
+  end
+
+  def map_attrs_with_lang(series_id, season, episode, language)
+    { series_id: series_id, season: season, episode: episode, language: language }
+  end
 
   def find_by_order(options)
     find_by_order_path_with_params(options).get
