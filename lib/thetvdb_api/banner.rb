@@ -8,8 +8,8 @@ class ThetvdbApi::Banner < ThetvdbApi::Base
   #   find(1234)
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:banners.xml
-  let :find, Any do |id|
-    find(series_id: id)
+  let :find, Any do |series_id|
+    find(series_id: series_id)
   end
 
   # Return all of the series banners.
@@ -29,8 +29,8 @@ class ThetvdbApi::Banner < ThetvdbApi::Base
   # param:
   #   find_url(1234)
   # output: url string
-  let :find_url, Any do |id|
-    find_url(series_id: id)
+  let :find_url, Any do |series_id|
+    find_url(series_id: series_id)
   end
 
   # Return all of the series banners - return only url.

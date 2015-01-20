@@ -17,11 +17,11 @@ describe ThetvdbApi::Series do
   describe '.find' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.find(series_id: 1234)).to be_a(Faraday::Response)
+        expect(model.find(id: 1234)).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.find(series_id: 1234).body).to be_a(Hash)
+        expect(model.find(id: 1234).body).to be_a(Hash)
       end
     end
 
@@ -39,7 +39,7 @@ describe ThetvdbApi::Series do
   describe '.find_url' do
     context 'hash attributes' do
       it 'should return correct url' do
-        expect(model.find_url(series_id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/en.xml')
+        expect(model.find_url(id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/en.xml')
       end
     end
 
@@ -53,11 +53,11 @@ describe ThetvdbApi::Series do
   describe '.find_full' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.find_full(series_id: 1234)).to be_a(Faraday::Response)
+        expect(model.find_full(id: 1234)).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.find_full(series_id: 1234).body).to be_a(Hash)
+        expect(model.find_full(id: 1234).body).to be_a(Hash)
       end
     end
 
@@ -75,7 +75,7 @@ describe ThetvdbApi::Series do
   describe '.find_full_url' do
     context 'hash attributes' do
       it 'should return correct url' do
-        expect(model.find_full_url(series_id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/all/en.xml')
+        expect(model.find_full_url(id: 1234)).to eq('http://thetvdb.com/api/123456789/series/1234/all/en.xml')
       end
     end
 

@@ -138,11 +138,11 @@ describe ThetvdbApi::Episode do
   describe '.find' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.find(episode_id: 1234)).to be_a(Faraday::Response)
+        expect(model.find(id: 1234)).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.find(episode_id: 1234).body).to be_a(Hash)
+        expect(model.find(id: 1234).body).to be_a(Hash)
       end
     end
 
@@ -161,7 +161,7 @@ describe ThetvdbApi::Episode do
     context 'hash attributes' do
       it 'should return correct url' do
         expect(
-          model.find_url(episode_id: 1234)
+          model.find_url(id: 1234)
         ).to eq('http://thetvdb.com/api/123456789/episodes/1234/en.xml')
       end
     end

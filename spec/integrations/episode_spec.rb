@@ -39,7 +39,7 @@ describe ThetvdbApi::Episode do
 
     describe '.find' do
       it 'should return response class' do
-        response = model.find(episode_id: '295696')
+        response = model.find(id: '295696')
         ap response.body
 
         expect(response).to be_a(Faraday::Response)

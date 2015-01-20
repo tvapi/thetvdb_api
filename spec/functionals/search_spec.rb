@@ -22,11 +22,11 @@ describe ThetvdbApi::Search do
   describe '.get_series' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.get_series(name: 'Supernatural')).to be_a(Faraday::Response)
+        expect(model.get_series(seriesname: 'Supernatural')).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.get_series(name: 'Supernatural').body).to be_a(Hash)
+        expect(model.get_series(seriesname: 'Supernatural').body).to be_a(Hash)
       end
     end
 
@@ -45,7 +45,7 @@ describe ThetvdbApi::Search do
     context 'hash attributes' do
       it 'should return correct url' do
         expect(
-          model.get_series_url(name: 'Supernatural')
+          model.get_series_url(seriesname: 'Supernatural')
         ).to eq('http://thetvdb.com/api/GetSeries.php?language=en&seriesname=Supernatural')
       end
     end
@@ -150,11 +150,11 @@ describe ThetvdbApi::Search do
   describe '.get_episode' do
     context 'hash attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.get_episode(series_id: 80348, air_date: '2007-09-24')).to be_a(Faraday::Response)
+        expect(model.get_episode(seriesid: 80348, airdate: '2007-09-24')).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.get_episode(series_id: 80348, air_date: '2007-09-24').body).to be_a(Hash)
+        expect(model.get_episode(seriesid: 80348, airdate: '2007-09-24').body).to be_a(Hash)
       end
     end
 
@@ -173,7 +173,7 @@ describe ThetvdbApi::Search do
     context 'hash attributes' do
       it 'should return correct url' do
         expect(
-          model.get_episode_url(series_id: 80348, air_date: '2007-09-24')
+          model.get_episode_url(seriesid: 80348, airdate: '2007-09-24')
         ).to eq('http://thetvdb.com/api/GetEpisodeByAirDate.php?apikey=123456789&language=en&seriesid=80348&airdate=2007-09-24')
       end
     end

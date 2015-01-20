@@ -6,7 +6,7 @@ describe ThetvdbApi::Search do
   describe 'real request' do
     describe '.get_series' do
       it 'should return response class' do
-        response = model.get_series(name: 'stargate')
+        response = model.get_series(seriesname: 'stargate')
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -37,7 +37,7 @@ describe ThetvdbApi::Search do
 
     describe '.get_episode' do
       it 'should return response class' do
-        response = model.get_episode(series_id: '72449', air_date: '1997-07-27')
+        response = model.get_episode(seriesid: '72449', airdate: '1997-07-27')
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
