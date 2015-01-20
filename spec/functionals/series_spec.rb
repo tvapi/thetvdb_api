@@ -10,7 +10,9 @@ describe ThetvdbApi::Series do
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
       stub.get('/api/123456789/series/1234/en.xml') { [200, { content_type: 'xml' }, series_data] }
+      stub.get('/api/123456789/series/1234/de.xml') { [200, { content_type: 'xml' }, series_data] }
       stub.get('/api/123456789/series/1234/all/en.xml') { [200, { content_type: 'xml' }, full_series_data] }
+      stub.get('/api/123456789/series/1234/all/de.xml') { [200, { content_type: 'xml' }, full_series_data] }
     end
   end
   
@@ -26,12 +28,24 @@ describe ThetvdbApi::Series do
     end
 
     context 'normal attributes' do
-      it 'should return Faraday::Response class' do
-        expect(model.find(1234)).to be_a(Faraday::Response)
+      context 'without optional attribute' do
+        it 'should return Faraday::Response class' do
+          expect(model.find(1234)).to be_a(Faraday::Response)
+        end
+
+        it 'should return Hash class for body reponse' do
+          expect(model.find(1234).body).to be_a(Hash)
+        end
       end
 
-      it 'should return Hash class for body reponse' do
-        expect(model.find(1234).body).to be_a(Hash)
+      context 'without optional attribute' do
+        it 'should return Faraday::Response class' do
+          expect(model.find(1234, 'de')).to be_a(Faraday::Response)
+        end
+
+        it 'should return Hash class for body reponse' do
+          expect(model.find(1234, 'de').body).to be_a(Hash)
+        end
       end
     end
   end
@@ -44,8 +58,16 @@ describe ThetvdbApi::Series do
     end
 
     context 'normal attributes' do
-      it 'should return correct url' do
-        expect(model.find_url(1234)).to eq('http://thetvdb.com/api/123456789/series/1234/en.xml')
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(model.find_url(1234)).to eq('http://thetvdb.com/api/123456789/series/1234/en.xml')
+        end
+      end
+
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(model.find_url(1234, 'de')).to eq('http://thetvdb.com/api/123456789/series/1234/de.xml')
+        end
       end
     end
   end
@@ -62,12 +84,24 @@ describe ThetvdbApi::Series do
     end
 
     context 'normal attributes' do
-      it 'should return Faraday::Response class' do
-        expect(model.find_full(1234)).to be_a(Faraday::Response)
+      context 'without optional attribute' do
+        it 'should return Faraday::Response class' do
+          expect(model.find_full(1234)).to be_a(Faraday::Response)
+        end
+
+        it 'should return Hash class for body reponse' do
+          expect(model.find_full(1234).body).to be_a(Hash)
+        end
       end
 
-      it 'should return Hash class for body reponse' do
-        expect(model.find_full(1234).body).to be_a(Hash)
+      context 'without optional attribute' do
+        it 'should return Faraday::Response class' do
+          expect(model.find_full(1234, 'de')).to be_a(Faraday::Response)
+        end
+
+        it 'should return Hash class for body reponse' do
+          expect(model.find_full(1234, 'de').body).to be_a(Hash)
+        end
       end
     end
   end
@@ -80,8 +114,16 @@ describe ThetvdbApi::Series do
     end
 
     context 'normal attributes' do
-      it 'should return correct url' do
-        expect(model.find_full_url(1234)).to eq('http://thetvdb.com/api/123456789/series/1234/all/en.xml')
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(model.find_full_url(1234)).to eq('http://thetvdb.com/api/123456789/series/1234/all/en.xml')
+        end
+      end
+
+      context 'without optional attribute' do
+        it 'should return correct url' do
+          expect(model.find_full_url(1234, 'de')).to eq('http://thetvdb.com/api/123456789/series/1234/all/de.xml')
+        end
       end
     end
   end

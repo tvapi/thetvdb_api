@@ -50,7 +50,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   # param:
   #   find_url(1234, 'de')
   # output: url string
-  let :find_url, Any do |id, language|
+  let :find_url, Any, String do |id, language|
     find_url(id: id, language: language)
   end
 
@@ -113,7 +113,7 @@ class ThetvdbApi::Series < ThetvdbApi::Base
   # param:
   #   find_full_url(1234, 'de')
   # output: url string
-  let :find_full_url, Any do |id, language|
+  let :find_full_url, Any, String do |id, language|
     find_full_url(id: id, language: language)
   end
 
