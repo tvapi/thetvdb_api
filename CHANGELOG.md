@@ -1,3 +1,14 @@
+## 0.3.2 (January 20, 2015)
+
+  - fix series method
+  - add more test for better test coverage
+
+## 0.3.1 (January 20, 2015)
+
+  - use ov gem for multimethod
+  - use hashie for normalize params key names
+  - fix zap2it url params after updated official documentation
+
 ## 0.3.0 (September 5, 2014)
 
   - two way to pass attributes: hash attributes or simple multi attributes (in correct order)
