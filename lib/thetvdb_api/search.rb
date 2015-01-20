@@ -9,7 +9,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeries
   let :get_series, String do |seriesname|
-    get_series(seriesname: seriesname)
+    get_series(name: seriesname)
   end
 
   # Find the series data based on its name.
@@ -20,14 +20,14 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeries
   let :get_series, String, String do |seriesname, language|
-    get_series(seriesname: seriesname, language: language)
+    get_series(name: seriesname, language: language)
   end
 
   # Find the series data based on its name.
   #
   # access: FREE
   # param:
-  #   get_series(seriesname: 'buffy')
+  #   get_series(name: 'buffy')
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeries
   let :get_series, Hash do |options|
@@ -41,7 +41,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_url('buffy')
   # output: url string
   let :get_series_url, String do |series|
-    get_series_url(seriesname: series)
+    get_series_url(name: series)
   end
 
   # Find the series data based on its name - return only url.
@@ -51,14 +51,14 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_url('buffy', 'de')
   # output: url string
   let :get_series_url, String, String do |series, language|
-    get_series_url(seriesname: series, language: language)
+    get_series_url(name: series, language: language)
   end
 
   # Find the series data based on its name - return only url.
   #
   # access: FREE
   # param:
-  #   get_series_url(seriesname: 1234)
+  #   get_series_url(name: 1234)
   # output: url string
   let :get_series_url, Hash do |options|
     get_series_path_with_params(options).url
@@ -68,8 +68,8 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #
   # access: FREE
   # param: options hash
-  #   imdbid: IMDb ID (don't use with zap2itid)
-  #   zap2it: Zap2it ID (don't use with imdbid)
+  #   imdb_id: IMDb ID (don't use with zap2it_id)
+  #   zap2_it: Zap2it ID (don't use with imdb_id)
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   let :get_series_by_remote_id, Hash do |options|
@@ -80,8 +80,8 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #
   # access: FREE
   # param: options hash
-  #   imdbid: IMDb ID (don't use with zap2itid)
-  #   zap2itid: Zap2it ID (don't use with imdbid)
+  #   imdb_id: IMDb ID (don't use with zap2it_id)
+  #   zap2it_id: Zap2it ID (don't use with imdb_id)
   # output: url string
   let :get_series_by_remote_id_url, Hash do |options|
     get_series_by_remote_id_path_with_params(options).url
@@ -95,7 +95,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   let :get_series_by_imdb_id, String do |imdb_id|
-    get_series_by_remote_id_path_with_params(imdbid: imdb_id).get
+    get_series_by_remote_id_path_with_params(imdb_id: imdb_id).get
   end
 
   # Find the series data by unique IMDB ID
@@ -106,7 +106,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   let :get_series_by_imdb_id, String, String do |imdb_id, language|
-    get_series_by_remote_id_path_with_params(imdbid: imdb_id, language: language).get
+    get_series_by_remote_id_path_with_params(imdb_id: imdb_id, language: language).get
   end
 
   # Find the series data by unique IMDB ID - return only url.
@@ -116,7 +116,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_by_imdb_id_url('tt01234')
   # output: url string
   let :get_series_by_imdb_id_url, String do |imdb_id|
-    get_series_by_remote_id_path_with_params(imdbid: imdb_id).url
+    get_series_by_remote_id_path_with_params(imdb_id: imdb_id).url
   end
 
   # Find the series data by unique IMDB ID - return only url.
@@ -126,7 +126,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_by_imdb_id_url('tt01234')
   # output: url string
   let :get_series_by_imdb_id_url, String, String do |imdb_id, language|
-    get_series_by_remote_id_path_with_params(imdbid: imdb_id, language: language).url
+    get_series_by_remote_id_path_with_params(imdb_id: imdb_id, language: language).url
   end
 
   # Find the series data by unique zap2it ID
@@ -137,7 +137,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   let :get_series_by_zap2it_id, String do |zap2it_id|
-    get_series_by_remote_id_path_with_params(zap2itid: zap2it_id).get
+    get_series_by_remote_id_path_with_params(zap2it_id: zap2it_id).get
   end
 
   # Find the series data by unique zap2it ID
@@ -148,7 +148,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   let :get_series_by_zap2it_id, String, String do |zap2it_id, language|
-    get_series_by_remote_id_path_with_params(zap2itid: zap2it_id, language: language).get
+    get_series_by_remote_id_path_with_params(zap2it_id: zap2it_id, language: language).get
   end
 
   # Find the series data by unique zap2it ID - return only url.
@@ -158,7 +158,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_by_zap2it_id_url('SH01234')
   # output: url string
   let :get_series_by_zap2it_id_url, String do |zap2it_id|
-    get_series_by_remote_id_path_with_params(zap2itid: zap2it_id).url
+    get_series_by_remote_id_path_with_params(zap2it_id: zap2it_id).url
   end
 
   # Find the series data by unique zap2it ID - return only url.
@@ -168,7 +168,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_by_zap2it_id_url('SH01234', 'de')
   # output: url string
   let :get_series_by_zap2it_id_url, String, String do |zap2it_id, language|
-    get_series_by_remote_id_path_with_params(zap2itid: zap2it_id, language: language).url
+    get_series_by_remote_id_path_with_params(zap2it_id: zap2it_id, language: language).url
   end
 
   # Find the episode data by episode air date.
@@ -179,7 +179,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate
   let :get_episode, Any, String do |series_id, air_date|
-    get_episode(seriesid: series_id, airdate: air_date)
+    get_episode(series_id: series_id, air_date: air_date)
   end
 
   # Find the episode data by episode air date.
@@ -190,14 +190,14 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate
   let :get_episode, Any, String, String do |series_id, air_date, language|
-    get_episode(seriesid: series_id, airdate: air_date, language: language)
+    get_episode(series_id: series_id, air_date: air_date, language: language)
   end
 
   # Find the episode data by episode air date.
   #
   # access: FREE
   # param (hash params):
-  #   get_episode(seriesid: 1234, airdate: '2000-01-01')
+  #   get_episode(series_id: 1234, air_date: '2000-01-01')
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate
   let :get_episode, Hash do |options|
@@ -211,7 +211,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_episode_url(1234, '2000-01-01')
   # output: url string
   let :get_episode_url, Any, String do |series_id, air_date|
-    get_episode_url(seriesid: series_id, airdate: air_date)
+    get_episode_url(series_id: series_id, air_date: air_date)
   end
 
   # Find the episode data by episode air date - return only url.
@@ -221,14 +221,14 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_episode_url(1234, '2000-01-01', 'de')
   # output: url string
   let :get_episode_url, Any, String, String do |series_id, air_date, language|
-    get_episode_url(seriesid: series_id, airdate: air_date, language: language)
+    get_episode_url(series_id: series_id, air_date: air_date, language: language)
   end
 
   # Find the episode data by episode air date - return only url.
   #
   # access: FREE
   # param (hash params):
-  #   get_episode_url(seriesid: 1234, airdate: '2000-01-01')
+  #   get_episode_url(series_id: 1234, air_date: '2000-01-01')
   # output: url string
   let :get_episode_url, Hash do |options|
     get_episode_path_with_params(options).url
@@ -237,7 +237,11 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   private
 
   def get_series_path_with_params(options)
-    path(get_series_path).params(language_options.merge(options))
+    path(get_series_path).params(language_options.merge(get_series_mapped_options(options)))
+  end
+
+  def get_series_mapped_options(options)
+    ThetvdbApi::AttributesMapping::Search::GetSeries.new(options).to_hash
   end
 
   def get_series_path
@@ -245,7 +249,11 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_series_by_remote_id_path_with_params(options)
-    path(get_series_by_remote_id_path).params(language_options.merge(options))
+    path(get_series_by_remote_id_path).params(language_options.merge(get_serie_by_remote_id_mapped_options(options)))
+  end
+
+  def get_serie_by_remote_id_mapped_options(options)
+    ThetvdbApi::AttributesMapping::Search::GetSeriesByRemoteId.new(options).to_hash
   end
 
   def get_series_by_remote_id_path
@@ -253,7 +261,11 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_episode_path_with_params(options)
-    path(get_episode_path).params(api_key_with_language_options.merge(options))
+    path(get_episode_path).params(api_key_with_language_options.merge(get_episode_mapped_options(options)))
+  end
+
+  def get_episode_mapped_options(options)
+    ThetvdbApi::AttributesMapping::Search::GetEpisode.new(options).to_hash
   end
 
   def get_episode_path
