@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/wafcio/thetvdb_api.png?branch=master)](https://travis-ci.org/wafcio/thetvdb_api)
-[![Dependency Status](https://gemnasium.com/wafcio/thetvdb_api.png)](https://gemnasium.com/wafcio/thetvdb_api)
-[![Code Climate](https://codeclimate.com/github/wafcio/thetvdb_api.png)](https://codeclimate.com/github/wafcio/thetvdb_api)
-[![Coverage Status](https://coveralls.io/repos/wafcio/thetvdb_api/badge.png)](https://coveralls.io/r/wafcio/thetvdb_api)
+[![Build Status](https://travis-ci.org/tvapi/thetvdb_api.png?branch=master)](https://travis-ci.org/tvapi/thetvdb_api)
+[![Dependency Status](https://gemnasium.com/tvapi/thetvdb_api.png)](https://gemnasium.com/tvapi/thetvdb_api)
+[![Code Climate](https://codeclimate.com/github/tvapi/thetvdb_api.png)](https://codeclimate.com/github/tvapi/thetvdb_api)
+[![Coverage Status](https://coveralls.io/repos/tvapi/thetvdb_api/badge.png)](https://coveralls.io/r/tvapi/thetvdb_api)
 [![Gem Version](https://badge.fury.io/rb/thetvdb_api.png)](http://badge.fury.io/rb/thetvdb_api)
 
 # ThetvdbApi
