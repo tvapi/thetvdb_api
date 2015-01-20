@@ -12,7 +12,7 @@ describe ThetvdbApi::Search do
     Faraday::Adapter::Test::Stubs.new do |stub|
       stub.get('/api/GetSeries.php?language=en&seriesname=Supernatural') { [200, { content_type: 'xml' }, get_series_data] }
       stub.get('/api/GetSeriesByRemoteID.php?language=en&imdbid=tt0290978') { [200, { content_type: 'xml' }, get_series_by_remote_data] }
-      stub.get('/api/GetSeriesByRemoteID.php?language=en&zap2itid=SH01234') { [200, { content_type: 'xml' }, get_series_by_remote_data] }
+      stub.get('/api/GetSeriesByRemoteID.php?language=en&zap2it=SH01234') { [200, { content_type: 'xml' }, get_series_by_remote_data] }
       stub.get('/api/GetEpisodeByAirDate.php?language=en&airdate=2007-09-24&apikey=123456789&language=en&seriesid=80348') do
         [200, { content_type: 'xml' }, get_episode_data]
       end
@@ -98,7 +98,7 @@ describe ThetvdbApi::Search do
       it 'should return correct url' do
         expect(
           model.get_series_by_remote_id_url(zap2it_id: 'SH01234')
-        ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&zap2itid=SH01234')
+        ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&zap2it=SH01234')
       end
     end
   end
@@ -142,7 +142,7 @@ describe ThetvdbApi::Search do
       it 'should return correct url' do
         expect(
           model.get_series_by_zap2it_id_url('SH01234')
-        ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&zap2itid=SH01234')
+        ).to eq('http://thetvdb.com/api/GetSeriesByRemoteID.php?language=en&zap2it=SH01234')
       end
     end
   end

@@ -27,7 +27,6 @@ describe ThetvdbApi::Search do
 
       it 'should return response class with zap2it' do
         response = model.get_series_by_remote_id(zap2it_id: 'EP00225421')
-        ap response.inspect
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
