@@ -6,9 +6,6 @@ module ThetvdbApi
   end
 end
 
-require 'thetvdb_api/attributes_mapping/search/get_episode'
-require 'thetvdb_api/attributes_mapping/search/get_series'
-require 'thetvdb_api/attributes_mapping/search/get_series_by_remote_id'
 require 'thetvdb_api/version'
 require 'thetvdb_api/client'
 require 'thetvdb_api/base'

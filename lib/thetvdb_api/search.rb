@@ -237,11 +237,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   private
 
   def get_series_path_with_params(options)
-    path(get_series_path).params(language_options.merge(get_series_mapped_options(options)))
-  end
-
-  def get_series_mapped_options(options)
-    ThetvdbApi::AttributesMapping::Search::GetSeries.new(options).to_hash
+    path(get_series_path).params(language_options.merge(options))
   end
 
   def get_series_path
@@ -249,11 +245,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_series_by_remote_id_path_with_params(options)
-    path(get_series_by_remote_id_path).params(language_options.merge(get_serie_by_remote_id_mapped_options(options)))
-  end
-
-  def get_serie_by_remote_id_mapped_options(options)
-    ThetvdbApi::AttributesMapping::Search::GetSeriesByRemoteId.new(options).to_hash
+    path(get_series_by_remote_id_path).params(language_options.merge(options))
   end
 
   def get_series_by_remote_id_path
@@ -261,11 +253,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   end
 
   def get_episode_path_with_params(options)
-    path(get_episode_path).params(api_key_with_language_options.merge(get_episode_mapped_options(options)))
-  end
-
-  def get_episode_mapped_options(options)
-    ThetvdbApi::AttributesMapping::Search::GetEpisode.new(options).to_hash
+    path(get_episode_path).params(api_key_with_language_options.merge(options))
   end
 
   def get_episode_path
