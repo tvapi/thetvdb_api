@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ThetvdbApi::Server do
   let(:model) { ThetvdbApi::Server.new(api_key: API_KEY) }
 
-  describe '.time' do
-    it 'should return response class' do
+  describe ".time" do
+    it "returns response class" do
       response = model.time
       ap response.body
 

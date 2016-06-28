@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ThetvdbApi::Update do
   let(:model) { ThetvdbApi::Update.new(api_key: API_KEY) }
 
-  describe '.day' do
-    it 'should return response class' do
+  describe ".day" do
+    it "returns response class" do
       response = model.day
       ap response.body
 
@@ -14,8 +14,8 @@ describe ThetvdbApi::Update do
     end
   end
 
-  describe '.week' do
-    it 'should return response class' do
+  describe ".week" do
+    it "returns response class" do
       response = model.week
       ap response.body
 
@@ -25,8 +25,8 @@ describe ThetvdbApi::Update do
     end
   end
 
-  describe '.month' do
-    it 'should return response class' do
+  describe ".month" do
+    it "returns response class" do
       response = model.month
       ap response.body
 

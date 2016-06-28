@@ -61,7 +61,7 @@ ThetvdbApi::Server.new(api_key: '...', language: 'en')
 
 ## Methods
 
-For almost all method you can pass hash attributes or multiple attributes specified in method comment (except some methods in Search class).
+For almost all method you can pass attributes as hash
 
 ### Actor methods
 
@@ -120,6 +120,7 @@ For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib
 For method attributes read https://github.com/wafcio/thetvdb_api/blob/master/lib/thetvdb_api/server.rb
 
 * time
+* time_url
 
 ### Update methods
 

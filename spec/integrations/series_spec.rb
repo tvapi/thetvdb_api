@@ -1,11 +1,11 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ThetvdbApi::Series do
-  let(:model) { ThetvdbApi::Series.new(api_key: API_KEY, language: 'en') }
+  let(:model) { ThetvdbApi::Series.new(api_key: API_KEY) }
 
-  describe '.find' do
-    it 'should return response class' do
-      response = model.find(id: '72449')
+  describe ".find" do
+    it "returns response class" do
+      response = model.find(id: "72449", language: "en")
       ap response.body
 
       expect(response).to be_a(Faraday::Response)
@@ -14,9 +14,9 @@ describe ThetvdbApi::Series do
     end
   end
 
-  describe '.find_full' do
-    it 'should return response class' do
-      response = model.find_full(id: '72449')
+  describe ".find_full" do
+    it "returns response class" do
+      response = model.find_full(id: "72449", language: "en")
       ap response.body
 
       expect(response).to be_a(Faraday::Response)
