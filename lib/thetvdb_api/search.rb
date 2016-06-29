@@ -7,7 +7,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeries
   def get_series(name:, language: nil, user: nil)
-    get(get_series_path(name: name, language: language, user: user))
+    get(get_series_path, get_series_params(name: name, language: language, user: user))
   end
 
   # Find the series data based on its name - return only url.
@@ -17,7 +17,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_series_url(name: 1234)
   # output: url string
   def get_series_url(name:, language: nil, user: nil)
-    base_url + get_series_path(name: name, language: language, user: user)
+    base_url + get_series_path + build_query(get_series_params(name: name, language: language, user: user))
   end
 
   # Find the series data by unique ID"s used on other sites.
@@ -29,7 +29,8 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetSeriesByRemoteID
   def get_series_by_remote_id(imdb_id: nil, zap2it_id: nil, language: nil)
-    get(get_series_by_remote_id_path(imdb_id: imdb_id, zap2it_id: zap2it_id, language: language))
+    params = get_series_by_remote_id_params(imdb_id: imdb_id, zap2it_id: zap2it_id, language: language)
+    get(get_series_by_remote_id_path, params)
   end
 
   # Find the series data by unique ID"s used on other sites - return only url.
@@ -40,7 +41,10 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   zap2it_id: Zap2it ID (don"t use with imdb_id)
   # output: url string
   def get_series_by_remote_id_url(imdb_id: nil, zap2it_id: nil, language: nil)
-    base_url + get_series_by_remote_id_path(imdb_id: imdb_id, zap2it_id: zap2it_id, language: language)
+    query_params = build_query(
+      get_series_by_remote_id_params(imdb_id: imdb_id, zap2it_id: zap2it_id, language: language)
+    )
+    base_url + get_series_by_remote_id_path + query_params
   end
 
   # Find the episode data by episode air date.
@@ -51,7 +55,7 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   # output: Faraday::Response instance with parsed XML string
   # example: http://thetvdb.com/wiki/index.php/API:GetEpisodeByAirDate
   def get_episode(series_id:, air_date:, language: nil)
-    get(get_episode_path(series_id: series_id, air_date: air_date, language: language))
+    get(get_episode_path, get_episode_params(series_id: series_id, air_date: air_date, language: language))
   end
 
   # Find the episode data by episode air date - return only url.
@@ -61,23 +65,33 @@ class ThetvdbApi::Search < ThetvdbApi::Base
   #   get_episode_url(series_id: 1234, air_date: "2000-01-01")
   # output: url string
   def get_episode_url(series_id:, air_date:, language: nil)
-    base_url + get_episode_path(series_id: series_id, air_date: air_date, language: language)
+    query_params = build_query(get_episode_params(series_id: series_id, air_date: air_date, language: language))
+    base_url + get_episode_path + query_params
   end
 
   private
 
-  def get_series_path(name:, language: nil, user: nil)
-    query = build_query(seriesname: name, language: language, user: user)
-    "GetSeries.php#{query}"
+  def get_series_path
+    "GetSeries.php"
   end
 
-  def get_series_by_remote_id_path(imdb_id: nil, zap2it_id: nil, language: nil)
-    query = build_query(imdbid: imdb_id, zap2it: zap2it_id, language: language)
-    "GetSeriesByRemoteID.php#{query}"
+  def get_series_params(name:, language: nil, user: nil)
+    { seriesname: name, language: language, user: user }
   end
 
-  def get_episode_path(series_id:, air_date:, language: nil)
-    query = build_query(apikey: options[:api_key], seriesid: series_id, airdate: air_date, language: language)
-    "GetEpisodeByAirDate.php#{query}"
+  def get_series_by_remote_id_path
+    "GetSeriesByRemoteID.php"
+  end
+
+  def get_series_by_remote_id_params(imdb_id: nil, zap2it_id: nil, language: nil)
+    { imdbid: imdb_id, zap2it: zap2it_id, language: language }
+  end
+
+  def get_episode_path
+    "GetEpisodeByAirDate.php"
+  end
+
+  def get_episode_params(series_id:, air_date:, language: nil)
+    { apikey: options[:api_key], seriesid: series_id, airdate: air_date, language: language }
   end
 end
