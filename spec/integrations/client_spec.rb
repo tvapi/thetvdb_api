@@ -50,7 +50,7 @@ describe ThetvdbApi::Client do
   describe ".series" do
     describe ".find" do
       it "returns response class" do
-        response = client.series.find(series_id: "72449")
+        response = client.series.find(id: "72449", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -61,7 +61,7 @@ describe ThetvdbApi::Client do
 
     describe ".find_full" do
       it "returns response class" do
-        response = client.series.find_full(series_id: "72449")
+        response = client.series.find_full(id: "72449", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -113,7 +113,7 @@ describe ThetvdbApi::Client do
   describe ".episode" do
     describe ".find_by_default_order" do
       it "returns response class" do
-        response = client.episode.find_by_default_order(series_id: "72449", season: "1", episode: "1")
+        response = client.episode.find_by_default_order(series_id: "72449", season: "1", episode: "1", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -124,7 +124,7 @@ describe ThetvdbApi::Client do
 
     describe ".find_by_dvd_order" do
       it "returns response class" do
-        response = client.episode.find_by_dvd_order(series_id: "72449", season: "1", episode: "1")
+        response = client.episode.find_by_dvd_order(series_id: "72449", season: "1", episode: "1", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -135,7 +135,7 @@ describe ThetvdbApi::Client do
 
     describe ".find_by_absolute_order" do
       it "returns response class" do
-        response = client.episode.find_by_absolute_order(series_id: "70327", absolute: "1")
+        response = client.episode.find_by_absolute_order(series_id: "70327", absolute: "1", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
@@ -146,7 +146,7 @@ describe ThetvdbApi::Client do
 
     describe ".find" do
       it "returns response class" do
-        response = client.episode.find(episode_id: "295696")
+        response = client.episode.find(id: "295696", language: "en")
         ap response.body
 
         expect(response).to be_a(Faraday::Response)
