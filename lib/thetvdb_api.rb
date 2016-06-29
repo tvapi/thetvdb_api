@@ -1,8 +1,8 @@
 module ThetvdbApi; end
 
 require "thetvdb_api/version"
-require "thetvdb_api/client"
 require "thetvdb_api/base"
+require "thetvdb_api/client"
 require "thetvdb_api/search"
 require "thetvdb_api/update"
 require "thetvdb_api/series"

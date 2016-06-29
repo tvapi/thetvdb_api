@@ -3,7 +3,7 @@ require "faraday_middleware"
 require "rack/utils"
 
 class ThetvdbApi::Base
-  def initialize(options)
+  def initialize(options = {})
     @options = options
     @connection = build_connection
   end
@@ -20,7 +20,7 @@ class ThetvdbApi::Base
   end
 
   def setup_adapter(connection)
-    connection.adapter(options[:adapter]) if options[:adapter]
+    connection.adapter(options[:adapter] || :net_http)
   end
 
   def get(uri, query = {})

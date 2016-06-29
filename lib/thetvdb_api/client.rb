@@ -1,10 +1,6 @@
-class ThetvdbApi::Client
-  attr_reader :options
-
-  def initialize(options = {})
-    @options = options
-
-    @options[:adapter] ||= :net_http
+class ThetvdbApi::Client < ThetvdbApi::Base
+  def get(uri, query = {})
+    super
   end
 
   def search

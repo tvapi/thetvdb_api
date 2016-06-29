@@ -28,14 +28,12 @@ gem install thetvdb_api
 
 ## How to use
 
-You have two way for access to api:
-
 * I case (create client class, one entry point)
 
 Language attribute is optional with default value 'en'
 
 ```ruby
-client = ThetvdbApi::Client.new(api_key: '...', language: 'en')
+client = ThetvdbApi::Client.new(api_key: '...')
 client.actor # => #<ThetvdbApi::Actor>
 client.banner # => #<ThetvdbApi::Banner>
 client.episode # => #<ThetvdbApi::Episode>
@@ -50,13 +48,20 @@ client.server # => #<ThetvdbApi::Server>
 Language attribute is required
 
 ```ruby
-ThetvdbApi::Actor.new(api_key: '...', language: 'en')
-ThetvdbApi::Banner.new(api_key: '...', language: 'en')
-ThetvdbApi::Episode.new(api_key: '...', language: 'en')
-ThetvdbApi::Search.new(api_key: '...', language: 'en')
-ThetvdbApi::Series.new(api_key: '...', language: 'en')
-ThetvdbApi::Update.new(api_key: '...', language: 'en')
-ThetvdbApi::Server.new(api_key: '...', language: 'en')
+ThetvdbApi::Actor.new(api_key: '...')
+ThetvdbApi::Banner.new(api_key: '...')
+ThetvdbApi::Episode.new(api_key: '...')
+ThetvdbApi::Search.new(api_key: '...')
+ThetvdbApi::Series.new(api_key: '...')
+ThetvdbApi::Update.new(api_key: '...')
+ThetvdbApi::Server.new(api_key: '...')
+```
+
+* III case (run request with pass url and params)
+
+```ruby
+client = ThetvdbApi::Client.new(api_key: '...')
+client.get("GetSeries.php", seriesname: "buffy")
 ```
 
 ## Methods
