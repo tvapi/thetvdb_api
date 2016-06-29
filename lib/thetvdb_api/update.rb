@@ -69,32 +69,16 @@ class ThetvdbApi::Update < ThetvdbApi::Base
 
   private
 
-  def day_path_with_params
-    path(day_path).params(api_key_options)
-  end
-
   def day_path
     "#{options[:api_key]}/updates/updates_day.xml"
-  end
-
-  def week_path_with_params
-    path(week_path).params(api_key_options)
   end
 
   def week_path
     "#{options[:api_key]}/updates/updates_week.xml"
   end
 
-  def month_path_with_params
-    path(month_path).params(api_key_options)
-  end
-
   def month_path
     "#{options[:api_key]}/updates/updates_month.xml"
-  end
-
-  def all_path_with_params
-    path(all_path).params(api_key_options)
   end
 
   def all_path
